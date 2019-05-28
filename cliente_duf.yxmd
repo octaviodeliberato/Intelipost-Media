@@ -1,22 +1,9 @@
 <?xml version="1.0"?>
 <AlteryxDocument yxmdVer="2019.1">
   <Nodes>
-    <Node ToolID="1">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
-        <Position x="0" y="0" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="42" y="114" />
+        <Position x="186" y="114" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -25,7 +12,9 @@ library(dplyr)
 library(magrittr)
 library(stringr)
 
-filename &lt;- "C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_Tabela MMA 27.04.xlsx"
+# filename &lt;- "C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_Tabela MMA 27.04.xlsx"
+fl &lt;- read.Alteryx("#1", mode="data.frame")
+filename &lt;- fl[1, 1] %&gt;% as.character()
 precos &lt;- read_excel(filename, col_names = FALSE)
 
 precos &lt;- precos %&gt;% select(X__1:X__5)
@@ -126,13 +115,37 @@ write.Alteryx(precos, 2)</RScript>
       </Properties>
       <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
     </Node>
-    <Node ToolID="7">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="318" y="102" />
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="54" y="114" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_436_e11cf290df7b47869af5f3c85dcd43af_\Engine_1556_f28a1e99cecb40beacc178ec7b2ad309_.yxdb</TempFile>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="PATH_TO_FILE" />
+          </Fields>
+          <Data>
+            <r>
+              <c>C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_Tabela MMA 27.04.xlsx</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="162" y="42" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_11356_1171900380114995acb030b7f4a4853d_\Engine_1556_a7aabc700c764ddca21ef9056da4b02a_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -154,20 +167,17 @@ write.Alteryx(precos, 2)</RScript>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
-    <Node ToolID="8">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="42" y="30" width="492" height="48" />
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Text>Tratamento básico de preços (Freight Table), da "tabela" 42519_Tabela MMA 27.04.xlsx
-
-Posteriormente, a entrada de dados será melhorada com macros.</Text>
-          <Font name="Arial" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -175,26 +185,19 @@ Posteriormente, a entrada de dados será melhorada com macros.</Text>
           <Left value="False" />
         </Annotation>
       </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="9">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="210" y="162" />
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="342" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_436_e11cf290df7b47869af5f3c85dcd43af_\Engine_1556_0a0b3f0267a44717a6bfa88c4b7e538a_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Profile</DefaultTab>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -202,17 +205,25 @@ Posteriormente, a entrada de dados será melhorada com macros.</Text>
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
   </Nodes>
   <Connections>
     <Connection>
       <Origin ToolID="6" Connection="Output1" />
-      <Destination ToolID="7" Connection="Input" />
+      <Destination ToolID="13" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="6" Connection="Output2" />
-      <Destination ToolID="9" Connection="Input" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -252,33 +263,5 @@ Posteriormente, a entrada de dados será melhorada com macros.</Text>
     <Events>
       <Enabled value="True" />
     </Events>
-    <RuntimeProperties>
-      <Actions />
-      <Questions>
-        <Question>
-          <Type>Tab</Type>
-          <Description>Questions</Description>
-          <Name>Tab (1)</Name>
-          <ToolId value="1" />
-          <Questions />
-        </Question>
-      </Questions>
-      <ModuleType>Macro</ModuleType>
-      <MacroCustomHelp value="False" />
-      <MacroDynamicOutputFields value="False" />
-      <MacroImageStd value="39" />
-      <MacroInputs />
-      <MacroOutputs />
-      <Wiz_CustomHelp value="False" />
-      <Wiz_CustomGraphic value="False" />
-      <Wiz_ShowOutput value="True" />
-      <Wiz_OpenOutputTools>
-        <Tool ToolId="7" Selected="False" />
-        <Tool ToolId="9" Selected="False" />
-      </Wiz_OpenOutputTools>
-      <Wiz_OutputMessage />
-      <Wiz_NoOutputFilesMessage />
-      <Wiz_ChainRunWizard />
-    </RuntimeProperties>
   </Properties>
 </AlteryxDocument>
