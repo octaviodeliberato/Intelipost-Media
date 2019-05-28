@@ -6,6 +6,7 @@
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -15,7 +16,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="54" y="90" />
+        <Position x="90" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -45,12 +46,16 @@ precos$`Frete Garantia` %&lt;&gt;% as.numeric()
 
 names(precos) &lt;- c("UF", "Destinos", "invoice_factor", "minimum_freight",
                    "weight_factor")
+precos$`destination_geographic_identifier` &lt;- paste0(precos$UF, "-",
+                                                     precos$Destinos)
+precos %&lt;&gt;% select(`destination_geographic_identifier`, everything(), 
+                   -c(UF, Destinos))
 
 write.Alteryx(precos, 1)
 
 precos &lt;- read_excel(filename, col_names = FALSE)
 
-ind &lt;- str_which(precos$X__1, "Generalidades") + 1
+ind &lt;- str_which(precos$X__1, "eneralidades") + 1
 
 precos &lt;- precos[ind:nrow(precos), c("X__1", "X__11")] %&gt;% .[complete.cases(.), ]
 
@@ -64,8 +69,7 @@ write.Alteryx(precos, 2)</RScript>
         </Annotation>
         <MetaInfo connection="Output1">
           <RecordInfo>
-            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Destinos" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
             <Field name="invoice_factor" source="R-DATA:" type="Double" />
             <Field name="minimum_freight" source="R-DATA:" type="Double" />
             <Field name="weight_factor" source="R-DATA:" type="Double" />
@@ -82,11 +86,11 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="330" y="78" />
+        <Position x="366" y="114" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_10996_63c214aef78147448569be2669c198e8_\Engine_816_0a240ed7c4494cc3b1f5947d0ca71da0_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_12212_c3bfd7226dc74a6ab580ee609f84211b_\Engine_1556_82945f1fb7a14683b7fb7a3e145a096e_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -110,7 +114,7 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="18" y="18" width="492" height="48" />
+        <Position x="54" y="54" width="492" height="48" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -132,11 +136,11 @@ Posteriormente, a entrada de dados será melhorada com macros.</Text>
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="222" y="138" />
+        <Position x="258" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_10996_63c214aef78147448569be2669c198e8_\Engine_816_5632e4f21b504a7888ae7db1830c81fb_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_12212_c3bfd7226dc74a6ab580ee609f84211b_\Engine_1556_dad14ccd268742ecb4f2a9570ddc8493_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
