@@ -16,7 +16,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="90" y="126" />
+        <Position x="42" y="114" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -72,9 +72,34 @@ write.Alteryx(precos, 1)
 # Generalities
 precos &lt;- read_excel(filename, col_names = FALSE)
 
-ind &lt;- str_which(precos$X__1, "eneralidades") + 1
+ind &lt;- str_which(precos$X__1, "Generalidades") + 1
 
-precos &lt;- precos[ind:nrow(precos), c("X__1", "X__11")] %&gt;% .[complete.cases(.), ]
+precos &lt;- precos[ind:nrow(precos), c("X__1", "X__11")] %&gt;% 
+  .[complete.cases(.), ]
+
+precos &lt;- precos[c(1:9, 14, 15), ]
+
+de_para &lt;- c("gris_value", "gris_min",
+             "toll_value",
+             "delivery_value",
+             "tas_value",
+             "other_fee_value", "other_fee_fraction", 
+             "cubic_factor",
+             "tda_fixed",
+             "trt_value", "trt_min",
+             "icms_tax_enable", "iss_tax_enable")
+
+lastRow &lt;- precos[1:2, ]
+lastRow$X__1[1] &lt;- "ICMS"; lastRow$X__11[1] &lt;- "true"
+lastRow$X__1[2] &lt;- "ISS"; lastRow$X__11[2] &lt;- "true"
+precos &lt;- rbind(precos, lastRow)
+precos$X__1 &lt;- de_para
+
+ind &lt;- which(precos$X__1 == "cubic_factor")
+precos$X__11[ind] %&lt;&gt;% str_extract("[:digit:]+")
+precos$X__11[1] &lt;- as.numeric(precos$X__11[1]) * 100
+ind &lt;- which(precos$X__1 == "trt_value")
+precos$X__11[ind] &lt;- as.numeric(precos$X__11[ind]) * 100
 
 write.Alteryx(precos, 2)</RScript>
           <UseFullUpdate value="False" />
@@ -103,11 +128,11 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="366" y="114" />
+        <Position x="318" y="102" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_1192_0e03987f7fb4420f82d0c628004b7c04_\Engine_1556_395799946b2946419da6ac55f04db14d_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_436_e11cf290df7b47869af5f3c85dcd43af_\Engine_1556_f28a1e99cecb40beacc178ec7b2ad309_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -131,7 +156,7 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="54" y="54" width="492" height="48" />
+        <Position x="42" y="30" width="492" height="48" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -153,11 +178,11 @@ Posteriormente, a entrada de dados será melhorada com macros.</Text>
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="258" y="174" />
+        <Position x="210" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_1192_0e03987f7fb4420f82d0c628004b7c04_\Engine_1556_2831316d8b3d4cecb537ace185c0cd37_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_436_e11cf290df7b47869af5f3c85dcd43af_\Engine_1556_0a0b3f0267a44717a6bfa88c4b7e538a_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
