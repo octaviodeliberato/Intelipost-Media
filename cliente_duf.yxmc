@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxRPluginGui.R">
+        <Position x="90" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RScript>library(readxl)
+library(dplyr)
+library(magrittr)
+library(stringr)
+
+filename &lt;- "~/GitHub/Intelipost/Média Complexidade/Enviado pela Transportadora/Cliente Duf/42519_Tabela MMA 27.04.xlsx"
+precos &lt;- read_excel(filename, col_names = FALSE)
+
+precos &lt;- precos %&gt;% select(X__1:X__5)
+precos &lt;- precos[complete.cases(precos), ]
+colnames(precos) &lt;- precos[1, ]
+precos &lt;- precos[-1, ]
+
+capital.ind &lt;- str_detect(precos$Destinos, "Capital")
+interior.ind &lt;- str_detect(precos$Destinos, "Interior")
+
+precos$Destinos[capital.ind] &lt;- "Capital"
+precos$Destinos[interior.ind] &lt;- "Interior"
+
+precos$Percentual %&lt;&gt;% as.numeric()
+precos$Percentual &lt;- precos$Percentual * 100
+precos$`Frete Minímo` %&lt;&gt;% as.numeric()
+precos$`Frete Garantia` %&lt;&gt;% as.numeric()
+
+names(precos) &lt;- c("UF", "Destinos", "invoice_factor", "minimum_freight",
+                   "weight_factor")
+precos$`destination_geographic_identifier` &lt;- paste0(precos$UF, "-",
+                                                     precos$Destinos)
+precos %&lt;&gt;% select(`destination_geographic_identifier`, everything(), 
+                   -c(UF, Destinos))
+
+write.Alteryx(precos, 1)
+
+precos &lt;- read_excel(filename, col_names = FALSE)
+
+ind &lt;- str_which(precos$X__1, "eneralidades") + 1
+
+precos &lt;- precos[ind:nrow(precos), c("X__1", "X__11")] %&gt;% .[complete.cases(.), ]
+
+write.Alteryx(precos, 2)</RScript>
+          <UseFullUpdate value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output1">
+          <RecordInfo>
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="invoice_factor" source="R-DATA:" type="Double" />
+            <Field name="minimum_freight" source="R-DATA:" type="Double" />
+            <Field name="weight_factor" source="R-DATA:" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Output2">
+          <RecordInfo>
+            <Field name="X__1" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="X__11" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="366" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_12212_c3bfd7226dc74a6ab580ee609f84211b_\Engine_1556_82945f1fb7a14683b7fb7a3e145a096e_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="54" width="492" height="48" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Tratamento básico de preços (Freight Table), da "tabela" 42519_Tabela MMA 27.04.xlsx
+
+Posteriormente, a entrada de dados será melhorada com macros.</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="258" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_12212_c3bfd7226dc74a6ab580ee609f84211b_\Engine_1556_dad14ccd268742ecb4f2a9570ddc8493_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="6" Connection="Output1" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output2" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>cliente_duf</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions />
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="7" Selected="False" />
+        <Tool ToolId="9" Selected="False" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
