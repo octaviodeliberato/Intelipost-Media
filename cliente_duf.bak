@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="186" y="222" />
+        <Position x="186" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -125,7 +125,7 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="54" y="222" />
+        <Position x="54" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -149,11 +149,11 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="162" y="150" />
+        <Position x="162" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_6140_4cdb1d6abae144a69a4299e8b38528b5_\Engine_10484_4c6b1911805341518c41a917a03abba9_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_14700_539403c16fb245bfb1eb5f04ff82433a_\Engine_10484_fe5d7d4b3bb94a6eb2cf856c4a5d98b3_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -177,7 +177,7 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="342" y="150" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -197,7 +197,7 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="342" y="246" />
+        <Position x="342" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -217,7 +217,7 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="198" y="378" />
+        <Position x="198" y="282" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -312,7 +312,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="522" y="126" width="100" height="24" />
+        <Position x="318" y="30" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -332,7 +332,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="318" y="222" width="100" height="24" />
+        <Position x="318" y="126" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -352,7 +352,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="306" y="342" width="100" height="24" />
+        <Position x="306" y="246" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -372,7 +372,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="342" y="366" />
+        <Position x="342" y="270" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -392,7 +392,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="54" y="366" />
+        <Position x="54" y="270" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -419,11 +419,11 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="22">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="138" y="330" />
+        <Position x="138" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_6140_4cdb1d6abae144a69a4299e8b38528b5_\Engine_10484_a3a9728f010a480ba10efd9ce0e1aac9_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_14700_539403c16fb245bfb1eb5f04ff82433a_\Engine_10484_dd389d592dd8456f8de34f5292b8134d_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -432,58 +432,6 @@ write.Alteryx(trt.cvrg, 1)
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="24">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="438" y="150" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="Null()" field="range_end" size="8" type="Int64" />
-            <FormulaField expression="Null()" field="base_freight_cost" size="8" type="Double" />
-            <FormulaField expression="Null()" field="percentage_invoice" size="8" type="Double" />
-            <FormulaField expression="Null()" field="exceeding_weight_cost" size="8" type="Double" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>range_end = Null()
-base_freight_cost = Null()
-percentage_invoice = Null()
-exceed...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="25">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="546" y="150" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="True" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="destination_geographic_identifier" selected="True" />
-            <SelectField field="range_end" selected="True" />
-            <SelectField field="minimum_freight" selected="True" />
-            <SelectField field="invoice_factor" selected="True" />
-            <SelectField field="weight_factor" selected="True" />
-            <SelectField field="base_freight_cost" selected="True" />
-            <SelectField field="percentage_invoice" selected="True" />
-            <SelectField field="exceeding_weight_cost" selected="True" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
   </Nodes>
   <Connections>
@@ -504,10 +452,6 @@ exceed...</DefaultAnnotationText>
       <Destination ToolID="11" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="13" Connection="Output" />
-      <Destination ToolID="24" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="15" Connection="Output1" />
       <Destination ToolID="20" Connection="Input" />
     </Connection>
@@ -518,10 +462,6 @@ exceed...</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="21" Connection="Output" />
       <Destination ToolID="22" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="24" Connection="Output" />
-      <Destination ToolID="25" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
