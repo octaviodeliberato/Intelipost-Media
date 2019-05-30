@@ -63,3 +63,10 @@ for (i in seq_along(j)) {
 }
 df <- Reduce(rbind, df)
 trt.cvrg <- df %>% select(ENDERECO, `UF-CIDADE`, CEPI, CEPF)
+
+cvrg <- df %>% select(`UF-CIDADE`)
+new.names <- c("UF", "CIDADE")
+cvrg <- cvrg %>% tidyr::separate(col = 1, into = new.names, sep = "-", extra = "merge")
+trt.cvrg$UF <- cvrg$UF
+trt.cvrg$CIDADE <- cvrg$CIDADE
+trt.cvrg <- trt.cvrg %>% select(ENDERECO, UF, CIDADE, `UF-CIDADE`, CEPI, CEPF)

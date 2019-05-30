@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="186" y="126" />
+        <Position x="186" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -125,7 +125,7 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="54" y="126" />
+        <Position x="54" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -149,11 +149,11 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="162" y="54" />
+        <Position x="162" y="78" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_14700_539403c16fb245bfb1eb5f04ff82433a_\Engine_10484_fe5d7d4b3bb94a6eb2cf856c4a5d98b3_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_8236_d33ecb519f8445f0b4680293e857ae2a_\Engine_10484_8353fb40cc22462c9bac1b6d2892092d_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -177,7 +177,7 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="342" y="54" />
+        <Position x="342" y="78" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -197,7 +197,7 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="342" y="150" />
+        <Position x="294" y="294" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -217,7 +217,7 @@ write.Alteryx(precos, 2)</RScript>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="198" y="282" />
+        <Position x="222" y="462" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -290,6 +290,13 @@ for (i in seq_along(j)) {
 df <- Reduce(rbind, df)
 trt.cvrg <- df %>% select(ENDERECO, `UF-CIDADE`, CEPI, CEPF)
 
+cvrg <- df %>% select(`UF-CIDADE`)
+new.names <- c("UF", "CIDADE")
+cvrg <- cvrg %>% tidyr::separate(col = 1, into = new.names, sep = "-", extra = "merge")
+trt.cvrg$UF <- cvrg$UF
+trt.cvrg$CIDADE <- cvrg$CIDADE
+trt.cvrg <- trt.cvrg %>% select(ENDERECO, UF, CIDADE, `UF-CIDADE`, CEPI, CEPF)
+
 write.Alteryx(trt.cvrg, 1)
 ]]></RScript>
           <UseFullUpdate value="False" />
@@ -302,6 +309,8 @@ write.Alteryx(trt.cvrg, 1)
         <MetaInfo connection="Output1">
           <RecordInfo>
             <Field name="ENDERECO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="CIDADE" size="1073741823" source="R-DATA:" type="V_WString" />
             <Field name="UF-CIDADE" size="1073741823" source="R-DATA:" type="V_WString" />
             <Field name="CEPI" source="R-DATA:" type="Double" />
             <Field name="CEPF" source="R-DATA:" type="Double" />
@@ -312,7 +321,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="318" y="30" width="100" height="24" />
+        <Position x="522" y="54" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -332,7 +341,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="318" y="126" width="100" height="24" />
+        <Position x="594" y="234" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -352,7 +361,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="306" y="246" width="100" height="24" />
+        <Position x="330" y="426" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -372,13 +381,15 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="342" y="270" />
+        <Position x="366" y="450" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OrderChanged value="False" />
           <CommaDecimal value="False" />
           <SelectFields>
+            <SelectField field="CIDADE" selected="True" rename="DESTINO" />
+            <SelectField field="UF-CIDADE" selected="True" rename="UF-DESTINO" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -392,7 +403,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="54" y="270" />
+        <Position x="78" y="450" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -419,11 +430,11 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="22">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="138" y="234" />
+        <Position x="162" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_14700_539403c16fb245bfb1eb5f04ff82433a_\Engine_10484_dd389d592dd8456f8de34f5292b8134d_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_8236_d33ecb519f8445f0b4680293e857ae2a_\Engine_10484_b9761cdb8a4c47e3afe068d5f23984f3_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -432,6 +443,560 @@ write.Alteryx(trt.cvrg, 1)
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="438" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Null()" field="range_end" size="8" type="Int64" />
+            <FormulaField expression="Null()" field="base_freight_cost" size="8" type="Double" />
+            <FormulaField expression="Null()" field="percentage_invoice" size="8" type="Double" />
+            <FormulaField expression="Null()" field="exceeding_weight_cost" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>range_end = Null()
+base_freight_cost = Null()
+percentage_invoice = Null()
+exceed...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="546" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="destination_geographic_identifier" selected="True" />
+            <SelectField field="range_end" selected="True" />
+            <SelectField field="minimum_freight" selected="True" />
+            <SelectField field="invoice_factor" selected="True" />
+            <SelectField field="weight_factor" selected="True" />
+            <SelectField field="base_freight_cost" selected="True" />
+            <SelectField field="percentage_invoice" selected="True" />
+            <SelectField field="exceeding_weight_cost" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="330" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>generalities.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="X__1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
+            <Field name="X__11" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+        <Position x="426" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldFind>X__1</FieldFind>
+          <FieldSearch>X__1</FieldSearch>
+          <ReplaceFoundField>X__11</ReplaceFoundField>
+          <FindMode>FindWhole</FindMode>
+          <NoCase value="False" />
+          <MatchWholeWord value="False" />
+          <ReplaceMode>Append</ReplaceMode>
+          <ReplaceMultipleFound value="True" />
+          <ReplaceAppendFields>
+            <Field field="X__11" />
+          </ReplaceAppendFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="630" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\duf_generalities.xlsx|||Sheet1</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>duf_generalities.xlsx
+Table=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="534" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="X__1" selected="True" rename="V1" />
+            <SelectField field="X__11" selected="False" />
+            <SelectField field="X__11_2" selected="True" rename="V2" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="642" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\duf_freight_table.xlsx|||Sheet1</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>duf_freight_table.xlsx
+Table=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="366" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM ES$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>3</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx
+Table=`ORIGEM ES$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="CIDADE ORIGEM  " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM ES$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM ES$`" type="V_String" />
+            <Field name="CIDADE DESTINO " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM ES$`" type="V_String" />
+            <Field name="UF2" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM ES$`" type="V_String" />
+            <Field name="C/I" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM ES$`" type="V_String" />
+            <Field name="PRAZO  dias uteis" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM ES$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="474" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="CIDADE ORIGEM  " selected="True" rename="ORIGEM" />
+            <SelectField field="UF" selected="False" />
+            <SelectField field="CIDADE DESTINO " selected="True" rename="DESTINO" />
+            <SelectField field="UF2" selected="True" rename="UF" />
+            <SelectField field="C/I" selected="True" rename="C_OU_I" />
+            <SelectField field="PRAZO  dias uteis" selected="True" rename="DIAS_UTEIS" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="366" y="678" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM PR$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>3</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx
+Table=`ORIGEM PR$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="CIDADE ORIGEM  " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM PR$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM PR$`" type="V_String" />
+            <Field name="CIDADE DESTINO " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM PR$`" type="V_String" />
+            <Field name="UF2" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM PR$`" type="V_String" />
+            <Field name="C/I" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM PR$`" type="V_String" />
+            <Field name="PRAZO dias uteis" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM PR$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="41">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="366" y="834" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM RJ$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>3</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx
+Table=`ORIGEM RJ$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="CIDADE ORIGEM  " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM RJ$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM RJ$`" type="V_String" />
+            <Field name="CIDADE DESTINO " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM RJ$`" type="V_String" />
+            <Field name="UF2" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM RJ$`" type="V_String" />
+            <Field name="C/I" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM RJ$`" type="V_String" />
+            <Field name="PRAZO  dias uteis" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM RJ$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="366" y="834" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM SP$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>3</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx
+Table=`ORIGEM SP$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="CIDADE ORIGEM  " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM SP$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM SP$`" type="V_String" />
+            <Field name="CIDADE DESTINO " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM SP$`" type="V_String" />
+            <Field name="UF2" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM SP$`" type="V_String" />
+            <Field name="C/I" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM SP$`" type="V_String" />
+            <Field name="PRAZO dias uteis" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-duf\42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx|||`ORIGEM SP$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="486" y="678" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="CIDADE ORIGEM  " selected="True" rename="ORIGEM" />
+            <SelectField field="CIDADE DESTINO " selected="True" rename="DESTINO" />
+            <SelectField field="UF2" selected="True" rename="UF" />
+            <SelectField field="C/I" selected="True" rename="C_OU_I" />
+            <SelectField field="PRAZO dias uteis" selected="True" rename="DIAS_UTEIS" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="486" y="834" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="CIDADE ORIGEM  " selected="True" rename="ORIGEM" />
+            <SelectField field="CIDADE DESTINO " selected="True" rename="DESTINO" />
+            <SelectField field="UF2" selected="True" rename="UF" />
+            <SelectField field="C/I" selected="True" rename="C_OU_I" />
+            <SelectField field="PRAZO  dias uteis" selected="True" rename="DIAS_UTEIS" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JoinMultiple.JoinMultiple">
+        <Position x="630" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JoinByRecPos value="False" />
+          <JoinFields>
+            <JoinInfo connection="#1">
+              <Field field="UF" />
+              <Field field="DESTINO" />
+            </JoinInfo>
+            <JoinInfo connection="#2">
+              <Field field="UF" />
+              <Field field="DESTINO" />
+            </JoinInfo>
+            <JoinInfo connection="#3">
+              <Field field="UF" />
+              <Field field="DESTINO" />
+            </JoinInfo>
+            <JoinInfo connection="#4">
+              <Field field="UF" />
+              <Field field="DESTINO" />
+            </JoinInfo>
+          </JoinFields>
+          <CartesianMode>Error</CartesianMode>
+          <OutputJoinOnly value="False" />
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Input_#2_DESTINO" selected="False" rename="Input_#2_DESTINO" />
+                <SelectField field="Input_#2_UF" selected="False" rename="Input_#2_UF" />
+                <SelectField field="Input_#3_ORIGEM" selected="False" rename="Input_#3_ORIGEM" />
+                <SelectField field="Input_#3_DESTINO" selected="False" rename="Input_#3_DESTINO" />
+                <SelectField field="Input_#3_UF" selected="False" rename="Input_#3_UF" />
+                <SelectField field="Input_#3_C_OU_I" selected="False" rename="Input_#3_C_OU_I" />
+                <SelectField field="Input_#3_DIAS_UTEIS" selected="False" rename="Input_#3_DIAS_UTEIS" />
+                <SelectField field="Input_#4_ORIGEM" selected="False" rename="Input_#4_ORIGEM" />
+                <SelectField field="Input_#4_UF2" selected="False" rename="Input_#4_UF2" />
+                <SelectField field="Input_#4_DESTINO" selected="False" rename="Input_#4_DESTINO" />
+                <SelectField field="Input_#4_UF" selected="False" rename="Input_#4_UF" />
+                <SelectField field="Input_#4_C_OU_I" selected="False" rename="Input_#4_C_OU_I" />
+                <SelectField field="Input_#4_DIAS_UTEIS" selected="False" rename="Input_#4_DIAS_UTEIS" />
+                <SelectField field="Input_#4_CIDADE ORIGEM  " selected="False" rename="Input_#4_CIDADE ORIGEM  " />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoinMultiple" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="750" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="ENDERECO" selected="False" />
+            <SelectField field="ORIGEM" selected="False" />
+            <SelectField field="CIDADE ORIGEM  " selected="False" />
+            <SelectField field="UF" selected="True" rename="destination_state" />
+            <SelectField field="DESTINO" selected="True" rename="destination_city" />
+            <SelectField field="UF-DESTINO" selected="True" />
+            <SelectField field="CEPI" selected="True" rename="destination_zip_code_start" />
+            <SelectField field="CEPF" selected="True" rename="destination_zip_code_end" />
+            <SelectField field="C_OU_I" selected="True" />
+            <SelectField field="DIAS_UTEIS" selected="True" rename="delivery_time" />
+            <SelectField field="UF2" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="48">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1002" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\duf_pre_coverage.xlsx|||Sheet1</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>duf_pre_coverage.xlsx
+Table=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="870" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>!IsNull([destination_zip_code_start])</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>IsNotNull</Operator>
+            <Field>destination_zip_code_start</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-05-29 18:13:02</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2019-05-29 18:13:02</StartDate>
+              <EndDate>2019-05-29 18:13:02</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsNull([destination_zip_code_start])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
   </Nodes>
   <Connections>
@@ -452,8 +1017,36 @@ write.Alteryx(trt.cvrg, 1)
       <Destination ToolID="11" Connection="Input" />
     </Connection>
     <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="31" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="31" Connection="Targets" />
+    </Connection>
+    <Connection>
       <Origin ToolID="15" Connection="Output1" />
       <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="37" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection name="#4">
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="21" Connection="Output" />
@@ -462,6 +1055,46 @@ write.Alteryx(trt.cvrg, 1)
     <Connection>
       <Origin ToolID="21" Connection="Output" />
       <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="True" />
+      <Destination ToolID="48" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
