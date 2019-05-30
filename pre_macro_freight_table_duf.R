@@ -5,6 +5,8 @@ library(stringr)
 
 filename <- "data-raw/cliente-duf/42519_Tabela MMA 27.04.xlsx"
 precos <- read_excel(filename, col_names = FALSE)
+ind <- str_which(precos$X__1, "rigem: ")
+origem <- str_replace(precos$X__1[ind], "Origem:  ", "")
 
 precos <- precos %>% select(X__1:X__5)
 precos <- precos[complete.cases(precos), ]
@@ -44,3 +46,5 @@ for (i in seq_along(precos$destination_geographic_identifier)) {
     precos <- rbind(precos, newdf)
   }
 }
+
+orig <- data.frame(origem = origem)

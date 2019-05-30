@@ -1,5 +1,5 @@
 library(readxl)
-library(excel.link)
+# library(excel.link)
 library(dplyr)
 library(magrittr)
 library(stringr)
@@ -12,8 +12,7 @@ geraCEP %<>% .[complete.cases(.), ]
 
 ind.dupl <- duplicated(geraCEP$`UF-CIDADE`)
 geraCEP <- geraCEP[!ind.dupl, ]
-
-geraCEP %<>% .[order(geraCEP$`UF-CIDADE`), ]
+# geraCEP %<>% .[order(geraCEP$`UF-CIDADE`), ]
 
 filename <- "C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_TRT por CEP-IF.xlsx"
 
@@ -38,35 +37,29 @@ QuebraCEP <- function(rua, uf_cidade, atual, inicio, fim) {
   return(df)
 }
 
-trt.por.cep <- merge(x = trt, y = geraCEP, by = "UF-CIDADE")
-ind <- (str_length(trt.por.cep$ENDERECO) > 5)
-trt.por.cep <- trt.por.cep[ind, ]
-trt.por.cep %<>% select(ENDERECO, `UF-CIDADE`, CEP, `CEP INI 1`, `CEP FIM 1`)
-
-t <- mapply(QuebraCEP, trt.por.cep$ENDERECO, trt.por.cep$`UF-CIDADE`, 
-            trt.por.cep$CEP, trt.por.cep$`CEP INI 1`, trt.por.cep$`CEP FIM 1`)
-
-ConvertToDF3 <- function(alist, j=0) {
-  df3 <- data.frame(character(3), numeric(3), numeric(3), character(3))
-  names(df3) <- c("ENDERECO", "CEPI", "CEPF", "UF-CIDADE")
-  df3$ENDERECO <- alist[[1 + j]]
-  df3$CEPI <- alist[[2 + j]]
-  df3$CEPF <- alist[[3 + j]]
-  df3$`UF-CIDADE` <- alist[[4 + j]]
-  return(df3)
-}
-
-j <- seq.int(from = 0, to = length(t) - 4, by = 4)
 df <- list()
-for (i in seq_along(j)) {
-  df[[i]] <- ConvertToDF3(t, j[i])
+for (i in seq_along(trt$`UF-CIDADE`)) {
+  for (j in seq_along(geraCEP$`UF-CIDADE`)) {
+    if (trt$CEP[i] >= geraCEP$`CEP INI 1`[j] &&
+        trt$CEP[i] <= geraCEP$`CEP FIM 1`[j]) {
+      df[[i]] <- QuebraCEP(rua = trt$ENDERECO[i],
+                           uf_cidade = trt$`UF-CIDADE`[i],
+                           atual = trt$CEP[i],
+                           inicio = geraCEP$`CEP INI 1`[j],
+                           fim = geraCEP$`CEP FIM 1`[j]
+                           )
+      break
+    }
+  }
 }
-df <- Reduce(rbind, df)
-trt.cvrg <- df %>% select(ENDERECO, `UF-CIDADE`, CEPI, CEPF)
 
+df <- Reduce(rbind, df)
+
+trt.cvrg <- df %>% select(ENDERECO, `UF-CIDADE`, CEPI, CEPF)
 cvrg <- df %>% select(`UF-CIDADE`)
 new.names <- c("UF", "CIDADE")
-cvrg <- cvrg %>% tidyr::separate(col = 1, into = new.names, sep = "-", extra = "merge")
+cvrg <- cvrg %>% tidyr::separate(col = 1, into = new.names, 
+                                 sep = "-", extra = "merge")
 trt.cvrg$UF <- cvrg$UF
 trt.cvrg$CIDADE <- cvrg$CIDADE
 trt.cvrg <- trt.cvrg %>% select(ENDERECO, UF, CIDADE, `UF-CIDADE`, CEPI, CEPF)
