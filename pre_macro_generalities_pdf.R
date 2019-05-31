@@ -4,7 +4,7 @@ library(tabulizer)
 library(stringr)
 
 # Location of pdf file
-location <- 'C:/Users/BlueShift075/Documents/55004_PROPOSTA - EB - 28.02.19.pdf'
+location <- 'C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-eb/55004_PROPOSTA - EB - 28.02.19.pdf'
 
 # Extract the table
 # locate_areas(location)
@@ -38,3 +38,5 @@ df <- filter(df, X__1 != "UNKNOWN")
 df[, 2] %<>% str_replace(pattern = "%", "")
 df[, 2] <- ifelse(str_detect(df[, 2], "kg"), 
                   str_extract(df[, 2], pattern = "[:digit:]+(?=k)"), df[, 2])
+
+rio::export(df, "generalities_pdf.xlsx")

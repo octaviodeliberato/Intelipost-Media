@@ -6,7 +6,7 @@ library(DataExplorer)
 library(reshape2)
 
 # Location of pdf file
-location <- 'C:/Users/BlueShift075/Documents/55004_PROPOSTA - EB - 28.02.19.pdf'
+location <- 'C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-eb/55004_PROPOSTA - EB - 28.02.19.pdf'
 
 # Extract the table
 # locate_areas(location)
@@ -28,5 +28,7 @@ aux <- df[, !grepl("kg", colnames(df), ignore.case = T)]
 df <- cbind(aux, aux2)
 df[, grepl("Ad.", colnames(df), ignore.case = T)] %<>% str_replace("%", "")
 
-mynames <- names(df)[!grepl("kg", colnames(df), ignore.case = T)]
+mynames <- names(df)[!grepl("kg", colnames(df), ignore.case = F)]
 df.m <- melt(df, id.vars = mynames)
+
+rio::export(df.m, "freight_table_pdf.xlsx")
