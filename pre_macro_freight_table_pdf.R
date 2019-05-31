@@ -1,6 +1,6 @@
-library(tabulizer)
 library(dplyr)
 library(magrittr)
+library(tabulizer)
 library(stringr)
 library(DataExplorer)
 library(reshape2)
