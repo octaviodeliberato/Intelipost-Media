@@ -2,17 +2,20 @@ library(dplyr)
 library(magrittr)
 library(tabulizer)
 library(stringr)
-library(DataExplorer)
 library(reshape2)
 
-# Location of pdf file
-location <- 'C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-eb/55004_PROPOSTA - EB - 28.02.19.pdf'
+ExtractDFFromPDF <- function(location) {
+  # Extract the table
+  # locate_areas(location)
+  
+  out <- extract_tables(location, pages = 1,
+                        output = "data.frame", area = list(c(210, 35,
+                                                             354, 395)))
+}
 
-# Extract the table
-# locate_areas(location)
-out <- extract_tables(location, pages = 1, 
-                      output = "data.frame", area = list(c(210, 35,
-                                                           354, 395)))
+# a system constant from now on
+location <- rio::import("pdf_location.xlsx") %>% as.character()
+out <- ExtractDFFromPDF(location)
 df <- out[[1]]
 
 df <- df %>% filter(str_length(Destino) >= 2)

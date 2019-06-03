@@ -3,11 +3,11 @@
   <Nodes>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="978" y="426" />
+        <Position x="954" y="438" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_16140_85f6a2bd1f3949b482f207471d05a573_\Engine_7452_93287e5d2d654d42871d4ff83c70a10e_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_7488_3bb2c99c89ca42e6b837ad3c3d21354a_\Engine_7452_9331681f474a4040b00594ad1365c88f_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -31,7 +31,7 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
-        <Position x="846" y="426" />
+        <Position x="822" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -67,9 +67,6 @@
           <DefaultAnnotationText>Run Rscript.exe</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
@@ -85,11 +82,11 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="774" y="342" />
+        <Position x="726" y="438" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_16140_85f6a2bd1f3949b482f207471d05a573_\Engine_7452_e357437306ed457682d61c16be316bf5_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_7488_3bb2c99c89ca42e6b837ad3c3d21354a_\Engine_7452_1810fcce1f7b4e17a3330802808bc795_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -113,7 +110,7 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
-        <Position x="642" y="342" />
+        <Position x="618" y="354" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -149,9 +146,6 @@
           <DefaultAnnotationText>Run Rscript.exe</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`" type="V_String" />
@@ -163,7 +157,7 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="714" y="306" width="100" height="28" />
+        <Position x="690" y="318" width="100" height="28" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -183,7 +177,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1014" y="366" width="100" height="28" />
+        <Position x="1518" y="426" width="100" height="28" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -203,7 +197,7 @@
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="978" y="498" />
+        <Position x="954" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -238,11 +232,11 @@
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1110" y="426" />
+        <Position x="1086" y="438" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_16140_85f6a2bd1f3949b482f207471d05a573_\Engine_7452_1845537a209645a38d95a305e87a097b_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_7488_3bb2c99c89ca42e6b837ad3c3d21354a_\Engine_7452_a7b9e0839d88465b9e01559e3788536d_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -266,7 +260,7 @@
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1110" y="498" />
+        <Position x="1086" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -295,7 +289,7 @@
     </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1218" y="498" />
+        <Position x="1194" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -329,7 +323,7 @@
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="1314" y="498" />
+        <Position x="1290" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -358,7 +352,7 @@
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1518" y="498" />
+        <Position x="1494" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -388,11 +382,11 @@
     </Node>
     <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1722" y="498" />
+        <Position x="1698" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_16140_85f6a2bd1f3949b482f207471d05a573_\Engine_7452_d86c68312b0c409da68489c4403201e0_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_7488_3bb2c99c89ca42e6b837ad3c3d21354a_\Engine_7452_689a79f7cd9648a785d1cd014ee57f4e_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -416,7 +410,7 @@
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="1422" y="498" />
+        <Position x="1398" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -448,7 +442,7 @@
     </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1626" y="498" />
+        <Position x="1602" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -483,6 +477,7 @@
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -492,7 +487,7 @@
     </Node>
     <Node ToolID="40">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FolderBrowse.FolderBrowse">
-        <Position x="750" y="66" width="59" height="59" />
+        <Position x="726" y="78" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -505,7 +500,7 @@
     </Node>
     <Node ToolID="41">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="642" y="210" width="59" height="59" />
+        <Position x="618" y="222" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -518,7 +513,7 @@
     </Node>
     <Node ToolID="42">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="870" y="222" width="59" height="59" />
+        <Position x="894" y="234" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -531,7 +526,7 @@
     </Node>
     <Node ToolID="43">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="78" y="42" width="59" height="59" />
+        <Position x="54" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -544,7 +539,7 @@
     </Node>
     <Node ToolID="44">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="90" y="222" />
+        <Position x="66" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -573,7 +568,7 @@
     </Node>
     <Node ToolID="45">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="84" y="132" width="59" height="59" />
+        <Position x="60" y="144" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -586,7 +581,7 @@
     </Node>
     <Node ToolID="46">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="378" y="270" />
+        <Position x="354" y="282" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -604,15 +599,12 @@
 Table=Sheet1</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="47">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
-        <Position x="210" y="342" />
+        <Position x="186" y="354" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -641,7 +633,85 @@ Table=Sheet1</DefaultAnnotationText>
     </Node>
     <Node ToolID="48">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="510" y="150" width="59" height="59" />
+        <Position x="486" y="162" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="786" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\ep_coverage.xlsx|||Sheet1</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ep_coverage.xlsx
+Table=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="798" y="222" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1698" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\ep_freight_table.xlsx|||Sheet1</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ep_freight_table.xlsx
+Table=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="1350" y="186" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -665,6 +735,14 @@ Table=Sheet1</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="15" Connection="Output" />
       <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="50" Connection="Action" />
+      <Destination ToolID="49" Connection="Action" />
     </Connection>
     <Connection>
       <Origin ToolID="24" Connection="Output" />
@@ -698,6 +776,14 @@ Table=Sheet1</DefaultAnnotationText>
       <Origin ToolID="34" Connection="Output" />
       <Destination ToolID="32" Connection="Input" />
     </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="52" Connection="Action" />
+      <Destination ToolID="51" Connection="Action" />
+    </Connection>
     <Connection name="#1">
       <Origin ToolID="40" Connection="Question" />
       <Destination ToolID="41" Connection="Question" />
@@ -709,6 +795,14 @@ Table=Sheet1</DefaultAnnotationText>
     <Connection name="#1">
       <Origin ToolID="40" Connection="Question" />
       <Destination ToolID="48" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="40" Connection="Question" />
+      <Destination ToolID="50" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="40" Connection="Question" />
+      <Destination ToolID="52" Connection="Question" />
     </Connection>
     <Connection name="#2">
       <Origin ToolID="41" Connection="Action" />
@@ -779,7 +873,7 @@ Table=Sheet1</DefaultAnnotationText>
     </Constants>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>testes_pdf</Name>
+      <Name>testes_pdf_app</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
@@ -843,6 +937,26 @@ Table=Sheet1</DefaultAnnotationText>
               <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
               <Destination>46/File</Destination>
             </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="50" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <Destination>49/File</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="52" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <Destination>51/File</Destination>
+            </Action>
           </True>
         </NoCondition>
       </Actions>
@@ -886,6 +1000,8 @@ Table=Sheet1</DefaultAnnotationText>
         <Tool ToolId="25" Selected="False" />
         <Tool ToolId="32" Selected="False" />
         <Tool ToolId="46" Selected="True" />
+        <Tool ToolId="49" Selected="True" />
+        <Tool ToolId="51" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

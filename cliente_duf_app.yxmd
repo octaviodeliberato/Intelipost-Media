@@ -1685,7 +1685,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>cliente_duf</Name>
+      <Name>cliente_duf_app</Name>
       <Description />
       <RootToolName />
       <ToolVersion />

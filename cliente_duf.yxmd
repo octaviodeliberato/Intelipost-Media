@@ -532,7 +532,7 @@ exceed...</DefaultAnnotationText>
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1098" y="318" />
+        <Position x="1182" y="318" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -995,7 +995,7 @@ write.Alteryx(df, 1)
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Expression>([UF DESTINO] = "SP" &amp;&amp; [DESTINO] = "SAO PAULO") || ([UF DESTINO] = "RJ" &amp;&amp; [DESTINO] = "RIO DE JANEIRO")</Expression>
+          <Expression>([UF DESTINO] = "SP") || ([UF DESTINO] = "RJ")</Expression>
           <Mode>Custom</Mode>
           <Simple>
             <Operator>=</Operator>
@@ -1015,7 +1015,7 @@ write.Alteryx(df, 1)
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>([UF DESTINO] = "SP" &amp;&amp; [DESTINO] = "SAO PAULO") || ([UF DESTINO] = "RJ" &amp;&amp; [DES...</DefaultAnnotationText>
+          <DefaultAnnotationText>([UF DESTINO] = "SP") || ([UF DESTINO] = "RJ")</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -1451,6 +1451,35 @@ Table=Sheet1</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
+    <Node ToolID="80">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1038" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [V1] = &quot;table_type&quot; THEN &quot;e_commerce&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;multi_volume_calculation_setting&quot; THEN &quot;grouped&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;weight_type_selection&quot; THEN &quot;maximum&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;type_of_freight_selection&quot; THEN &quot;max&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;exceeding_weight_mode&quot; THEN &quot;normal&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;extra_weight_round_mode&quot; THEN &quot;normal&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;gris_type&quot; THEN &quot;%&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;gris_base&quot; THEN &quot;cost_of_goods&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;tax_iss_mode&quot; THEN &quot;out&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;tax_iss_percentage&quot; THEN &quot;5&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;tax_iss_mode&quot; THEN &quot;in&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>V2 = IF [V1] = "table_type" THEN "e_commerce" ELSE [V2] ENDIF
+V2 = IF [V1] = "mu...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -1531,11 +1560,11 @@ Table=Sheet1</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="45" Connection="Output" />
-      <Destination ToolID="33" Connection="Input" />
+      <Destination ToolID="69" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="45" Connection="Output" />
-      <Destination ToolID="69" Connection="Input" />
+      <Destination ToolID="80" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="46" Connection="Output" />
@@ -1632,6 +1661,10 @@ Table=Sheet1</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="75" Connection="Output" />
       <Destination ToolID="77" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="80" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
