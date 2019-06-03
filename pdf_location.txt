@@ -1,2 +1,0 @@
-path_to_file,file_id
-C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-eb/55004_PROPOSTA - EB - 28.02.19.pdf,1
