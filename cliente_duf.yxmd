@@ -1384,7 +1384,7 @@ trt_value = IF [COM_TRT]...</DefaultAnnotationText>
     </Node>
     <Node ToolID="77">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="2418" y="798" />
+        <Position x="2550" y="798" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1475,6 +1475,27 @@ Table=Sheet1</DefaultAnnotationText>
           <Name />
           <DefaultAnnotationText>V2 = IF [V1] = "table_type" THEN "e_commerce" ELSE [V2] ENDIF
 V2 = IF [V1] = "mu...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="82">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="2430" y="798" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_min] ENDIF" field="trt_min" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_type] ENDIF" field="trt_type" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_value] ENDIF" field="trt_value" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_base] ENDIF" field="trt_base" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>trt_min = IF [destination_zip_code_start] != [destination_zip_code_end] THEN "" ...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -1660,11 +1681,15 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="75" Connection="Output" />
-      <Destination ToolID="77" Connection="Input" />
+      <Destination ToolID="82" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="80" Connection="Output" />
       <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="82" Connection="Output" />
+      <Destination ToolID="77" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

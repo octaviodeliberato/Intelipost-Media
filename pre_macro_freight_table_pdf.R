@@ -2,7 +2,6 @@ library(dplyr)
 library(magrittr)
 library(tabulizer)
 library(stringr)
-library(DataExplorer)
 library(reshape2)
 
 # Location of pdf file

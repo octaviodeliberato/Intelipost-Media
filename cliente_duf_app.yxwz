@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="210" y="210" />
+        <Position x="210" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -139,7 +139,7 @@ Generalities: pre_macro_generalities.R</AnnotationText>
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="78" y="210" />
+        <Position x="78" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -169,7 +169,7 @@ Generalities: pre_macro_generalities.R</AnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="402" y="138" />
+        <Position x="402" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -197,7 +197,7 @@ Generalities: pre_macro_generalities.R</AnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="450" y="402" />
+        <Position x="450" y="438" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -223,7 +223,7 @@ Generalities: pre_macro_generalities.R</AnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="522" y="486" />
+        <Position x="522" y="522" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -325,7 +325,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="582" y="114" width="100" height="24" />
+        <Position x="582" y="150" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -345,7 +345,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="738" y="342" width="100" height="24" />
+        <Position x="738" y="378" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -365,7 +365,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="2310" y="822" width="100" height="24" />
+        <Position x="2310" y="858" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -385,7 +385,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1002" y="666" />
+        <Position x="1002" y="702" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -418,7 +418,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="378" y="510" />
+        <Position x="378" y="546" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -453,7 +453,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="498" y="138" />
+        <Position x="498" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -489,7 +489,7 @@ exceed...</DefaultAnnotationText>
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="606" y="138" />
+        <Position x="606" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -529,7 +529,7 @@ exceed...</DefaultAnnotationText>
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="450" y="318" />
+        <Position x="450" y="354" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -562,7 +562,7 @@ exceed...</DefaultAnnotationText>
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
-        <Position x="582" y="378" />
+        <Position x="582" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -596,7 +596,7 @@ exceed...</DefaultAnnotationText>
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1206" y="378" />
+        <Position x="1206" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -619,7 +619,7 @@ Table=Sheet1</DefaultAnnotationText>
     </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="690" y="378" />
+        <Position x="690" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -648,7 +648,7 @@ Table=Sheet1</DefaultAnnotationText>
     </Node>
     <Node ToolID="35">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="810" y="138" />
+        <Position x="810" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -671,7 +671,7 @@ Table=Sheet1</DefaultAnnotationText>
     </Node>
     <Node ToolID="41">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="318" y="810" />
+        <Position x="318" y="846" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -724,7 +724,7 @@ Escolhe qual guia da planilha 42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx dev
     </Node>
     <Node ToolID="43">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="174" y="810" />
+        <Position x="174" y="846" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -754,7 +754,7 @@ Escolhe qual guia da planilha 42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx dev
     </Node>
     <Node ToolID="44">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="630" y="774" />
+        <Position x="630" y="810" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -790,7 +790,7 @@ Escolhe qual guia da planilha 42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx dev
     </Node>
     <Node ToolID="45">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="786" y="378" />
+        <Position x="786" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -815,7 +815,7 @@ Escolhe qual guia da planilha 42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx dev
     </Node>
     <Node ToolID="46">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="450" y="882" />
+        <Position x="450" y="918" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -849,7 +849,7 @@ Table=`Menu$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="47">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="546" y="882" />
+        <Position x="546" y="918" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -883,7 +883,7 @@ Table=`Menu$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="49">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="762" y="870" />
+        <Position x="762" y="906" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -910,7 +910,7 @@ Table=`Menu$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="50">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="642" y="882" />
+        <Position x="642" y="918" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -954,7 +954,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="52">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="846" y="870" />
+        <Position x="846" y="906" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -985,7 +985,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="53">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1014" y="858" />
+        <Position x="1014" y="894" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -1061,7 +1061,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="54">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="858" y="762" />
+        <Position x="858" y="798" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1090,7 +1090,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="55">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="738" y="774" />
+        <Position x="738" y="810" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1136,7 +1136,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="56">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="942" y="762" />
+        <Position x="942" y="798" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1168,7 +1168,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="57">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1098" y="858" />
+        <Position x="1098" y="894" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1232,7 +1232,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="58">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1230" y="750" />
+        <Position x="1230" y="786" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -1312,7 +1312,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="59">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1314" y="750" />
+        <Position x="1314" y="786" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1357,7 +1357,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="60">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="1530" y="870" />
+        <Position x="1530" y="906" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1393,7 +1393,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="61">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="870" y="642" width="156" height="24" />
+        <Position x="870" y="678" width="156" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1413,7 +1413,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="62">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1422" y="774" />
+        <Position x="1422" y="810" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1449,7 +1449,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="63">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1338" y="870" />
+        <Position x="1338" y="906" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1485,7 +1485,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="64">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1614" y="870" />
+        <Position x="1614" y="906" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1519,7 +1519,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="65">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1722" y="870" />
+        <Position x="1722" y="906" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1560,7 +1560,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="66">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1806" y="870" />
+        <Position x="1806" y="906" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1594,7 +1594,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="68">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="2094" y="858" />
+        <Position x="2094" y="894" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1629,7 +1629,7 @@ trt_base = IF [COM_TRT] = 1 T...</DefaultAnnotationText>
     </Node>
     <Node ToolID="69">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1674" y="594" />
+        <Position x="1674" y="630" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1673,7 +1673,7 @@ trt_base = IF [COM_TRT] = 1 T...</DefaultAnnotationText>
     </Node>
     <Node ToolID="72">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="1974" y="774" />
+        <Position x="1974" y="810" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1714,7 +1714,7 @@ write.Alteryx(cvrg, 1)
     </Node>
     <Node ToolID="74">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="2226" y="858" />
+        <Position x="2226" y="894" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1749,7 +1749,7 @@ trt_value = IF [COM_TRT]...</DefaultAnnotationText>
     </Node>
     <Node ToolID="75">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="2334" y="858" />
+        <Position x="2334" y="894" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1794,7 +1794,7 @@ trt_value = IF [COM_TRT]...</DefaultAnnotationText>
     </Node>
     <Node ToolID="77">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="2442" y="858" />
+        <Position x="2562" y="894" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1817,7 +1817,7 @@ Table=Sheet1</DefaultAnnotationText>
     </Node>
     <Node ToolID="80">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1062" y="378" />
+        <Position x="1062" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1855,6 +1855,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -1864,7 +1865,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="82">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="66" y="18" width="59" height="59" />
+        <Position x="66" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1877,7 +1878,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="83">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="78" y="114" width="59" height="59" />
+        <Position x="78" y="150" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1890,7 +1891,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="84">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="54" y="402" width="59" height="59" />
+        <Position x="54" y="438" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1903,7 +1904,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="85">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="126" y="474" width="59" height="59" />
+        <Position x="126" y="510" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1916,7 +1917,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="86">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="54" y="690" width="59" height="59" />
+        <Position x="54" y="726" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1929,7 +1930,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="87">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="114" y="750" width="59" height="59" />
+        <Position x="114" y="786" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1939,6 +1940,41 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
+    </Node>
+    <Node ToolID="88">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="2442" y="894" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_min] ENDIF" field="trt_min" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_type] ENDIF" field="trt_type" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_value] ENDIF" field="trt_value" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_base] ENDIF" field="trt_base" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>trt_min = IF [destination_zip_code_start] != [destination_zip_code_end] THEN "" ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
+            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
+            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="delivery_time" source="R-DATA:" type="Int32" />
+            <Field name="trt_min" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_min] ENDIF" type="V_WString" />
+            <Field name="trt_type" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_type] ENDIF" type="V_WString" />
+            <Field name="trt_value" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_value] ENDIF" type="V_WString" />
+            <Field name="trt_base" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_base] ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
   </Nodes>
   <Connections>
@@ -2112,7 +2148,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="75" Connection="Output" />
-      <Destination ToolID="77" Connection="Input" />
+      <Destination ToolID="88" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="80" Connection="Output" />
@@ -2141,6 +2177,10 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     <Connection name="#2">
       <Origin ToolID="87" Connection="Action" />
       <Destination ToolID="43" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="88" Connection="Output" />
+      <Destination ToolID="77" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

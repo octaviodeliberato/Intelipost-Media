@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="1050" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\BlueShift075\Documents\TABELA_para_Regex.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TABELA_para_Regex.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="TAXA" size="254" source="File: C:\Users\BlueShift075\Documents\TABELA_para_Regex.csv" type="V_String" />
+            <Field name="VALOR_TAXA_ORIGINAL" size="254" source="File: C:\Users\BlueShift075\Documents\TABELA_para_Regex.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxRPluginGui.R">
+        <Position x="174" y="1050" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RScript><![CDATA[library(dplyr)
+library(stringr)
+
+tabela <- read.Alteryx("#1", mode="data.frame")
+
+tabela.1 <- tabela[str_detect(tabela$TAXA, "pickup"), ]
+tabela.2 <- tabela[!str_detect(tabela$TAXA, "pickup"), ]
+string <- tabela.1$VALOR_TAXA_ORIGINAL
+
+# valor1
+pattern1 <- "[:digit:]+(?=,)"
+str_view(string = string, pattern = pattern1)
+pattern2 <- "(?<=,)[:digit:]+"
+str_view(string = string, pattern = pattern2)
+valor1.1p <- str_extract(string = string, pattern = pattern1)
+valor1.2p <- str_extract(string = string, pattern = pattern2)
+valor1 <- paste0(valor1.1p, ",", valor1.2p)
+
+# valor2
+pattern1 <- "[:digit:]+(?= k)"
+str_view(string = string, pattern = pattern1)
+valor2 <- str_extract(string = string, pattern = pattern1)
+
+# valor 3
+pattern1 <- "[:digit:]+(?= p)"
+str_view(string = string, pattern = pattern1)
+valor3 <- str_extract(string = string, pattern = pattern1)
+valor3 <- as.character(as.numeric(valor3) / 100)
+valor3 <- sub("\\.", ",", valor3)
+
+# output
+tabela.1$valor1 <- valor1
+tabela.1$valor2 <- valor2
+tabela.1$valor3 <- valor3
+tabela.2$valor1 <- NA
+tabela.2$valor2 <- NA
+tabela.2$valor3 <- NA
+output <- rbind(tabela.1, tabela.2)
+
+write.Alteryx(output, 1)
+]]></RScript>
+          <UseFullUpdate value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output1">
+          <RecordInfo>
+            <Field name="TAXA" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="VALOR_TAXA_ORIGINAL" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="valor1" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="valor2" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="valor3" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="270" y="1026" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_5428_9f2afb3e979644dead386d142f8a49f4_\Engine_11404_6c8007c12e9646a6967c81d6bad13628_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection name="#1">
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output1" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>get_valor_1_2_3</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
