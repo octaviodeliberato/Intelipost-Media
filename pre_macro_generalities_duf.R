@@ -6,6 +6,10 @@ library(stringr)
 filename <- "data-raw/cliente-duf/42519_Tabela MMA 27.04.xlsx"
 precos <- read_excel(filename, col_names = FALSE)
 
+nr.of.names <- length(names(precos))
+for (i in 1:nr.of.names) {
+  names(precos)[i] <- paste0("X__", as.character(i))
+}
 ind <- str_which(precos$X__1, "Generalidades") + 1
 
 precos <- precos[ind:nrow(precos), c("X__1", "X__11")] %>% 

@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="66" y="1050" />
+        <Position x="54" y="78" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -25,9 +25,6 @@
           <DefaultAnnotationText>TABELA_para_Regex.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="TAXA" size="254" source="File: C:\Users\BlueShift075\Documents\TABELA_para_Regex.csv" type="V_String" />
@@ -39,51 +36,79 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="174" y="1050" />
+        <Position x="162" y="78" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <RScript><![CDATA[library(dplyr)
+          <RScript>library(dplyr)
 library(stringr)
 
-tabela <- read.Alteryx("#1", mode="data.frame")
+tabela &lt;- read.Alteryx("#1", mode="data.frame")
+tabela &lt;- mutate_if(tabela, is.factor, as.character)
 
-tabela.1 <- tabela[str_detect(tabela$TAXA, "pickup"), ]
-tabela.2 <- tabela[!str_detect(tabela$TAXA, "pickup"), ]
-string <- tabela.1$VALOR_TAXA_ORIGINAL
+tabela.1 &lt;- tabela[str_detect(tabela$TAXA, "pickup"), ]
+tabela.2 &lt;- tabela[!str_detect(tabela$TAXA, "pickup"), ]
+string &lt;- tabela.1$VALOR_TAXA_ORIGINAL
 
+############
+# tabela.1 #
+############
 # valor1
-pattern1 <- "[:digit:]+(?=,)"
-str_view(string = string, pattern = pattern1)
-pattern2 <- "(?<=,)[:digit:]+"
-str_view(string = string, pattern = pattern2)
-valor1.1p <- str_extract(string = string, pattern = pattern1)
-valor1.2p <- str_extract(string = string, pattern = pattern2)
-valor1 <- paste0(valor1.1p, ",", valor1.2p)
+pattern1 &lt;- "[:digit:]+(?=,)"
+# str_view(string = string, pattern = pattern1)
+pattern2 &lt;- "(?&lt;=,)[:digit:]+"
+# str_view(string = string, pattern = pattern2)
+valor1.1p &lt;- str_extract(string = string, pattern = pattern1)
+valor1.2p &lt;- str_extract(string = string, pattern = pattern2)
+valor1 &lt;- paste0(valor1.1p, ",", valor1.2p)
 
 # valor2
-pattern1 <- "[:digit:]+(?= k)"
-str_view(string = string, pattern = pattern1)
-valor2 <- str_extract(string = string, pattern = pattern1)
+pattern1 &lt;- "[:digit:]+(?= k)"
+# str_view(string = string, pattern = pattern1)
+valor2 &lt;- str_extract(string = string, pattern = pattern1)
 
 # valor 3
-pattern1 <- "[:digit:]+(?= p)"
-str_view(string = string, pattern = pattern1)
-valor3 <- str_extract(string = string, pattern = pattern1)
-valor3 <- as.character(as.numeric(valor3) / 100)
-valor3 <- sub("\\.", ",", valor3)
+pattern1 &lt;- "[:digit:]+(?= p)"
+# str_view(string = string, pattern = pattern1)
+valor3 &lt;- str_extract(string = string, pattern = pattern1)
+valor3 &lt;- as.character(as.numeric(valor3) / 100)
+valor3 &lt;- sub("\\.", ",", valor3)
 
 # output
-tabela.1$valor1 <- valor1
-tabela.1$valor2 <- valor2
-tabela.1$valor3 <- valor3
-tabela.2$valor1 <- NA
-tabela.2$valor2 <- NA
-tabela.2$valor3 <- NA
-output <- rbind(tabela.1, tabela.2)
+tabela.1$valor1 &lt;- valor1
+tabela.1$valor2 &lt;- valor2
+tabela.1$valor3 &lt;- valor3
 
-write.Alteryx(output, 1)
-]]></RScript>
+############
+# tabela.2 #
+############
+tabela.2$valor1 &lt;- NA
+tabela.2$valor2 &lt;- NA
+tabela.2$valor3 &lt;- NA
+
+aux &lt;- tabela.2[grepl("insurance", tabela.2$TAXA), 2]
+valor1 &lt;- str_extract(string = aux, pattern = ".+(?=%)")
+tabela.2[grepl("insurance", tabela.2$TAXA), "valor1"] &lt;- valor1
+
+aux &lt;- tabela.2$VALOR_TAXA_ORIGINAL[3]
+valor1 &lt;- str_extract(aux, "[:digit:]...")
+tabela.2$valor1[3] &lt;- valor1
+
+mult.kg &lt;- ifelse(!str_detect(aux, "[:digit:]k"), "1,00", "0")
+if (mult.kg != "1,00") {
+  valor2 &lt;- str_extract(aux, "[:digit:].(?=k)")
+} else {
+  valor2 &lt;- mult.kg
+  }
+tabela.2$valor2[3] &lt;- valor2
+
+aux &lt;- tabela.2$VALOR_TAXA_ORIGINAL[4]
+valor1 &lt;- str_extract(aux, "[:digit:]...")
+tabela.2$valor1[4] &lt;- valor1
+
+output &lt;- rbind(tabela.1, tabela.2)
+
+write.Alteryx(output, 1)</RScript>
           <UseFullUpdate value="False" />
         </Configuration>
         <Annotation DisplayMode="0">
@@ -105,11 +130,11 @@ write.Alteryx(output, 1)
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="270" y="1026" />
+        <Position x="294" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_5428_9f2afb3e979644dead386d142f8a49f4_\Engine_11404_6c8007c12e9646a6967c81d6bad13628_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_1504_beff386fe2084d488edab9ed2b72de56_\Engine_6148_dac88f38fb5f4261ba25410b3d3c532b_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>

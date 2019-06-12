@@ -23,6 +23,10 @@ precos &lt;- read_excel(filename, col_names = FALSE)
 ##############################################
 ## Freight table: pre_macro_freight_table.R ##
 ##############################################
+nr.of.names &lt;- length(names(precos))
+for (i in 1:nr.of.names) {
+  names(precos)[i] &lt;- paste0("X__", as.character(i))
+}
 ind &lt;- str_which(precos$X__1, "rigem: ")
 origem &lt;- str_replace(precos$X__1[ind], "Origem:  ", "")
 
@@ -2221,7 +2225,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Constants>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>carga_fixa_xlsx_app</Name>
+      <Name>carga_fixa_xlsx</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
