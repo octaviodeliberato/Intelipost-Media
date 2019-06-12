@@ -3,11 +3,11 @@
   <Nodes>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="438" y="90" />
+        <Position x="186" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_6308_5514a1cca43c4573949eea67cab2676a_\Engine_7452_8a3c5b355abe487cbd50ae437d13097a_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2536_731bc3f29a164c0cb102c12ebc2fb4cc_\Engine_11020_f3ea3c63b6f441149cfa2b79f0ba04b6_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -31,7 +31,7 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
-        <Position x="306" y="90" />
+        <Position x="54" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -67,6 +67,7 @@
             <Field name="F.KG.Excedente" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="variable" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="value" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -78,7 +79,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_6308_5514a1cca43c4573949eea67cab2676a_\Engine_7452_d18274478b014ba49d3f0e953780eedb_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2536_731bc3f29a164c0cb102c12ebc2fb4cc_\Engine_11020_4a3646ad2822463dba94cb3e1f4aff77_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -161,7 +162,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="342" y="54" width="100" height="28" />
+        <Position x="90" y="222" width="100" height="28" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -181,7 +182,7 @@
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="438" y="162" />
+        <Position x="186" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -207,11 +208,11 @@
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="570" y="90" />
+        <Position x="318" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_6308_5514a1cca43c4573949eea67cab2676a_\Engine_7452_9b06aef794a947f0acfb9966b305e802_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2536_731bc3f29a164c0cb102c12ebc2fb4cc_\Engine_11020_e00cf8bb247146c1b826aff4f3561e11_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -235,7 +236,7 @@
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="570" y="162" />
+        <Position x="318" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -254,7 +255,7 @@
     </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="678" y="162" />
+        <Position x="426" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -280,7 +281,7 @@
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="774" y="162" />
+        <Position x="522" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -298,7 +299,7 @@
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="978" y="162" />
+        <Position x="726" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -316,11 +317,11 @@
     </Node>
     <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1182" y="162" />
+        <Position x="978" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_6308_5514a1cca43c4573949eea67cab2676a_\Engine_7452_5024f35181394b68b1e5308942fef3ff_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2536_731bc3f29a164c0cb102c12ebc2fb4cc_\Engine_11020_8578f83e38434025a75457eed8ef8b27_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -344,7 +345,7 @@
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="882" y="162" />
+        <Position x="630" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -364,7 +365,113 @@
     </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1086" y="162" />
+        <Position x="882" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="ID" selected="False" />
+            <SelectField field="Origem" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="882" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="destination_geographic_identifier" selected="False" />
+            <SelectField field="base_freight_cost" selected="False" />
+            <SelectField field="percentage_invoice" selected="False" />
+            <SelectField field="exceeding_weight_cost" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1170" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2536_731bc3f29a164c0cb102c12ebc2fb4cc_\Engine_11020_bb56a87dc5fa486785c948c73ca60edd_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="966" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[ID] = 1</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>ID</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-06-12 10:29:56</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <StartDate>2019-06-12 10:29:56</StartDate>
+              <EndDate>2019-06-12 10:29:56</EndDate>
+              <Operand>1</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[ID] = 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1062" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -422,12 +529,28 @@
       <Destination ToolID="34" Connection="Input" />
     </Connection>
     <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
       <Origin ToolID="33" Connection="Output" />
       <Destination ToolID="29" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="34" Connection="Output" />
       <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="37" Connection="True" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

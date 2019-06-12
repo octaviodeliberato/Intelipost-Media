@@ -26,7 +26,19 @@ aux <- df[, !grepl("kg", colnames(df), ignore.case = T)]
 df <- cbind(aux, aux2)
 df[, grepl("Ad.", colnames(df), ignore.case = T)] %<>% str_replace("%", "")
 
-mynames <- names(df)[!grepl("kg", colnames(df), ignore.case = F)]
+mynames <- names(df)[!grepl("kg", colnames(df), ignore.case = T)]
+mynames <- c(mynames, 
+             names(df)[grepl("excedente", colnames(df), ignore.case = T)])
+
 df.m <- melt(df, id.vars = mynames)
 
+# Origem ==> para coverage
+txt <- extract_text(location)
+pos.orig <- str_locate(txt, "Origem: ")
+pos.uf <- str_locate(txt, "UF")
+origem <- str_sub(txt, start = pos.orig[1, 2] + 1, end = pos.uf[1, 1] - 2)
+origem <- str_trim(origem)
+origem <- str_extract(origem, "[:alpha:]+(?=-)")
+
+df.m$Origem <- origem
 rio::export(df.m, "freight_table_pdf.xlsx")
