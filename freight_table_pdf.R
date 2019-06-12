@@ -32,7 +32,7 @@ df[, grepl("Ad.", colnames(df), ignore.case = T)] %<>% str_replace("%", "")
 
 mynames <- names(df)[!grepl("kg", colnames(df), ignore.case = T)]
 mynames <- c(mynames, 
-             names(df)[grepl("excedente", colnames(df), ignore.case = T)])
+             names(df)[grepl("exced", colnames(df), ignore.case = T)])
 
 df.m <- melt(df, id.vars = mynames)
 

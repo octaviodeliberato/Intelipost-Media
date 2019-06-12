@@ -142,11 +142,11 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="102" y="54" width="100" height="28" />
+        <Position x="42" y="54" width="264" height="28" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Text>COVERAGE</Text>
+          <Text>GENERALITIES - CARGA FRACIONADA EM PDF</Text>
           <Font name="Arial" size="8.25" style="0" />
           <TextColor name="Black" />
           <FillColor name="White" />
@@ -162,11 +162,11 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="90" y="222" width="100" height="28" />
+        <Position x="54" y="222" width="276" height="28" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Text>FREIGHT TABLE</Text>
+          <Text>FREIGHT TABLE - CARGA FRACIONADA EM PDF</Text>
           <Font name="Arial" size="8.25" style="0" />
           <TextColor name="Black" />
           <FillColor name="White" />
@@ -571,7 +571,7 @@
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>testes_pdf</Name>
+      <Name>carga_fracionada_pdf</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
