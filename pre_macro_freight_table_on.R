@@ -29,3 +29,7 @@ mynames <- c(mynames,
 
 df.m <- reshape2::melt(precos, id.vars = mynames)
 df.m$Origem <- origem
+
+range_end <- as.character(df.m$variable)
+a <- str_extract_all(range_end, "[:digit:]+(?=k)", simplify = T)
+df.m$variable <- ifelse(a[, 2] == "", a[, 1], a[, 2])

@@ -45,4 +45,8 @@ origem <- str_trim(origem)
 origem <- str_extract(origem, "[:alpha:]+(?=-)")
 
 df.m$Origem <- origem
+range_end <- as.character(df.m$variable)
+a <- str_extract_all(range_end, "[:digit:]+(?=k)", simplify = T)
+df.m$variable <- ifelse(a[, 2] == "", a[, 1], a[, 2])
+
 rio::export(df.m, "freight_table_pdf.xlsx")

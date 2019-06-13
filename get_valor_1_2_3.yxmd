@@ -8,27 +8,26 @@
       <Properties>
         <Configuration>
           <Passwords />
-          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\BlueShift075\Documents\TABELA_para_Regex.csv</File>
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\ESSE_NAO_E_LIXO.xlsx|||`Sheet1$`</File>
           <FormatSpecificOptions>
-            <CodePage>28591</CodePage>
-            <Delimeter>,</Delimeter>
-            <IgnoreErrors>False</IgnoreErrors>
-            <FieldLen>254</FieldLen>
-            <AllowShareWrite>False</AllowShareWrite>
-            <HeaderRow>True</HeaderRow>
-            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <FirstRowData>False</FirstRowData>
             <ImportLine>1</ImportLine>
           </FormatSpecificOptions>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>TABELA_para_Regex.csv</DefaultAnnotationText>
+          <DefaultAnnotationText>ESSE_NAO_E_LIXO.xlsx
+Table=`Sheet1$`</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="TAXA" size="254" source="File: C:\Users\BlueShift075\Documents\TABELA_para_Regex.csv" type="V_String" />
-            <Field name="VALOR_TAXA_ORIGINAL" size="254" source="File: C:\Users\BlueShift075\Documents\TABELA_para_Regex.csv" type="V_String" />
+            <Field name="TAXA" size="255" source="File: C:\Users\BlueShift075\Documents\ESSE_NAO_E_LIXO.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="VALOR_TAXA_ORIGINAL" size="255" source="File: C:\Users\BlueShift075\Documents\ESSE_NAO_E_LIXO.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="TARIFA" size="255" source="File: C:\Users\BlueShift075\Documents\ESSE_NAO_E_LIXO.xlsx|||`Sheet1$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -46,67 +45,89 @@ library(stringr)
 tabela &lt;- read.Alteryx("#1", mode="data.frame")
 tabela &lt;- mutate_if(tabela, is.factor, as.character)
 
+tem.pickup &lt;- any(str_detect(tabela$TAXA, "pickup_") == TRUE)
+tem.insurance &lt;- any(str_detect(tabela$TAXA, "insurance_") == TRUE)
+tem.other &lt;- any(str_detect(tabela$TAXA, "other_") == TRUE)
+tem.cte &lt;- any(str_detect(tabela$TAXA, "cte_") == TRUE)
+
 tabela.1 &lt;- tabela[str_detect(tabela$TAXA, "pickup"), ]
-tabela.2 &lt;- tabela[!str_detect(tabela$TAXA, "pickup"), ]
-string &lt;- tabela.1$VALOR_TAXA_ORIGINAL
+tabela.2 &lt;- tabela[str_detect(tabela$TAXA, "insurance"), ]
+tabela.3 &lt;- tabela[str_detect(tabela$TAXA, "other"), ]
+tabela.4 &lt;- tabela[str_detect(tabela$TAXA, "cte"), ]
 
-############
-# tabela.1 #
-############
-# valor1
-pattern1 &lt;- "[:digit:]+(?=,)"
-# str_view(string = string, pattern = pattern1)
-pattern2 &lt;- "(?&lt;=,)[:digit:]+"
-# str_view(string = string, pattern = pattern2)
-valor1.1p &lt;- str_extract(string = string, pattern = pattern1)
-valor1.2p &lt;- str_extract(string = string, pattern = pattern2)
-valor1 &lt;- paste0(valor1.1p, ",", valor1.2p)
 
-# valor2
-pattern1 &lt;- "[:digit:]+(?= k)"
-# str_view(string = string, pattern = pattern1)
-valor2 &lt;- str_extract(string = string, pattern = pattern1)
+if (tem.pickup) {
+  tabela.1$valor1 &lt;- NA
+  tabela.1$valor2 &lt;- NA
+  tabela.1$valor3 &lt;- NA
+  string &lt;- tabela.1$VALOR_TAXA_ORIGINAL
+  # valor1
+  pattern1 &lt;- "[:digit:]+(?=,)"
+  # str_view(string = string, pattern = pattern1)
+  pattern2 &lt;- "(?&lt;=,)[:digit:]+"
+  # str_view(string = string, pattern = pattern2)
+  valor1.1p &lt;- str_extract(string = string, pattern = pattern1)
+  valor1.2p &lt;- str_extract(string = string, pattern = pattern2)
+  valor1 &lt;- paste0(valor1.1p, ",", valor1.2p)
+  
+  # valor2
+  pattern1 &lt;- "[:digit:]+(?= k)"
+  # str_view(string = string, pattern = pattern1)
+  valor2 &lt;- str_extract(string = string, pattern = pattern1)
+  
+  # valor 3
+  pattern1 &lt;- "[:digit:]+(?= p)"
+  # str_view(string = string, pattern = pattern1)
+  valor3 &lt;- str_extract(string = string, pattern = pattern1)
+  valor3 &lt;- as.character(as.numeric(valor3) / 100)
+  valor3 &lt;- sub("\\.", ",", valor3)
+  
+  # output
+  tabela.1$valor1 &lt;- valor1
+  tabela.1$valor2 &lt;- valor2
+  tabela.1$valor3 &lt;- valor3
+}
 
-# valor 3
-pattern1 &lt;- "[:digit:]+(?= p)"
-# str_view(string = string, pattern = pattern1)
-valor3 &lt;- str_extract(string = string, pattern = pattern1)
-valor3 &lt;- as.character(as.numeric(valor3) / 100)
-valor3 &lt;- sub("\\.", ",", valor3)
+if (tem.insurance) {
+  tabela.2$valor1 &lt;- NA
+  tabela.2$valor2 &lt;- NA
+  tabela.2$valor3 &lt;- NA
+  string &lt;- tabela.2$VALOR_TAXA_ORIGINAL
+  # valor1
+  valor1 &lt;- str_extract(string = string, pattern = ".+(?=%)")
+  tabela.2$valor1 &lt;- valor1
+}
 
-# output
-tabela.1$valor1 &lt;- valor1
-tabela.1$valor2 &lt;- valor2
-tabela.1$valor3 &lt;- valor3
-
-############
-# tabela.2 #
-############
-tabela.2$valor1 &lt;- NA
-tabela.2$valor2 &lt;- NA
-tabela.2$valor3 &lt;- NA
-
-aux &lt;- tabela.2[grepl("insurance", tabela.2$TAXA), 2]
-valor1 &lt;- str_extract(string = aux, pattern = ".+(?=%)")
-tabela.2[grepl("insurance", tabela.2$TAXA), "valor1"] &lt;- valor1
-
-aux &lt;- tabela.2$VALOR_TAXA_ORIGINAL[3]
-valor1 &lt;- str_extract(aux, "[:digit:]...")
-tabela.2$valor1[3] &lt;- valor1
-
-mult.kg &lt;- ifelse(!str_detect(aux, "[:digit:]k"), "1,00", "0")
-if (mult.kg != "1,00") {
-  valor2 &lt;- str_extract(aux, "[:digit:].(?=k)")
-} else {
-  valor2 &lt;- mult.kg
+if (tem.other) {
+  tabela.3$valor1 &lt;- NA
+  tabela.3$valor2 &lt;- NA
+  tabela.3$valor3 &lt;- NA
+  string &lt;- tabela.3$VALOR_TAXA_ORIGINAL
+  # valor1
+  valor1 &lt;- str_extract(string, "[:digit:]...")
+  tabela.3$valor1 &lt;- valor1
+  # valor2
+  mult.kg &lt;- ifelse(!str_detect(string, "[:digit:]k"), "1,00", "0")
+  if (mult.kg[1] != "1,00") {
+    valor2 &lt;- str_extract(string, "[:digit:].(?=k)")
+  } else {
+    valor2 &lt;- mult.kg
   }
-tabela.2$valor2[3] &lt;- valor2
+  tabela.3$valor2 &lt;- valor2
+}
 
-aux &lt;- tabela.2$VALOR_TAXA_ORIGINAL[4]
-valor1 &lt;- str_extract(aux, "[:digit:]...")
-tabela.2$valor1[4] &lt;- valor1
+if (tem.cte) {
+  tabela.4$valor1 &lt;- NA
+  tabela.4$valor2 &lt;- NA
+  tabela.4$valor3 &lt;- NA
+  string &lt;- tabela.4$VALOR_TAXA_ORIGINAL
+  # valor1
+  valor1 &lt;- str_extract(string, "[:digit:]...")
+  tabela.4$valor1 &lt;- valor1
+}
 
-output &lt;- rbind(tabela.1, tabela.2)
+output &lt;- bind_rows(tabela.1, tabela.2, tabela.3, tabela.4)
+output &lt;- output %&gt;% mutate_if(is.logical, as.character)
 
 write.Alteryx(output, 1)</RScript>
           <UseFullUpdate value="False" />
@@ -120,6 +141,7 @@ write.Alteryx(output, 1)</RScript>
           <RecordInfo>
             <Field name="TAXA" size="1073741823" source="R-DATA:" type="V_WString" />
             <Field name="VALOR_TAXA_ORIGINAL" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="TARIFA" size="1073741823" source="R-DATA:" type="V_WString" />
             <Field name="valor1" size="1073741823" source="R-DATA:" type="V_WString" />
             <Field name="valor2" size="1073741823" source="R-DATA:" type="V_WString" />
             <Field name="valor3" size="1073741823" source="R-DATA:" type="V_WString" />
@@ -130,11 +152,11 @@ write.Alteryx(output, 1)</RScript>
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="294" y="54" />
+        <Position x="318" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_1504_beff386fe2084d488edab9ed2b72de56_\Engine_6148_dac88f38fb5f4261ba25410b3d3c532b_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_440_64969bf7ff434718a9b7ea02b6f1748d_\Engine_9380_74f0ecf30f7b4871a93c3cf68f8fda5c_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>

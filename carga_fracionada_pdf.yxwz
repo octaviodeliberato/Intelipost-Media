@@ -7,7 +7,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_8536_b44db225b58c4cafa8d9ca2419050e8b_\Engine_11020_1637b53c6db342f599d50586bf656b56_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_3720_e51c60fe52894757874a1e40e2e7addf_\Engine_9380_f69d878e03e248a7be3772c3f585f0f7_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -87,7 +87,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_8536_b44db225b58c4cafa8d9ca2419050e8b_\Engine_11020_93d52edab1394db9aa8f3dac0a42c0fc_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_3720_e51c60fe52894757874a1e40e2e7addf_\Engine_9380_64b078918c0c4e4eaff17ecd3bcf46dc_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -207,10 +207,11 @@
           <SelectFields>
             <SelectField field="UF" selected="True" />
             <SelectField field="Destino" selected="True" />
-            <SelectField field="variable" selected="False" />
+            <SelectField field="variable" selected="True" rename="range_end" />
             <SelectField field="value" selected="True" />
             <SelectField field="Ad." selected="True" />
             <SelectField field="F.KG.Excedente" selected="True" />
+            <SelectField field="Origem" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -223,6 +224,7 @@
           <RecordInfo>
             <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="Destino" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="value" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="Ad." size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="F.KG.Excedente" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
@@ -238,7 +240,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_8536_b44db225b58c4cafa8d9ca2419050e8b_\Engine_11020_2f55f1b5909648389bb06b4a2eccdf08_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_3720_e51c60fe52894757874a1e40e2e7addf_\Engine_9380_3c1c97401f194637a95267d7f3b46b78_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -280,6 +282,7 @@
           <RecordInfo>
             <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="Destino" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="value" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="Ad." size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="F.KG.Excedente" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
@@ -319,6 +322,7 @@
             <Field name="base_freight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="percentage_invoice" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="exceeding_weight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -346,6 +350,7 @@
             <Field name="base_freight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="percentage_invoice" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="exceeding_weight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
           <SortInfo locale="0">
@@ -355,44 +360,13 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
     </Node>
-    <Node ToolID="29">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1494" y="510" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="IF Mod([ID], 4) &gt; 0 THEN &quot;&quot; ELSE [exceeding_weight_cost] ENDIF" field="exceeding_weight_cost" size="255" type="V_String" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>exceeding_weight_cost = IF Mod([ID], 4) &gt; 0 THEN "" ELSE [exceeding_weight_cost]...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="ID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="base_freight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="percentage_invoice" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="exceeding_weight_cost" size="255" source="Formula: IF Mod([ID], 4) &gt; 0 THEN &quot;&quot; ELSE [exceeding_weight_cost] ENDIF" type="V_String" />
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-          </RecordInfo>
-          <SortInfo locale="0">
-            <Field field="destination_geographic_identifier" order="Ascending" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
     <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1698" y="510" />
+        <Position x="1830" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_8536_b44db225b58c4cafa8d9ca2419050e8b_\Engine_11020_5fcadce7f54a4f2eacb2183be9389143_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_3720_e51c60fe52894757874a1e40e2e7addf_\Engine_9380_ee5b3715edf042bba53fef998711545c_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -438,6 +412,7 @@
             <Field name="base_freight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="percentage_invoice" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="exceeding_weight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
           <SortInfo locale="0">
@@ -453,10 +428,15 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
+          <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="ID" selected="False" />
+            <SelectField field="destination_geographic_identifier" selected="True" />
+            <SelectField field="range_end" selected="True" />
+            <SelectField field="base_freight_cost" selected="True" />
+            <SelectField field="percentage_invoice" selected="True" />
+            <SelectField field="exceeding_weight_cost" selected="True" />
             <SelectField field="Origem" selected="False" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
@@ -468,14 +448,12 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="base_freight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="percentage_invoice" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="exceeding_weight_cost" size="255" source="Formula: IF Mod([ID], 4) &gt; 0 THEN &quot;&quot; ELSE [exceeding_weight_cost] ENDIF" type="V_String" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="destination_geographic_identifier" order="Ascending" />
-          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
@@ -747,8 +725,9 @@ Table=Sheet1</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="ID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="ID" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -785,14 +764,16 @@ Table=Sheet1</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
-            <Field name="ID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="ID" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
-            <Field name="ID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="ID" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -808,6 +789,7 @@ Table=Sheet1</DefaultAnnotationText>
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="ID" selected="False" />
+            <SelectField field="range_end" selected="False" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -818,7 +800,7 @@ Table=Sheet1</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -830,7 +812,7 @@ Table=Sheet1</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_8536_b44db225b58c4cafa8d9ca2419050e8b_\Engine_11020_fb4baa5fba0c4e99b6ca3ebaf4d590e4_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_3720_e51c60fe52894757874a1e40e2e7addf_\Engine_9380_ed7a69b85e53452cafe6229add4f7410_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -851,6 +833,50 @@ Table=Sheet1</DefaultAnnotationText>
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxRPluginGui.R">
+        <Position x="1494" y="510" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RScript><![CDATA[df <- read.Alteryx("#1", mode="data.frame")
+
+nr.of.records <- nrow(df)
+unique.dest <- length(unique(df$destination_geographic_identifier))
+multiple <- ceiling(nr.of.records / unique.dest)
+
+for (i in 1:nr.of.records) {
+  if (df$ID[i] %% multiple != 0) {
+    df$exceeding_weight_cost[i] <- ""
+  }
+}
+
+df <- sapply(df, sub, pattern = "\\.", replacement = ",") %>% as.data.frame()
+# df$RecordID <- NULL
+
+write.Alteryx(df, 1)
+]]></RScript>
+          <UseFullUpdate value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output1">
+          <RecordInfo>
+            <Field name="ID" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
     </Node>
   </Nodes>
   <Connections>
@@ -894,17 +920,9 @@ Table=Sheet1</DefaultAnnotationText>
       <Origin ToolID="28" Connection="Output" />
       <Destination ToolID="33" Connection="Input" />
     </Connection>
-    <Connection>
-      <Origin ToolID="29" Connection="Output" />
-      <Destination ToolID="34" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="29" Connection="Output" />
-      <Destination ToolID="53" Connection="Input" />
-    </Connection>
-    <Connection>
+    <Connection name="#1">
       <Origin ToolID="33" Connection="Output" />
-      <Destination ToolID="29" Connection="Input" />
+      <Destination ToolID="58" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="34" Connection="Output" />
@@ -986,6 +1004,14 @@ Table=Sheet1</DefaultAnnotationText>
       <Origin ToolID="55" Connection="Output" />
       <Destination ToolID="56" Connection="Input" />
     </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output1" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output1" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
   </Connections>
   <Properties>
     <Memory default="True" />
@@ -1019,7 +1045,7 @@ Table=Sheet1</DefaultAnnotationText>
     </Constants>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>carga_fracionada_pdf_app</Name>
+      <Name>carga_fracionada_pdf</Name>
       <Description />
       <RootToolName />
       <ToolVersion />

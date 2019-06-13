@@ -3,11 +3,11 @@
   <Nodes>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="186" y="258" />
+        <Position x="198" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2536_731bc3f29a164c0cb102c12ebc2fb4cc_\Engine_11020_f3ea3c63b6f441149cfa2b79f0ba04b6_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_9200_e91f223f44214bbf9f11bb5e91a18d9e_\Engine_9380_ae851013aebb4f6f9c1238d206f8f78e_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -31,7 +31,7 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
-        <Position x="54" y="258" />
+        <Position x="66" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -75,11 +75,11 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="186" y="90" />
+        <Position x="198" y="90" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2536_731bc3f29a164c0cb102c12ebc2fb4cc_\Engine_11020_4a3646ad2822463dba94cb3e1f4aff77_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_9200_e91f223f44214bbf9f11bb5e91a18d9e_\Engine_9380_dc53869dd46346ce8b0c5da581bdf02d_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -103,7 +103,7 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
-        <Position x="54" y="90" />
+        <Position x="66" y="90" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -142,7 +142,7 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="42" y="54" width="264" height="28" />
+        <Position x="54" y="54" width="264" height="28" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -162,7 +162,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="54" y="222" width="276" height="28" />
+        <Position x="66" y="222" width="276" height="28" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -182,7 +182,7 @@
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="186" y="330" />
+        <Position x="198" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -191,10 +191,11 @@
           <SelectFields>
             <SelectField field="UF" selected="True" />
             <SelectField field="Destino" selected="True" />
-            <SelectField field="variable" selected="False" />
+            <SelectField field="variable" selected="True" rename="range_end" />
             <SelectField field="value" selected="True" />
             <SelectField field="Ad." selected="True" />
             <SelectField field="F.KG.Excedente" selected="True" />
+            <SelectField field="Origem" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -208,11 +209,11 @@
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="318" y="258" />
+        <Position x="330" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2536_731bc3f29a164c0cb102c12ebc2fb4cc_\Engine_11020_e00cf8bb247146c1b826aff4f3561e11_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_9200_e91f223f44214bbf9f11bb5e91a18d9e_\Engine_9380_784e42a2b75047d49cd72287dca5883e_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -236,7 +237,7 @@
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="318" y="330" />
+        <Position x="330" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -255,7 +256,7 @@
     </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="426" y="330" />
+        <Position x="438" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -281,7 +282,7 @@
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="522" y="330" />
+        <Position x="534" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -297,31 +298,13 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
     </Node>
-    <Node ToolID="29">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="726" y="330" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="IF Mod([ID], 4) &gt; 0 THEN &quot;&quot; ELSE [exceeding_weight_cost] ENDIF" field="exceeding_weight_cost" size="255" type="V_String" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>exceeding_weight_cost = IF Mod([ID], 4) &gt; 0 THEN "" ELSE [exceeding_weight_cost]...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
     <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="978" y="330" />
+        <Position x="1146" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2536_731bc3f29a164c0cb102c12ebc2fb4cc_\Engine_11020_8578f83e38434025a75457eed8ef8b27_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_9200_e91f223f44214bbf9f11bb5e91a18d9e_\Engine_9380_332caa7f1a25408a96d4adfd87220013_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -345,7 +328,7 @@
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="630" y="330" />
+        <Position x="642" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -365,14 +348,19 @@
     </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="882" y="330" />
+        <Position x="894" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
+          <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="ID" selected="False" />
+            <SelectField field="destination_geographic_identifier" selected="True" />
+            <SelectField field="range_end" selected="True" />
+            <SelectField field="base_freight_cost" selected="True" />
+            <SelectField field="percentage_invoice" selected="True" />
+            <SelectField field="exceeding_weight_cost" selected="True" />
             <SelectField field="Origem" selected="False" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
@@ -387,7 +375,7 @@
     </Node>
     <Node ToolID="35">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="882" y="426" />
+        <Position x="894" y="426" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -411,11 +399,11 @@
     </Node>
     <Node ToolID="36">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1170" y="426" />
+        <Position x="1182" y="426" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2536_731bc3f29a164c0cb102c12ebc2fb4cc_\Engine_11020_bb56a87dc5fa486785c948c73ca60edd_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_9200_e91f223f44214bbf9f11bb5e91a18d9e_\Engine_9380_4075f7085a8b46ae90dcb3ed410f45ec_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -439,11 +427,11 @@
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="966" y="426" />
+        <Position x="978" y="426" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Expression>[ID] = 1</Expression>
+          <Expression>[ID] = "1"</Expression>
           <Mode>Simple</Mode>
           <Simple>
             <Operator>=</Operator>
@@ -455,15 +443,15 @@
               <PeriodType>
               </PeriodType>
               <PeriodCount>0</PeriodCount>
+              <Operand>1</Operand>
               <StartDate>2019-06-12 10:29:56</StartDate>
               <EndDate>2019-06-12 10:29:56</EndDate>
-              <Operand>1</Operand>
             </Operands>
           </Simple>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>[ID] = 1</DefaultAnnotationText>
+          <DefaultAnnotationText>[ID] = "1"</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -471,7 +459,7 @@
     </Node>
     <Node ToolID="38">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1062" y="414" />
+        <Position x="1074" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -479,6 +467,7 @@
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="ID" selected="False" />
+            <SelectField field="range_end" selected="False" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -489,6 +478,50 @@
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxRPluginGui.R">
+        <Position x="750" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RScript><![CDATA[df <- read.Alteryx("#1", mode="data.frame")
+
+nr.of.records <- nrow(df)
+unique.dest <- length(unique(df$destination_geographic_identifier))
+multiple <- ceiling(nr.of.records / unique.dest)
+
+for (i in 1:nr.of.records) {
+  if (df$ID[i] %% multiple != 0) {
+    df$exceeding_weight_cost[i] <- ""
+  }
+}
+
+df <- sapply(df, sub, pattern = "\\.", replacement = ",") %>% as.data.frame()
+# df$RecordID <- NULL
+
+write.Alteryx(df, 1)
+]]></RScript>
+          <UseFullUpdate value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output1">
+          <RecordInfo>
+            <Field name="ID" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
     </Node>
   </Nodes>
   <Connections>
@@ -524,17 +557,9 @@
       <Origin ToolID="28" Connection="Output" />
       <Destination ToolID="33" Connection="Input" />
     </Connection>
-    <Connection>
-      <Origin ToolID="29" Connection="Output" />
-      <Destination ToolID="34" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="29" Connection="Output" />
-      <Destination ToolID="35" Connection="Input" />
-    </Connection>
-    <Connection>
+    <Connection name="#1">
       <Origin ToolID="33" Connection="Output" />
-      <Destination ToolID="29" Connection="Input" />
+      <Destination ToolID="39" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="34" Connection="Output" />
@@ -551,6 +576,14 @@
     <Connection>
       <Origin ToolID="38" Connection="Output" />
       <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output1" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output1" />
+      <Destination ToolID="35" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
