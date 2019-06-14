@@ -1303,9 +1303,8 @@ trt_base = IF [COM_TRT] = 1 T...</DefaultAnnotationText>
           <RScript><![CDATA[trt <- read.Alteryx("#1", mode="data.frame")
 cvrg <- read.Alteryx("#2", mode="data.frame")
 
-n <- nrow(cvrg)
-cvrg$trt_min <- rep(trt$V2[1], n)
-cvrg$trt_value <- rep(trt$V2[2], n)
+cvrg$trt_min <- trt$V2[1]
+cvrg$trt_value <- trt$V2[2]
 
 write.Alteryx(cvrg, 1)
 ]]></RScript>

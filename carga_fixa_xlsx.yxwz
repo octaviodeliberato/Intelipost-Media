@@ -598,29 +598,6 @@ exceed...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
     </Node>
-    <Node ToolID="33">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1206" y="414" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\duf_generalities.xlsx|||Sheet1</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <SkipFieldNames>False</SkipFieldNames>
-            <OutputOption>Overwrite</OutputOption>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>duf_generalities.xlsx
-Table=Sheet1</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-    </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
         <Position x="690" y="414" />
@@ -649,29 +626,6 @@ Table=Sheet1</DefaultAnnotationText>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="35">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="810" y="174" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\duf_freight_table.xlsx|||Sheet1</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <SkipFieldNames>False</SkipFieldNames>
-            <OutputOption>Overwrite</OutputOption>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>duf_freight_table.xlsx
-Table=Sheet1</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="41">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
@@ -1397,7 +1351,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="61">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="870" y="678" width="156" height="24" />
+        <Position x="846" y="678" width="156" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1684,9 +1638,8 @@ trt_base = IF [COM_TRT] = 1 T...</DefaultAnnotationText>
           <RScript><![CDATA[trt <- read.Alteryx("#1", mode="data.frame")
 cvrg <- read.Alteryx("#2", mode="data.frame")
 
-n <- nrow(cvrg)
-cvrg$trt_min <- rep(trt$V2[1], n)
-cvrg$trt_value <- rep(trt$V2[2], n)
+cvrg$trt_min <- trt$V2[1]
+cvrg$trt_value <- trt$V2[2]
 
 write.Alteryx(cvrg, 1)
 ]]></RScript>
@@ -1796,29 +1749,6 @@ trt_value = IF [COM_TRT]...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="77">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="2562" y="894" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\duf_coverage.xlsx|||Sheet1</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <SkipFieldNames>False</SkipFieldNames>
-            <OutputOption>Overwrite</OutputOption>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>duf_coverage.xlsx
-Table=Sheet1</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-    </Node>
     <Node ToolID="80">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
         <Position x="1062" y="414" />
@@ -1921,7 +1851,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="86">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="54" y="726" width="59" height="59" />
+        <Position x="66" y="690" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1934,7 +1864,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="87">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="114" y="786" width="59" height="59" />
+        <Position x="126" y="774" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1979,6 +1909,127 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="89">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="798" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fixa_excel.xlsx|||Freight Table</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>carga_fixa_excel.xlsx
+Table=Freight Table</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="90">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1218" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fixa_excel.xlsx|||Generalities</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>carga_fixa_excel.xlsx
+Table=Generalities</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="91">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2598" y="894" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fixa_excel.xlsx|||Coverage</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>carga_fixa_excel.xlsx
+Table=Coverage</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="92">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FolderBrowse.FolderBrowse">
+        <Position x="1950" y="42" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="93">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="990" y="96" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="94">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="1200" y="216" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="95">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="2358" y="162" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
     </Node>
   </Nodes>
   <Connections>
@@ -2036,7 +2087,11 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="25" Connection="Output" />
-      <Destination ToolID="35" Connection="Input" />
+      <Destination ToolID="89" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="93" Connection="Action" />
+      <Destination ToolID="89" Connection="Action" />
     </Connection>
     <Connection>
       <Origin ToolID="31" Connection="Output" />
@@ -2156,7 +2211,11 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="80" Connection="Output" />
-      <Destination ToolID="33" Connection="Input" />
+      <Destination ToolID="90" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="94" Connection="Action" />
+      <Destination ToolID="90" Connection="Action" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="82" Connection="Question" />
@@ -2184,7 +2243,23 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="88" Connection="Output" />
-      <Destination ToolID="77" Connection="Input" />
+      <Destination ToolID="91" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="95" Connection="Action" />
+      <Destination ToolID="91" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="92" Connection="Question" />
+      <Destination ToolID="93" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="92" Connection="Question" />
+      <Destination ToolID="94" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="92" Connection="Question" />
+      <Destination ToolID="95" Connection="Question" />
     </Connection>
   </Connections>
   <Properties>
@@ -2219,6 +2294,12 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
       <Constant>
         <Namespace>Question</Namespace>
         <Name>File Browse (86)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Folder Browse (92)</Name>
         <Value />
         <IsNumeric value="False" />
       </Constant>
@@ -2278,6 +2359,36 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
               <Replace value="False" />
               <Destination>43/Fields/Field/@name</Destination>
             </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="93" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <Destination>89/File</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="94" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <Destination>90/File</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="95" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <Destination>91/File</Destination>
+            </Action>
           </True>
         </NoCondition>
       </Actions>
@@ -2308,12 +2419,18 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
             </Question>
             <Question>
               <Type>FileBrowse</Type>
-              <Description>Escolha a tabela de abrangência com origem e prazos</Description>
+              <Description>Escolha a tabela de abrangência com origem e prazos:</Description>
               <Name>File Browse (86)</Name>
               <ToolId value="86" />
               <SaveAs value="False" />
               <Mode>FileSpec</Mode>
               <FileSpec>Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*</FileSpec>
+            </Question>
+            <Question>
+              <Type>FolderBrowse</Type>
+              <Description>Escolha o diretório da planilha de saída:</Description>
+              <Name>Folder Browse (92)</Name>
+              <ToolId value="92" />
             </Question>
           </Questions>
         </Question>
@@ -2328,9 +2445,9 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
       <Wiz_CustomGraphic value="False" />
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
-        <Tool ToolId="33" Selected="True" />
-        <Tool ToolId="35" Selected="True" />
-        <Tool ToolId="77" Selected="True" />
+        <Tool ToolId="89" Selected="True" />
+        <Tool ToolId="90" Selected="True" />
+        <Tool ToolId="91" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
