@@ -1,0 +1,3263 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="1338" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>geneIn</Name>
+          <Abbrev>g</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="353" />
+              <Fields>
+                <Field name="V1" />
+                <Field name="V2" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>table_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>multi_volume_calculation_setting</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cubic_factor</c>
+                  <c>300</c>
+                </r>
+                <r>
+                  <c>start_cubic_weight</c>
+                  <c />
+                </r>
+                <r>
+                  <c>weight_type_selection</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pricing_range_type_selection</c>
+                  <c />
+                </r>
+                <r>
+                  <c>exceeding_weight_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>extra_weight_round_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_min</c>
+                  <c>Isento</c>
+                </r>
+                <r>
+                  <c>gris_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_value</c>
+                  <c>0,25</c>
+                </r>
+                <r>
+                  <c>gris_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>gris_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_value</c>
+                  <c>Isento</c>
+                </r>
+                <r>
+                  <c>tas_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tas_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_min</c>
+                  <c>15,73</c>
+                </r>
+                <r>
+                  <c>trt_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_value</c>
+                  <c>5</c>
+                </r>
+                <r>
+                  <c>trt_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>trt_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tde_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_fixed</c>
+                  <c>220</c>
+                </r>
+                <r>
+                  <c>tda_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tda_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tsb_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>suframa_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>fluvial_insurance_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_value</c>
+                  <c>Isento</c>
+                </r>
+                <r>
+                  <c>toll_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>toll_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>pickup_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_value</c>
+                  <c>Isento</c>
+                </r>
+                <r>
+                  <c>delivery_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>delivery_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>cte_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>seccat_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>itr_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>insurance_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>ademe_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>schedule_delivery_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>reshipping_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>return_fee_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_min</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_max</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_value</c>
+                  <c>isento</c>
+                </r>
+                <r>
+                  <c>other_fee_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_fraction</c>
+                  <c>isento</c>
+                </r>
+                <r>
+                  <c>other_fee_range_start</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_range_end</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_range_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_inrange_fixed</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_inrange_type</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_inrange_value</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_inrange_base</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_inrange_fraction</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_sum</c>
+                  <c />
+                </r>
+                <r>
+                  <c>other_fee_range_base_calculation_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tax_iss_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tax_iss_percentage</c>
+                  <c />
+                </r>
+                <r>
+                  <c>tax_icms_mode</c>
+                  <c />
+                </r>
+                <r>
+                  <c>icms_tax_enable</c>
+                  <c>true</c>
+                </r>
+                <r>
+                  <c>iss_tax_enable</c>
+                  <c>true</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Uma tabela de generalidades "pronta", com os valores de trt_min e trt_value</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="V1" size="45" source="TextInput:" type="V_String" />
+            <Field name="V2" size="6" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="282" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>trtIn</Name>
+          <Abbrev>t</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="PATH_TO_FILE" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_TRT por CEP-IF.xlsx</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>O caminho completo do arquivo de restrições de trânsito</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>origemIn</Name>
+          <Abbrev>o</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="origem" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>SERRA</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>A origem (string) do porte</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="origem" size="5" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="282" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>cepIn</Name>
+          <Abbrev>c</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="PATH_TO_FILE" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/GeraCEP_v2019.1.0.xlsx</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Caminho completo da tabela de CEPs</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="PATH_TO_FILE" size="78" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>covIn</Name>
+          <Abbrev>a</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="PATH_TO_FILE" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Caminho completo da tabela de abrangência com origem e prazos</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="PATH_TO_FILE" size="123" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxRPluginGui.R">
+        <Position x="486" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RScript><![CDATA[library(readxl)
+library(excel.link)
+library(dplyr)
+library(magrittr)
+library(stringr)
+
+##############################
+## pre_macro_coverage_duf.R ##
+##############################
+#filename <- "C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/GeraCEP_v2019.1.0.xlsx"
+fl <- read.Alteryx("#1", mode="data.frame")
+filename <- fl[1, 1] %>% as.character()
+
+geraCEP <- read_excel(filename, col_names = TRUE)
+geraCEP %<>% select(`UF-CIDADE`, `CEP INI 1`, `CEP FIM 1`)
+geraCEP %<>% .[complete.cases(.), ]
+
+ind.dupl <- duplicated(geraCEP$`UF-CIDADE`)
+geraCEP <- geraCEP[!ind.dupl, ]
+
+# geraCEP %<>% .[order(geraCEP$`UF-CIDADE`), ]
+
+# filename <- "C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_TRT por CEP-IF.xlsx"
+filename <- fl[2, 1] %>% as.character()
+
+trt <- read_excel(filename, col_names = TRUE, skip = 1)
+trt <- trt[, 1:4]
+trt %<>% .[complete.cases(.), ]
+trt$`UF-CIDADE` <- paste0(trt$UF, "-", trt$CIDADE)
+trt %<>% select(`UF-CIDADE`, CEP, ENDERECO)
+
+QuebraCEP <- function(rua, uf_cidade, atual, inicio, fim) {
+  df <- data.frame(ENDERECO=character(3), 
+                   CEPI=numeric(3), 
+                   CEPF=numeric(3))
+  df$ENDERECO <- rep(rua, 3)
+  df$`UF-CIDADE` <- rep(uf_cidade, 3)
+  df$CEPI[1] <- inicio
+  df$CEPF[1] <- atual - 1
+  df$CEPI[2] <- atual
+  df$CEPF[2] <- atual
+  df$CEPI[3] <- atual + 1
+  df$CEPF[3] <- fim
+  return(df)
+}
+
+df <- list()
+for (i in seq_along(trt$`UF-CIDADE`)) {
+  for (j in seq_along(geraCEP$`UF-CIDADE`)) {
+    if (trt$CEP[i] >= geraCEP$`CEP INI 1`[j] &&
+        trt$CEP[i] <= geraCEP$`CEP FIM 1`[j]) {
+      df[[i]] <- QuebraCEP(rua = trt$ENDERECO[i],
+                           uf_cidade = trt$`UF-CIDADE`[i],
+                           atual = trt$CEP[i],
+                           inicio = geraCEP$`CEP INI 1`[j],
+                           fim = geraCEP$`CEP FIM 1`[j]
+                           )
+      break
+    }
+  }
+}
+
+df <- Reduce(rbind, df)
+
+trt.cvrg <- df %>% select(ENDERECO, `UF-CIDADE`, CEPI, CEPF)
+cvrg <- df %>% select(`UF-CIDADE`)
+new.names <- c("UF", "CIDADE")
+cvrg <- cvrg %>% tidyr::separate(col = 1, into = new.names, 
+                                 sep = "-", extra = "merge")
+trt.cvrg$UF <- cvrg$UF
+trt.cvrg$CIDADE <- cvrg$CIDADE
+trt.cvrg <- trt.cvrg %>% select(ENDERECO, UF, CIDADE, `UF-CIDADE`, CEPI, CEPF)
+
+write.Alteryx(trt.cvrg, 1)
+]]></RScript>
+          <UseFullUpdate value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>pre_macro_coverage_duf.R: executam-se algumas operações de preparação e limpeza de ambos os datasets e, em seguida, "quebram-se" as faixas de CEP de cada observação em TRT que encontre correspondência em GeraCEP</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output1">
+          <RecordInfo>
+            <Field name="ENDERECO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="CIDADE" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF-CIDADE" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxRPluginGui.R">
+        <Position x="174" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RScript><![CDATA[library(readxl)
+library(dplyr)
+library(stringr)
+
+# origem <- "SERRA"
+origem <- read.Alteryx("#1", mode="data.frame")
+origem <- as.character(origem[1, 1])
+
+fl <- read.Alteryx("#2", mode="data.frame")
+filename <- as.character(fl[1, 1])
+# filename <- "C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx"
+
+guias <- excel_sheets(filename)
+
+for (i in 1:length(guias)) {
+  prazos <- read_excel(filename, sheet = guias[1], skip = 2)
+  cidade.origem <- as.character(prazos[1, 1])
+  if (str_detect(cidade.origem, origem)) {
+    break
+  }
+}
+
+write.Alteryx(prazos, 1)
+]]></RScript>
+          <UseFullUpdate value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>escolhe_tabela_prazos_v2.R
+
+Escolhe qual guia da planilha 42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx deve ser lida, conforme a origem em 42519_Tabela MMA 27.04.xlsx.</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output1">
+          <RecordInfo>
+            <Field name="CIDADE ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="CIDADE DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF__1" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="C/I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="PRAZO  dias uteis" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="366" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="UF" selected="True" rename="UF ORIGEM" />
+            <SelectField field="CIDADE ORIGEM" selected="True" rename="ORIGEM" />
+            <SelectField field="UF__1" selected="True" rename="UF DESTINO" />
+            <SelectField field="CIDADE DESTINO" selected="True" rename="DESTINO" />
+            <SelectField field="C/I" selected="True" rename="C_ou_I" />
+            <SelectField field="PRAZO  dias uteis" selected="True" rename="DIAS" type="Int32" size="4" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="378" y="534" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="UF" selected="True" rename="UF DESTINO" />
+            <SelectField field="CIDADE" selected="True" rename="DESTINO" />
+            <SelectField field="CIDADE ABREVIADA" selected="False" />
+            <SelectField field="UF-CIDADE" selected="False" />
+            <SelectField field="CEP INI 2" selected="False" />
+            <SelectField field="CEP FIM 2" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
+            <Field name="DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
+            <Field name="CEP INI 1" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
+            <Field name="CEP FIM 1" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="594" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Uppercase([DESTINO])" field="DESTINO" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[DESTINO = Uppercase([DESTINO])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF.DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
+            <Field name="CEP.INI.1" source="R-DATA:" type="Double" />
+            <Field name="CEP.FIM.1" source="R-DATA:" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxRPluginGui.R">
+        <Position x="474" y="534" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RScript><![CDATA[df <- read.Alteryx("#1", mode="data.frame")
+
+unwanted_array = list('Š'='S', 'š'='s', 'Ž'='Z', 'ž'='z', 'À'='A', 'Á'='A', 
+                      'Â'='A', 'Ã'='A', 'Ä'='A', 'Å'='A', 'Æ'='A', 'Ç'='C', 
+                      'È'='E', 'É'='E', 'Ê'='E', 'Ë'='E', 'Ì'='I', 'Í'='I', 
+                      'Î'='I', 'Ï'='I', 'Ñ'='N', 'Ò'='O', 'Ó'='O', 'Ô'='O', 
+                      'Õ'='O', 'Ö'='O', 'Ø'='O', 'Ù'='U', 'Ú'='U', 'Û'='U', 
+                      'Ü'='U', 'Ý'='Y', 'Þ'='B', 'ß'='Ss', 'à'='a', 'á'='a', 
+                      'â'='a', 'ã'='a', 'ä'='a', 'å'='a', 'æ'='a', 'ç'='c',
+                      'è'='e', 'é'='e', 'ê'='e', 'ë'='e', 'ì'='i', 'í'='i', 
+                      'î'='i', 'ï'='i', 'ð'='o', 'ñ'='n', 'ò'='o', 'ó'='o', 
+                      'ô'='o', 'õ'='o','ö'='o', 'ø'='o', 'ù'='u', 'ú'='u', 
+                      'û'='u', 'ý'='y', 'ý'='y', 'þ'='b', 'ÿ'='y')
+
+df$DESTINO <- chartr(paste(names(unwanted_array), collapse=''),
+       							paste(unwanted_array, collapse=''),
+       							df$DESTINO)
+write.Alteryx(df, 1)
+]]></RScript>
+          <UseFullUpdate value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Remove acentos</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output1">
+          <RecordInfo>
+            <Field name="UF.DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="CEP.INI.1" source="R-DATA:" type="Double" />
+            <Field name="CEP.FIM.1" source="R-DATA:" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="678" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="UF.DESTINO" selected="True" rename="UF DESTINO" />
+            <SelectField field="CEP.INI.1" selected="True" rename="CEPI" />
+            <SelectField field="CEP.FIM.1" selected="True" rename="CEPF" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="786" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="UF DESTINO" />
+            <Field field="DESTINO" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="UF DESTINO" />
+            <Field field="DESTINO" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_UF DESTINO" selected="False" rename="Right_UF DESTINO" input="Right_" />
+                <SelectField field="Right_DESTINO" selected="False" rename="Right_DESTINO" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="UF DESTINO" />
+            <Field field="DESTINO" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UF DESTINO" order="" />
+            <Field field="DESTINO" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="UF DESTINO" />
+            <Field field="DESTINO" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="594" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Uppercase([DESTINO])" field="DESTINO" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[DESTINO = Uppercase([DESTINO])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF.ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF.DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxRPluginGui.R">
+        <Position x="474" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RScript><![CDATA[df <- read.Alteryx("#1", mode="data.frame")
+
+unwanted_array = list('Š'='S', 'š'='s', 'Ž'='Z', 'ž'='z', 'À'='A', 'Á'='A', 
+                      'Â'='A', 'Ã'='A', 'Ä'='A', 'Å'='A', 'Æ'='A', 'Ç'='C', 
+                      'È'='E', 'É'='E', 'Ê'='E', 'Ë'='E', 'Ì'='I', 'Í'='I', 
+                      'Î'='I', 'Ï'='I', 'Ñ'='N', 'Ò'='O', 'Ó'='O', 'Ô'='O', 
+                      'Õ'='O', 'Ö'='O', 'Ø'='O', 'Ù'='U', 'Ú'='U', 'Û'='U', 
+                      'Ü'='U', 'Ý'='Y', 'Þ'='B', 'ß'='Ss', 'à'='a', 'á'='a', 
+                      'â'='a', 'ã'='a', 'ä'='a', 'å'='a', 'æ'='a', 'ç'='c',
+                      'è'='e', 'é'='e', 'ê'='e', 'ë'='e', 'ì'='i', 'í'='i', 
+                      'î'='i', 'ï'='i', 'ð'='o', 'ñ'='n', 'ò'='o', 'ó'='o', 
+                      'ô'='o', 'õ'='o','ö'='o', 'ø'='o', 'ù'='u', 'ú'='u', 
+                      'û'='u', 'ý'='y', 'ý'='y', 'þ'='b', 'ÿ'='y')
+
+df$DESTINO <- chartr(paste(names(unwanted_array), collapse=''),
+       							paste(unwanted_array, collapse=''),
+       							df$DESTINO)
+write.Alteryx(df, 1)
+]]></RScript>
+          <UseFullUpdate value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Remove acentos</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output1">
+          <RecordInfo>
+            <Field name="UF.ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF.DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="678" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="UF.ORIGEM" selected="True" rename="UF ORIGEM" />
+            <SelectField field="UF.DESTINO" selected="True" rename="UF DESTINO" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="810" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="UF" selected="True" rename="UF DESTINO" />
+            <SelectField field="CIDADE" selected="True" rename="DESTINO" />
+            <SelectField field="UF-CIDADE" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>CEPs "quebrados" SP e RJ</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ENDERECO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="918" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>([UF DESTINO] = "SP") || ([UF DESTINO] = "RJ")</Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>UF DESTINO</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-05-30 13:46:33</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>SP</Operand>
+              <StartDate>2019-05-30 13:46:33</StartDate>
+              <EndDate>2019-05-30 13:46:33</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>([UF DESTINO] = "SP") || ([UF DESTINO] = "RJ")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UF DESTINO" order="" />
+            <Field field="DESTINO" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UF DESTINO" order="" />
+            <Field field="DESTINO" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1050" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="UF DESTINO" />
+            <Field field="DESTINO" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="UF DESTINO" />
+            <Field field="DESTINO" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_UF DESTINO" selected="False" rename="Right_UF DESTINO" input="Right_" />
+                <SelectField field="Right_DESTINO" selected="False" rename="Right_DESTINO" input="Right_" />
+                <SelectField field="Right_CEPI" selected="False" rename="Right_CEPI" input="Right_" />
+                <SelectField field="Right_CEPF" selected="False" rename="Right_CEPF" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="ENDERECO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="UF DESTINO" />
+            <Field field="DESTINO" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="ENDERECO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UF DESTINO" order="" />
+            <Field field="DESTINO" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="UF DESTINO" />
+            <Field field="DESTINO" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1134" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="UF ORIGEM" selected="True" />
+            <SelectField field="ORIGEM" selected="True" />
+            <SelectField field="UF DESTINO" selected="True" />
+            <SelectField field="DESTINO" selected="True" />
+            <SelectField field="C_ou_I" selected="True" />
+            <SelectField field="ENDERECO" selected="False" />
+            <SelectField field="DIAS" selected="True" />
+            <SelectField field="CEPI" selected="True" />
+            <SelectField field="CEPF" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UF DESTINO" order="" />
+            <Field field="DESTINO" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1350" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Error</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="True" />
+          <OutputOrder>
+            <Connection>#2</Connection>
+            <Connection>#1</Connection>
+          </OutputOrder>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+            <Field name="COM_TRT" source="Formula: (Multiple Sources)" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1242" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="1" field="COM_TRT" size="1" type="Bool" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[COM_TRT = 1
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+            <Field name="COM_TRT" source="Formula: 1" type="Bool" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UF DESTINO" order="" />
+            <Field field="DESTINO" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1158" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="0" field="COM_TRT" size="1" type="Bool" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[COM_TRT = 0
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+            <Field name="COM_TRT" source="Formula: 0" type="Bool" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UF DESTINO" order="" />
+            <Field field="DESTINO" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1446" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[UF DESTINO]+&quot;-&quot;+[C_ou_I]" field="destination_geographic_identifier" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[destination_geographic_identifier = [UF DESTINO]+"-"+[C_ou_I]
+
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DESTINO" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="DIAS" source="R-DATA:" type="Int32" />
+            <Field name="CEPI" source="R-DATA:" type="Double" />
+            <Field name="CEPF" source="R-DATA:" type="Double" />
+            <Field name="COM_TRT" source="Formula: (Multiple Sources)" type="Bool" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF DESTINO]+&quot;-&quot;+[C_ou_I]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1554" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="CEPI" selected="True" rename="destination_zip_code_start" />
+            <SelectField field="CEPF" selected="True" rename="destination_zip_code_end" />
+            <SelectField field="UF DESTINO" selected="True" rename="destination_state" />
+            <SelectField field="DESTINO" selected="True" rename="destination_city" />
+            <SelectField field="destination_geographic_identifier" selected="True" />
+            <SelectField field="DIAS" selected="True" rename="delivery_time" />
+            <SelectField field="COM_TRT" selected="True" />
+            <SelectField field="UF ORIGEM" selected="False" />
+            <SelectField field="ORIGEM" selected="False" />
+            <SelectField field="C_ou_I" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
+            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
+            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_city" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF DESTINO]+&quot;-&quot;+[C_ou_I]" type="V_WString" />
+            <Field name="delivery_time" source="R-DATA:" type="Int32" />
+            <Field name="COM_TRT" source="Formula: (Multiple Sources)" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1638" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="REGEX_Replace([destination_geographic_identifier], &quot;-C&quot;, &quot;-Capital&quot;)&#xA;" field="destination_geographic_identifier" size="1073741823" type="V_WString" />
+            <FormulaField expression="REGEX_Replace([destination_geographic_identifier], &quot;-I&quot;, &quot;-Interior&quot;)" field="destination_geographic_identifier" size="1073741823" type="V_WString" />
+            <FormulaField expression="&quot;%&quot;" field="trt_type" size="2147483647" type="V_String" />
+            <FormulaField expression="&quot;freight_cost_accumulated&quot;" field="trt_base" size="2147483647" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>destination_geographic_identifier = REGEX_Replace([destination_geographic_identi...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
+            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
+            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_city" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: REGEX_Replace([destination_geographic_identifier], &quot;-I&quot;, &quot;-Interior&quot;)" type="V_WString" />
+            <Field name="delivery_time" source="R-DATA:" type="Int32" />
+            <Field name="COM_TRT" source="Formula: (Multiple Sources)" type="Bool" />
+            <Field name="trt_type" size="2147483647" source="Formula: &quot;%&quot;" type="V_String" />
+            <Field name="trt_base" size="2147483647" source="Formula: &quot;freight_cost_accumulated&quot;" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1434" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([V1],"trt") &amp;&amp; [V2] != ""</Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>V1</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-05-30 15:46:48</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>trt</Operand>
+              <StartDate>2019-05-30 15:46:48</StartDate>
+              <EndDate>2019-05-30 15:46:48</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([V1],"trt") &amp;&amp; [V2] != ""</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="V1" size="45" source="TextInput:" type="V_String" />
+            <Field name="V2" size="6" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="V1" size="45" source="TextInput:" type="V_String" />
+            <Field name="V2" size="6" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxRPluginGui.R">
+        <Position x="1806" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RScript><![CDATA[trt <- read.Alteryx("#1", mode="data.frame")
+cvrg <- read.Alteryx("#2", mode="data.frame")
+
+cvrg$trt_min <- trt$V2[1]
+cvrg$trt_value <- trt$V2[2]
+
+write.Alteryx(cvrg, 1)
+]]></RScript>
+          <UseFullUpdate value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Inclusão de trt_min e trt_value</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output1">
+          <RecordInfo>
+            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
+            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
+            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="delivery_time" source="R-DATA:" type="Int32" />
+            <Field name="COM_TRT" source="R-DATA:" type="Bool" />
+            <Field name="trt_type" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="trt_base" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="trt_min" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="trt_value" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="2142" y="306" width="100" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>COVERAGE</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1926" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [COM_TRT] = 1 THEN &quot;%&quot; ELSE &quot;&quot; ENDIF" field="trt_type" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [COM_TRT] = 1 THEN &quot;freight_cost_accumulated&quot; ELSE &quot;&quot; ENDIF" field="trt_base" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>trt_type = IF [COM_TRT] = 1 THEN "%" ELSE "" ENDIF
+trt_base = IF [COM_TRT] = 1 T...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
+            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
+            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="delivery_time" source="R-DATA:" type="Int32" />
+            <Field name="COM_TRT" source="R-DATA:" type="Bool" />
+            <Field name="trt_type" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;%&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
+            <Field name="trt_base" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;freight_cost_accumulated&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
+            <Field name="trt_min" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="trt_value" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="2058" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_min] ENDIF" field="trt_min" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_value] ENDIF" field="trt_value" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>trt_min = IF [COM_TRT] = 0 THEN "" ELSE [trt_min] ENDIF
+trt_value = IF [COM_TRT]...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
+            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
+            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="delivery_time" source="R-DATA:" type="Int32" />
+            <Field name="COM_TRT" source="R-DATA:" type="Bool" />
+            <Field name="trt_type" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;%&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
+            <Field name="trt_base" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;freight_cost_accumulated&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
+            <Field name="trt_min" size="1073741823" source="Formula: IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_min] ENDIF" type="V_WString" />
+            <Field name="trt_value" size="1073741823" source="Formula: IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_value] ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2166" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="destination_zip_code_start" selected="True" />
+            <SelectField field="destination_zip_code_end" selected="True" />
+            <SelectField field="destination_state" selected="True" />
+            <SelectField field="destination_city" selected="True" />
+            <SelectField field="destination_geographic_identifier" selected="True" />
+            <SelectField field="delivery_time" selected="True" />
+            <SelectField field="trt_min" selected="True" />
+            <SelectField field="COM_TRT" selected="False" />
+            <SelectField field="trt_type" selected="True" />
+            <SelectField field="trt_value" selected="True" />
+            <SelectField field="trt_base" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
+            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
+            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="delivery_time" source="R-DATA:" type="Int32" />
+            <Field name="trt_min" size="1073741823" source="Formula: IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_min] ENDIF" type="V_WString" />
+            <Field name="trt_type" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;%&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
+            <Field name="trt_value" size="1073741823" source="Formula: IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_value] ENDIF" type="V_WString" />
+            <Field name="trt_base" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;freight_cost_accumulated&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="2274" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_min] ENDIF" field="trt_min" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_type] ENDIF" field="trt_type" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_value] ENDIF" field="trt_value" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_base] ENDIF" field="trt_base" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>trt_min = IF [destination_zip_code_start] != [destination_zip_code_end] THEN "" ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
+            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
+            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="delivery_time" source="R-DATA:" type="Int32" />
+            <Field name="trt_min" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_min] ENDIF" type="V_WString" />
+            <Field name="trt_type" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_type] ENDIF" type="V_WString" />
+            <Field name="trt_value" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_value] ENDIF" type="V_WString" />
+            <Field name="trt_base" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_base] ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1566" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([V1],"trt") &amp;&amp; [V2] != Null()</Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>V1</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-05-30 15:46:48</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>trt</Operand>
+              <StartDate>2019-05-30 15:46:48</StartDate>
+              <EndDate>2019-05-30 15:46:48</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([V1],"trt") &amp;&amp; [V2] != Null()</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="V1" size="45" source="TextInput:" type="V_String" />
+            <Field name="V2" size="6" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="V1" size="45" source="TextInput:" type="V_String" />
+            <Field name="V2" size="6" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="2406" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>covOut</Name>
+          <Abbrev>c</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="282" y="534" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>geracepIn</Name>
+          <Abbrev>p</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`</File>
+              <FormatSpecificOptions>
+                <FirstRowData>False</FirstRowData>
+                <ImportLine>1</ImportLine>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>GeraCEP_v2019.1.0.xlsx
+Table=`Menu$`</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
+            <Field name="CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
+            <Field name="CIDADE ABREVIADA" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
+            <Field name="UF-CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
+            <Field name="CEP INI 1" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
+            <Field name="CEP FIM 1" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
+            <Field name="CEP INI 2" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
+            <Field name="CEP FIM 2" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="390" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="True" />
+          <OutputOrder>
+            <Connection>#1</Connection>
+            <Connection>#2</Connection>
+          </OutputOrder>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output1" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output1" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output1" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="18" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Join" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output1" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="26" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="True" />
+      <Destination ToolID="26" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="False" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Join" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="42" Connection="True" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="True" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output1" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="37" Connection="Output" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="39" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (3)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (4)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (5)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (7)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (8)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (43)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (44)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>coverage_duf</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (3)</Description>
+              <Name>Macro Input (3)</Name>
+              <ToolId value="3" />
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (4)</Description>
+              <Name>Macro Input (4)</Name>
+              <ToolId value="4" />
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (5)</Description>
+              <Name>Macro Input (5)</Name>
+              <ToolId value="5" />
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (7)</Description>
+              <Name>Macro Input (7)</Name>
+              <ToolId value="7" />
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (8)</Description>
+              <Name>Macro Input (8)</Name>
+              <ToolId value="8" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (43)</Description>
+              <Name>Macro Output (43)</Name>
+              <ToolId value="43" />
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (44)</Description>
+              <Name>Macro Input (44)</Name>
+              <ToolId value="44" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="3" Selected="True" />
+        <Tool ToolId="4" Selected="True" />
+        <Tool ToolId="5" Selected="True" />
+        <Tool ToolId="7" Selected="True" />
+        <Tool ToolId="8" Selected="True" />
+        <Tool ToolId="43" Selected="True" />
+        <Tool ToolId="44" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

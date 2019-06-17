@@ -380,7 +380,7 @@
     </Node>
     <Node ToolID="202">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="809" y="1625" width="2352" height="972" />
+        <Position x="808.9999" y="1625" width="2352" height="972.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -557,7 +557,7 @@
         </Node>
         <Node ToolID="154">
           <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-            <Position x="834" y="2358" />
+            <Position x="833.9999" y="2358" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -591,7 +591,7 @@ Table=`Abrangencia$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="155">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-            <Position x="869.9997" y="1914" />
+            <Position x="869.9998" y="1914" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1831,6 +1831,26 @@ Table=Coverage</DefaultAnnotationText>
             </Annotation>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="205">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1650" y="2310" width="276" height="28" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>COVERAGE - CARGA FRACIONADA EM XLSX</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
         </Node>
       </ChildNodes>
     </Node>
