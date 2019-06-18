@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="54" y="294" />
+        <Position x="78" y="270" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -31,832 +31,9 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
     </Node>
-    <Node ToolID="2">
-      <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="210" y="210" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <RScript><![CDATA[library(readxl)
-library(dplyr)
-library(magrittr)
-library(stringr)
-
-filename <- read.Alteryx("#1", mode="data.frame")
-filename <- filename[1, 1] %>% as.character()
-guias <- excel_sheets(filename)
-guia.certa <- guias[grepl("mma", guias, ignore.case = T)]
-precos <- read_excel(filename, sheet = guia.certa)
-nr.of.names <- length(names(precos))
-for (i in 1:nr.of.names) {
-  names(precos)[i] <- paste0("X__", as.character(i))
-}
-ind <- str_which(precos$X__1, "rigem: ")
-origem <- str_replace(precos$X__1[ind], "Origem:  ", "")
-ind <- str_which(precos$X__1, "UF")
-keep <- names(precos)[!is.na(precos[ind, ])]
-precos <- precos[, keep]
-precos <- precos[complete.cases(precos), ]
-names(precos) <- precos[1, ]
-precos <- precos[2:nrow(precos), ]
-precos$`Ad. Valorem%` %<>% as.numeric()
-precos$`Ad. Valorem%` <- precos$`Ad. Valorem%` * 100
-precos$`Ad. Valorem%` %<>% as.character()
-
-mynames <- names(precos)[!grepl("kg", colnames(precos), ignore.case = T)]
-mynames <- c(mynames, 
-             names(precos)[grepl("exced", colnames(precos), ignore.case = T)])
-
-df.m <- reshape2::melt(precos, id.vars = mynames)
-df.m$Origem <- origem
-
-range_end <- as.character(df.m$variable)
-a <- str_extract_all(range_end, "[:digit:]+(?=k)", simplify = T)
-df.m$variable <- ifelse(a[, 2] == "", a[, 1], a[, 2])
-
-write.Alteryx(df.m, 1)
-]]></RScript>
-          <UseFullUpdate value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>pre_macro_freight_table_on.R</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Destino" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Ad. Valorem%" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Acima de 100kg (Excedente)" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="variable" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="value" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
-    </Node>
-    <Node ToolID="3">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="630" y="90" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2108_26eb8712c4a5460ebf46bbc93f1be33d_\Engine_7688_d45b61f23c7b4a6389c0896d22e14913_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Profile</DefaultTab>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="4">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="390" y="150" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>[RecordID] = 1</Expression>
-          <Mode>Simple</Mode>
-          <Simple>
-            <Operator>=</Operator>
-            <Field>RecordID</Field>
-            <Operands>
-              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
-              <DateType>fixed</DateType>
-              <PeriodDate>2019-06-13 14:27:49</PeriodDate>
-              <PeriodType>
-              </PeriodType>
-              <PeriodCount>0</PeriodCount>
-              <Operand>1</Operand>
-              <StartDate>2019-06-13 14:27:49</StartDate>
-              <EndDate>2019-06-13 14:27:49</EndDate>
-            </Operands>
-          </Simple>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>[RecordID] = 1</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="True">
-          <RecordInfo>
-            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Destino" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Ad. Valorem%" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Acima de 100kg (Excedente)" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="variable" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="value" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="RecordID" order="Asc" />
-          </SortInfo>
-        </MetaInfo>
-        <MetaInfo connection="False">
-          <RecordInfo>
-            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Destino" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Ad. Valorem%" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Acima de 100kg (Excedente)" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="variable" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="value" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="RecordID" order="Asc" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="5">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="306" y="150" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FieldName>RecordID</FieldName>
-          <StartValue>1</StartValue>
-          <FieldType>Int32</FieldType>
-          <FieldSize>6</FieldSize>
-          <Position>0</Position>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Destino" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Ad. Valorem%" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Acima de 100kg (Excedente)" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="variable" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="value" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="RecordID" order="Asc" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
-    </Node>
-    <Node ToolID="7">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="522" y="90" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="RecordID" selected="False" />
-            <SelectField field="UF" selected="False" />
-            <SelectField field="Destino" selected="False" />
-            <SelectField field="Ad. Valorem%" selected="False" />
-            <SelectField field="Acima de 100kg (Excedente)" selected="False" />
-            <SelectField field="variable" selected="False" />
-            <SelectField field="value" selected="False" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="8">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="606" y="234" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="True" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="RecordID" selected="False" />
-            <SelectField field="UF" selected="True" />
-            <SelectField field="Destino" selected="True" />
-            <SelectField field="variable" selected="True" rename="range_end" />
-            <SelectField field="value" selected="True" rename="base_freight_cost" />
-            <SelectField field="Ad. Valorem%" selected="True" rename="percentage_invoice" />
-            <SelectField field="Origem" selected="False" />
-            <SelectField field="Acima de 100kg (Excedente)" selected="True" rename="exceeding_weight_cost" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Destino" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="9">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="702" y="234" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="[UF]+&quot;-&quot;+[Destino]" field="destination_geographic_identifier" size="1073741823" type="V_WString" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText><![CDATA[destination_geographic_identifier = [UF]+"-"+[Destino]
-]]></DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Destino" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="10">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="810" y="234" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="True" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="UF" selected="False" />
-            <SelectField field="Destino" selected="False" />
-            <SelectField field="destination_geographic_identifier" selected="True" />
-            <SelectField field="range_end" selected="True" />
-            <SelectField field="base_freight_cost" selected="True" />
-            <SelectField field="percentage_invoice" selected="True" />
-            <SelectField field="exceeding_weight_cost" selected="True" />
-            <SelectField field="RecordID" selected="True" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="11">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1182" y="234" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>Contains([destination_geographic_identifier],"apital")</Expression>
-          <Mode>Simple</Mode>
-          <Simple>
-            <Operator>Contains</Operator>
-            <Field>destination_geographic_identifier</Field>
-            <Operands>
-              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
-              <DateType>fixed</DateType>
-              <PeriodDate>2019-06-13 14:43:02</PeriodDate>
-              <PeriodType>
-              </PeriodType>
-              <PeriodCount>0</PeriodCount>
-              <Operand>apital</Operand>
-              <StartDate>2019-06-13 14:43:02</StartDate>
-              <EndDate>2019-06-13 14:43:02</EndDate>
-            </Operands>
-          </Simple>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Contains([destination_geographic_identifier],"apital")</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="True">
-          <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="destination_geographic_identifier" order="Ascending" />
-          </SortInfo>
-        </MetaInfo>
-        <MetaInfo connection="False">
-          <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="destination_geographic_identifier" order="Ascending" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="12">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="930" y="234" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <SortInfo locale="0">
-            <Field field="destination_geographic_identifier" order="Ascending" />
-          </SortInfo>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>destination_geographic_identifier - Ascending</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-          <SortInfo locale="0">
-            <Field field="destination_geographic_identifier" order="Ascending" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
-    </Node>
-    <Node ToolID="15">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1050" y="234" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="RecordID" selected="False" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="destination_geographic_identifier" order="Ascending" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="16">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="1314" y="246" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FieldName>RecordID</FieldName>
-          <StartValue>1</StartValue>
-          <FieldType>Int32</FieldType>
-          <FieldSize>6</FieldSize>
-          <Position>0</Position>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="destination_geographic_identifier" order="Ascending" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
-    </Node>
-    <Node ToolID="18">
-      <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="1410" y="246" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <RScript><![CDATA[df <- read.Alteryx("#1", mode="data.frame")
-
-nr.of.records <- nrow(df)
-unique.dest <- length(unique(df$destination_geographic_identifier))
-multiple <- ceiling(nr.of.records / unique.dest)
-
-for (i in 1:nr.of.records) {
-  if (df$RecordID[i] %% multiple != 0) {
-    df$exceeding_weight_cost[i] <- ""
-  }
-}
-
-df <- sapply(df, sub, pattern = "\\.", replacement = ",") %>% as.data.frame()
-df$RecordID <- NULL
-
-write.Alteryx(df, 1)
-]]></RScript>
-          <UseFullUpdate value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
-    </Node>
-    <Node ToolID="20">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="1314" y="150" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FieldName>RecordID</FieldName>
-          <StartValue>1</StartValue>
-          <FieldType>Int32</FieldType>
-          <FieldSize>6</FieldSize>
-          <Position>0</Position>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="destination_geographic_identifier" order="Ascending" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
-    </Node>
-    <Node ToolID="21">
-      <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="1410" y="150" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <RScript><![CDATA[df <- read.Alteryx("#1", mode="data.frame")
-
-nr.of.records <- nrow(df)
-unique.dest <- length(unique(df$destination_geographic_identifier))
-multiple <- ceiling(nr.of.records / unique.dest)
-
-for (i in 1:nr.of.records) {
-  if (df$RecordID[i] %% multiple != 0) {
-    df$exceeding_weight_cost[i] <- ""
-  }
-}
-
-df <- sapply(df, sub, pattern = "\\.", replacement = ",") %>% as.data.frame()
-df$RecordID <- NULL
-
-write.Alteryx(df, 1)
-]]></RScript>
-          <UseFullUpdate value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
-    </Node>
-    <Node ToolID="22">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="522" y="210" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <ByName_ErrorMode>Warning</ByName_ErrorMode>
-          <ByName_OutputMode>All</ByName_OutputMode>
-          <Mode>ByName</Mode>
-          <SetOutputOrder value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Destino" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Ad. Valorem%" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Acima de 100kg (Excedente)" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="variable" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="value" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
-    </Node>
-    <Node ToolID="23">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="930" y="174" width="276" height="28" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>FREIGHT TABLE - CARGA FRACIONADA EM XLSX</Text>
-          <Font name="Arial" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="24">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1542" y="90" width="100" height="16" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>CAPITAL</Text>
-          <Font name="Arial" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="25">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1554" y="318" width="100" height="24" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>INTERIOR</Text>
-          <Font name="Arial" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="26">
-      <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="222" y="558" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <RScript><![CDATA[library(readxl)
-library(dplyr)
-library(magrittr)
-library(stringr)
-
-filename <- read.Alteryx("#1", mode="data.frame")
-filename <- filename[1, 1] %>% as.character()
-guias <- excel_sheets(filename)
-guia.certa <- guias[grepl("mma", guias, ignore.case = T)]
-precos <- read_excel(filename, sheet = guia.certa)
-nr.of.names <- length(names(precos))
-for (i in 1:nr.of.names) {
-  names(precos)[i] <- paste0("X__", as.character(i))
-}
-ind <- str_which(precos$X__1, "Generalidades") + 1
-
-precos <- precos[ind:nrow(precos), c("X__1", "X__12")] %>% 
-  .[complete.cases(.), ]
-
-de_para <- c("gris_value",
-             "gris_min",
-             "tollvalue",
-             "delivery_fixed",
-             "tas_fixed",
-             "não usa",
-             "não usa",
-             "cubic_factor_capital",
-             "cubic_factor_interior",
-             "tde_value",
-             "tde_min",
-             "tde_max",
-             "não usa",
-             "não usa",
-             "não usa",
-             "não usa",
-             "não usa",
-             "não usa",
-             "não usa",
-             "não usa",
-             "não usa")
-
-precos$X__1 <- de_para
-precos <- precos %>% filter(X__1 != "não usa")
-# gris_value
-gris_value <- precos[grepl("gris_value", precos$X__1), 2] %>% as.numeric()
-gris_value <- as.character(gris_value * 100 )
-gris_value %<>% sub(pattern = "\\.", replacement = ",")
-precos[grepl("gris_value", precos$X__1), 2] <- gris_value
-#tde_value
-tde_value <- precos[grepl("tde_value", precos$X__1), 2] %>% as.numeric()
-tde_value <- as.character(tde_value * 100 )
-tde_value %<>% sub(pattern = "\\.", replacement = ",")
-precos[grepl("tde_value", precos$X__1), 2] <- tde_value
-# cubic_capital
-cubic_fac <- precos[grepl("cubic_factor_capital", precos$X__1), 2]
-cubic_fac %<>% str_extract(pattern = "[:digit:]+")
-precos[grepl("cubic_factor_capital", precos$X__1), 2] <- cubic_fac
-# cubic_interior
-cubic_fac <- precos[grepl("cubic_factor_interior", precos$X__1), 2]
-cubic_fac %<>% str_extract(pattern = "[:digit:]+")
-precos[grepl("cubic_factor_interior", precos$X__1), 2] <- cubic_fac
-
-write.Alteryx(precos, 1)
-]]></RScript>
-          <UseFullUpdate value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>pre_macro_generalities_on.R</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="X__1" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="X__12" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
-    </Node>
-    <Node ToolID="27">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="522" y="510" width="276" height="28" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>GENERALITIES - CARGA FRACIONADA EM XLSX</Text>
-          <Font name="Arial" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="29">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="330" y="570" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="X__12" selected="True" rename="X__11" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="X__1" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="X__11" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
     <Node ToolID="30">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="294" y="450" />
+        <Position x="78" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -882,203 +59,9 @@ Table=`Sheet1$`</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
     </Node>
-    <Node ToolID="31">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
-        <Position x="426" y="558" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FieldFind>X__1</FieldFind>
-          <FieldSearch>X__1</FieldSearch>
-          <ReplaceFoundField>X__11</ReplaceFoundField>
-          <FindMode>FindAny</FindMode>
-          <NoCase value="False" />
-          <MatchWholeWord value="False" />
-          <ReplaceMode>Append</ReplaceMode>
-          <ReplaceMultipleFound value="True" />
-          <ReplaceAppendFields>
-            <Field field="X__11" />
-          </ReplaceAppendFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
-            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
-            <Field name="X__11_2" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
-    </Node>
-    <Node ToolID="32">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="522" y="558" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="[X__11] + [X__11_2]" field="X__12" size="1073741823" type="V_WString" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText><![CDATA[X__12 = [X__11] + [X__11_2]
-]]></DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
-            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
-            <Field name="X__11_2" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="X__12" size="1073741823" source="Formula: [X__11] + [X__11_2]" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="33">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="606" y="558" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="X__11" selected="False" />
-            <SelectField field="X__11_2" selected="False" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
-            <Field name="X__12" size="1073741823" source="Formula: [X__11] + [X__11_2]" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="34">
-      <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="714" y="558" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <RScript><![CDATA[library(stringr)
-
-df <- read.Alteryx("#1", mode="data.frame")
-df2 <- df
-
-# Capital
-ind <- which(grepl("_capital", df[, 1]))[1]
-
-df <- rbind(df[1:ind, ], df[ind + 2:nrow(df), ])
-df[, 1] <- gsub("_capital", "", df[, 1])
-
-df2 <- rbind(df2[1:ind - 1, ], df2[ind + 1:nrow(df2), ])
-df2[, 1] <- gsub("_interior", "", df2[, 1])
-
-write.Alteryx(df, 1) # capital
-write.Alteryx(df2, 2) # interior
-
-]]></RScript>
-          <UseFullUpdate value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="X__1" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="X__12" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-        <MetaInfo connection="Output2">
-          <RecordInfo>
-            <Field name="X__1" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="X__12" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
-    </Node>
-    <Node ToolID="36">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1602" y="450" width="100" height="24" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>CAPITAL</Text>
-          <Font name="Arial" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="37">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1974" y="558" width="100" height="24" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>INTERIOR</Text>
-          <Font name="Arial" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="38">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="690" y="114" width="72" height="24" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>ORIGEM</Text>
-          <Font name="Arial" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
     <Node ToolID="39">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1542" y="138" />
+        <Position x="534" y="90" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1101,7 +84,7 @@ Table=Freight Table</DefaultAnnotationText>
     </Node>
     <Node ToolID="40">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1662" y="270" />
+        <Position x="678" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1124,7 +107,7 @@ Table=Freight Table</DefaultAnnotationText>
     </Node>
     <Node ToolID="41">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1542" y="438" />
+        <Position x="678" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1147,7 +130,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="42">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1914" y="546" />
+        <Position x="558" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1183,7 +166,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="44">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="54" y="114" width="59" height="59" />
+        <Position x="42" y="30" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1196,7 +179,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="45">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="54" y="204" width="59" height="59" />
+        <Position x="54" y="114" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1209,7 +192,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="46">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FolderBrowse.FolderBrowse">
-        <Position x="2010" y="54" width="59" height="59" />
+        <Position x="1050" y="30" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1222,7 +205,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="47">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="1668" y="96" width="59" height="59" />
+        <Position x="858" y="126" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1235,7 +218,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="48">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="1746" y="174" width="59" height="59" />
+        <Position x="966" y="126" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1248,7 +231,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="49">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="1890" y="246" width="59" height="59" />
+        <Position x="1098" y="126" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1261,7 +244,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="50">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="2022" y="306" width="59" height="59" />
+        <Position x="1230" y="126" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1272,141 +255,108 @@ Table=Generalities</DefaultAnnotationText>
         </Annotation>
       </Properties>
     </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="462" y="474" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_12956_54d0c47c61a645bc97784b71859efbb7_\Engine_4276_ee3927cde2a44716b5f713950244e002_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings>
+        <Position x="282" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Input.precosIn"><![CDATA[PATH_TO_FILE=PATH_TO_FILE
+]]></Value>
+          <Value name="Input.generalalitiesOnIn"><![CDATA[X__1=X__1
+X__11=X__11
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>freight_table_generalities_on (51)</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="origemOut">
+          <RecordInfo>
+            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="freightTableCapitalOut">
+          <RecordInfo>
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+          <ForceUpdate />
+        </MetaInfo>
+        <MetaInfo connection="freightTableInteriorOut">
+          <RecordInfo>
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+          <ForceUpdate />
+        </MetaInfo>
+        <MetaInfo connection="generalitiesCapitalOut">
+          <RecordInfo>
+            <Field name="X__1" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="X__12" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+          <ForceUpdate />
+          <ForceUpdate />
+        </MetaInfo>
+        <MetaInfo connection="generalitiesInteriorOut">
+          <RecordInfo>
+            <Field name="X__1" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="X__12" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="macros\freight_table_generalities_on.yxmc" />
+    </Node>
   </Nodes>
   <Connections>
-    <Connection name="#1">
+    <Connection>
       <Origin ToolID="1" Connection="Output" />
-      <Destination ToolID="2" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="1" Connection="Output" />
-      <Destination ToolID="26" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="2" Connection="Output1" />
-      <Destination ToolID="5" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="4" Connection="True" />
-      <Destination ToolID="7" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="4" Connection="True" />
-      <Destination ToolID="22" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="4" Connection="False" />
-      <Destination ToolID="22" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="5" Connection="Output" />
-      <Destination ToolID="4" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="7" Connection="Output" />
-      <Destination ToolID="3" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="8" Connection="Output" />
-      <Destination ToolID="9" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="9" Connection="Output" />
-      <Destination ToolID="10" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="10" Connection="Output" />
-      <Destination ToolID="12" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="11" Connection="False" />
-      <Destination ToolID="16" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="11" Connection="True" />
-      <Destination ToolID="20" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="12" Connection="Output" />
-      <Destination ToolID="15" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="15" Connection="Output" />
-      <Destination ToolID="11" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="16" Connection="Output" />
-      <Destination ToolID="18" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="18" Connection="Output1" />
-      <Destination ToolID="40" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="48" Connection="Action" />
-      <Destination ToolID="40" Connection="Action" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="20" Connection="Output" />
-      <Destination ToolID="21" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="21" Connection="Output1" />
-      <Destination ToolID="39" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="47" Connection="Action" />
-      <Destination ToolID="39" Connection="Action" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="22" Connection="Output" />
-      <Destination ToolID="8" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="26" Connection="Output1" />
-      <Destination ToolID="29" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="29" Connection="Output" />
-      <Destination ToolID="31" Connection="Source" />
+      <Destination ToolID="54" Connection="precosIn" />
     </Connection>
     <Connection>
       <Origin ToolID="30" Connection="Output" />
-      <Destination ToolID="31" Connection="Targets" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="31" Connection="Output" />
-      <Destination ToolID="32" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="32" Connection="Output" />
-      <Destination ToolID="33" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="33" Connection="Output" />
-      <Destination ToolID="34" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="34" Connection="Output1" />
-      <Destination ToolID="41" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="49" Connection="Action" />
-      <Destination ToolID="41" Connection="Action" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="34" Connection="Output2" />
-      <Destination ToolID="42" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="50" Connection="Action" />
-      <Destination ToolID="42" Connection="Action" />
+      <Destination ToolID="54" Connection="generalalitiesOnIn" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="44" Connection="Question" />
       <Destination ToolID="45" Connection="Question" />
     </Connection>
-    <Connection name="#2">
+    <Connection name="#2" Wireless="True">
       <Origin ToolID="45" Connection="Action" />
       <Destination ToolID="1" Connection="Action" />
     </Connection>
@@ -1425,6 +375,42 @@ Table=Generalities</DefaultAnnotationText>
     <Connection name="#1">
       <Origin ToolID="46" Connection="Question" />
       <Destination ToolID="50" Connection="Question" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="47" Connection="Action" />
+      <Destination ToolID="39" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="freightTableCapitalOut" />
+      <Destination ToolID="39" Connection="Input" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="48" Connection="Action" />
+      <Destination ToolID="40" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="freightTableInteriorOut" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="49" Connection="Action" />
+      <Destination ToolID="41" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="generalitiesCapitalOut" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="50" Connection="Action" />
+      <Destination ToolID="42" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="generalitiesInteriorOut" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="origemOut" />
+      <Destination ToolID="52" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -1485,13 +471,16 @@ Table=Generalities</DefaultAnnotationText>
           <Description>(Always Run)</Description>
           <True>
             <Action>
-              <Type>UpdateValue</Type>
+              <Type>Dynamic</Type>
               <Description />
               <ToolId value="45" />
-              <Mode>Simple</Mode>
-              <Variable />
-              <Replace value="False" />
-              <Destination>1/Fields/Field/@name</Destination>
+              <Expression>{{INPUT}}</Expression>
+              <Destination>1/Data/r[1]/c[1]</Destination>
+              <Mapping>Update Cell</Mapping>
+              <Mode>Expression</Mode>
+              <DynamicConfiguration>row	1
+column	1</DynamicConfiguration>
+              <DefaultConfiguration value="True" />
             </Action>
             <Action>
               <Type>UpdateValue</Type>
@@ -1571,11 +560,12 @@ Table=Generalities</DefaultAnnotationText>
       <Wiz_CustomGraphic value="False" />
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
-        <Tool ToolId="3" Selected="False" />
+        <Tool ToolId="54" Selected="True" />
         <Tool ToolId="39" Selected="True" />
         <Tool ToolId="40" Selected="True" />
         <Tool ToolId="41" Selected="True" />
         <Tool ToolId="42" Selected="True" />
+        <Tool ToolId="52" Selected="False" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

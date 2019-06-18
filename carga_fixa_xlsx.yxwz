@@ -1,149 +1,9 @@
 <?xml version="1.0"?>
 <AlteryxDocument yxmdVer="2019.1">
   <Nodes>
-    <Node ToolID="6">
-      <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="210" y="246" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <RScript>library(readxl)
-library(dplyr)
-library(magrittr)
-library(stringr)
-
-###########
-## Dados ##
-###########
-# filename &lt;- "C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_Tabela MMA 27.04.xlsx"
-fl &lt;- read.Alteryx("#1", mode="data.frame")
-filename &lt;- fl[1, 1] %&gt;% as.character()
-precos &lt;- read_excel(filename, col_names = FALSE)
-
-##############################################
-## Freight table: pre_macro_freight_table.R ##
-##############################################
-nr.of.names &lt;- length(names(precos))
-for (i in 1:nr.of.names) {
-  names(precos)[i] &lt;- paste0("X__", as.character(i))
-}
-ind &lt;- str_which(precos$X__1, "rigem: ")
-origem &lt;- str_replace(precos$X__1[ind], "Origem:  ", "")
-
-precos &lt;- precos %&gt;% select(X__1:X__5)
-precos &lt;- precos[complete.cases(precos), ]
-colnames(precos) &lt;- precos[1, ]
-precos &lt;- precos[-1, ]
-
-colnames(precos) &lt;- c("UF", "Destinos", "invoice_factor", "minimum_freight",
-                      "weight_factor")
-
-precos$invoice_factor %&lt;&gt;% as.numeric()
-precos$invoice_factor &lt;- precos$invoice_factor * 100
-precos$minimum_freight %&lt;&gt;% as.numeric()
-precos$weight_factor %&lt;&gt;% as.numeric()
-
-precos$destination_geographic_identifier &lt;- paste0(precos$UF, "-",
-                                                     precos$Destinos)
-
-precos %&lt;&gt;% select(destination_geographic_identifier, everything(), 
-                   -c(UF, Destinos))
-
-hasDigit &lt;- str_detect(precos$destination_geographic_identifier, "[:digit:]")
-
-uf &lt;- str_extract_all(precos$destination_geographic_identifier,
-                      "[:alpha:]{2}(?=-)") %&gt;% as.character()
-
-stdDest &lt;- str_extract(precos$destination_geographic_identifier,
-                       "Capital|Interior")
-newdf &lt;- precos[1, ]
-for (i in seq_along(precos$destination_geographic_identifier)) {
-  if (hasDigit[i] == TRUE) {
-    precos$destination_geographic_identifier[i] &lt;- paste0(uf[i], "-", 
-                                                          stdDest[i], " 1")
-    
-    newdf &lt;- precos[i, ]
-    newdf$destination_geographic_identifier &lt;- paste0(uf[i], "-", 
-                                                      stdDest[i], " 2")
-    precos &lt;- rbind(precos, newdf)
-  }
-}
-
-orig &lt;- data.frame(origem = origem)
-
-write.Alteryx(precos, 1)
-write.Alteryx(orig, 5)
-
-############################################
-## Generalities: pre_macro_generalities.R ##
-############################################
-precos &lt;- read_excel(filename, col_names = FALSE) # start from raw data
-
-ind &lt;- str_which(precos$X__1, "Generalidades") + 1
-
-precos &lt;- precos[ind:nrow(precos), c("X__1", "X__11")] %&gt;% 
-  .[complete.cases(.), ]
-
-precos &lt;- precos[c(1:9, 14, 15), ]
-
-de_para &lt;- c("gris_value", "gris_min",
-             "toll_value",
-             "delivery_value",
-             "tas_value",
-             "other_fee_value", "other_fee_fraction", 
-             "cubic_factor",
-             "tda_fixed",
-             "trt_value", "trt_min",
-             "icms_tax_enable", "iss_tax_enable")
-
-lastRow &lt;- precos[1:2, ]
-lastRow$X__1[1] &lt;- "ICMS"; lastRow$X__11[1] &lt;- "true"
-lastRow$X__1[2] &lt;- "ISS"; lastRow$X__11[2] &lt;- "true"
-precos &lt;- rbind(precos, lastRow)
-precos$X__1 &lt;- de_para
-
-ind &lt;- which(precos$X__1 == "cubic_factor")
-precos$X__11[ind] %&lt;&gt;% str_extract("[:digit:]+")
-precos$X__11[1] &lt;- as.numeric(precos$X__11[1]) * 100
-ind &lt;- which(precos$X__1 == "trt_value")
-precos$X__11[ind] &lt;- as.numeric(precos$X__11[ind]) * 100
-
-write.Alteryx(precos, 2)</RScript>
-          <UseFullUpdate value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>Freight table: pre_macro_freight_table.R
-
-Generalities: pre_macro_generalities.R</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="invoice_factor" source="R-DATA:" type="Double" />
-            <Field name="minimum_freight" source="R-DATA:" type="Double" />
-            <Field name="weight_factor" source="R-DATA:" type="Double" />
-          </RecordInfo>
-        </MetaInfo>
-        <MetaInfo connection="Output5">
-          <RecordInfo>
-            <Field name="origem" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-        <MetaInfo connection="Output2">
-          <RecordInfo>
-            <Field name="X__1" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="X__11" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
-    </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="78" y="246" />
+        <Position x="474" y="318" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -171,165 +31,9 @@ Generalities: pre_macro_generalities.R</AnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
     </Node>
-    <Node ToolID="13">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="402" y="174" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="invoice_factor" source="R-DATA:" type="Double" />
-            <Field name="minimum_freight" source="R-DATA:" type="Double" />
-            <Field name="weight_factor" source="R-DATA:" type="Double" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="14">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="450" y="438" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="X__1" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="X__11" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="15">
-      <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="522" y="522" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <RScript><![CDATA[library(readxl)
-library(excel.link)
-library(dplyr)
-library(magrittr)
-library(stringr)
-
-##############################
-## pre_macro_coverage_duf.R ##
-##############################
-#filename <- "C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/GeraCEP_v2019.1.0.xlsx"
-fl <- read.Alteryx("#1", mode="data.frame")
-filename <- fl[1, 1] %>% as.character()
-
-geraCEP <- read_excel(filename, col_names = TRUE)
-geraCEP %<>% select(`UF-CIDADE`, `CEP INI 1`, `CEP FIM 1`)
-geraCEP %<>% .[complete.cases(.), ]
-
-ind.dupl <- duplicated(geraCEP$`UF-CIDADE`)
-geraCEP <- geraCEP[!ind.dupl, ]
-
-# geraCEP %<>% .[order(geraCEP$`UF-CIDADE`), ]
-
-# filename <- "C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_TRT por CEP-IF.xlsx"
-filename <- fl[2, 1] %>% as.character()
-
-trt <- read_excel(filename, col_names = TRUE, skip = 1)
-trt <- trt[, 1:4]
-trt %<>% .[complete.cases(.), ]
-trt$`UF-CIDADE` <- paste0(trt$UF, "-", trt$CIDADE)
-trt %<>% select(`UF-CIDADE`, CEP, ENDERECO)
-
-QuebraCEP <- function(rua, uf_cidade, atual, inicio, fim) {
-  df <- data.frame(ENDERECO=character(3), 
-                   CEPI=numeric(3), 
-                   CEPF=numeric(3))
-  df$ENDERECO <- rep(rua, 3)
-  df$`UF-CIDADE` <- rep(uf_cidade, 3)
-  df$CEPI[1] <- inicio
-  df$CEPF[1] <- atual - 1
-  df$CEPI[2] <- atual
-  df$CEPF[2] <- atual
-  df$CEPI[3] <- atual + 1
-  df$CEPF[3] <- fim
-  return(df)
-}
-
-df <- list()
-for (i in seq_along(trt$`UF-CIDADE`)) {
-  for (j in seq_along(geraCEP$`UF-CIDADE`)) {
-    if (trt$CEP[i] >= geraCEP$`CEP INI 1`[j] &&
-        trt$CEP[i] <= geraCEP$`CEP FIM 1`[j]) {
-      df[[i]] <- QuebraCEP(rua = trt$ENDERECO[i],
-                           uf_cidade = trt$`UF-CIDADE`[i],
-                           atual = trt$CEP[i],
-                           inicio = geraCEP$`CEP INI 1`[j],
-                           fim = geraCEP$`CEP FIM 1`[j]
-                           )
-      break
-    }
-  }
-}
-
-df <- Reduce(rbind, df)
-
-trt.cvrg <- df %>% select(ENDERECO, `UF-CIDADE`, CEPI, CEPF)
-cvrg <- df %>% select(`UF-CIDADE`)
-new.names <- c("UF", "CIDADE")
-cvrg <- cvrg %>% tidyr::separate(col = 1, into = new.names, 
-                                 sep = "-", extra = "merge")
-trt.cvrg$UF <- cvrg$UF
-trt.cvrg$CIDADE <- cvrg$CIDADE
-trt.cvrg <- trt.cvrg %>% select(ENDERECO, UF, CIDADE, `UF-CIDADE`, CEPI, CEPF)
-
-write.Alteryx(trt.cvrg, 1)
-]]></RScript>
-          <UseFullUpdate value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>pre_macro_coverage_duf.R: executam-se algumas operações de preparação e limpeza de ambos os datasets e, em seguida, "quebram-se" as faixas de CEP de cada observação em TRT que encontre correspondência em GeraCEP</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="ENDERECO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="CIDADE" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF-CIDADE" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
-    </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="582" y="150" width="100" height="24" />
+        <Position x="738" y="258" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -349,7 +53,7 @@ write.Alteryx(trt.cvrg, 1)
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="738" y="378" width="100" height="24" />
+        <Position x="738" y="294" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -367,62 +71,9 @@ write.Alteryx(trt.cvrg, 1)
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="19">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="2310" y="858" width="100" height="24" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>COVERAGE</Text>
-          <Font name="Arial" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="20">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1002" y="702" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="UF" selected="True" rename="UF DESTINO" />
-            <SelectField field="CIDADE" selected="True" rename="DESTINO" />
-            <SelectField field="UF-CIDADE" selected="False" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>CEPs "quebrados" SP e RJ</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="ENDERECO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="378" y="546" />
+        <Position x="234" y="522" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -455,85 +106,9 @@ write.Alteryx(trt.cvrg, 1)
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
     </Node>
-    <Node ToolID="24">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="498" y="174" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="Null()" field="range_end" size="8" type="Int64" />
-            <FormulaField expression="Null()" field="base_freight_cost" size="8" type="Double" />
-            <FormulaField expression="Null()" field="percentage_invoice" size="8" type="Double" />
-            <FormulaField expression="Null()" field="exceeding_weight_cost" size="8" type="Double" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>range_end = Null()
-base_freight_cost = Null()
-percentage_invoice = Null()
-exceed...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="invoice_factor" source="R-DATA:" type="Double" />
-            <Field name="minimum_freight" source="R-DATA:" type="Double" />
-            <Field name="weight_factor" source="R-DATA:" type="Double" />
-            <Field name="range_end" source="Formula: Null()" type="Int64" />
-            <Field name="base_freight_cost" source="Formula: Null()" type="Double" />
-            <Field name="percentage_invoice" source="Formula: Null()" type="Double" />
-            <Field name="exceeding_weight_cost" source="Formula: Null()" type="Double" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="25">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="606" y="174" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="True" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="destination_geographic_identifier" selected="True" />
-            <SelectField field="range_end" selected="True" />
-            <SelectField field="minimum_freight" selected="True" />
-            <SelectField field="invoice_factor" selected="True" />
-            <SelectField field="weight_factor" selected="True" />
-            <SelectField field="base_freight_cost" selected="True" />
-            <SelectField field="percentage_invoice" selected="True" />
-            <SelectField field="exceeding_weight_cost" selected="True" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="range_end" source="Formula: Null()" type="Int64" />
-            <Field name="minimum_freight" source="R-DATA:" type="Double" />
-            <Field name="invoice_factor" source="R-DATA:" type="Double" />
-            <Field name="weight_factor" source="R-DATA:" type="Double" />
-            <Field name="base_freight_cost" source="Formula: Null()" type="Double" />
-            <Field name="percentage_invoice" source="Formula: Null()" type="Double" />
-            <Field name="exceeding_weight_cost" source="Formula: Null()" type="Double" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="450" y="354" />
+        <Position x="474" y="426" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -552,6 +127,7 @@ exceed...</DefaultAnnotationText>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
+          <AnnotationText>generalities.csv (template)</AnnotationText>
           <DefaultAnnotationText>generalities.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
@@ -564,125 +140,9 @@ exceed...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
     </Node>
-    <Node ToolID="31">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
-        <Position x="582" y="414" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FieldFind>X__1</FieldFind>
-          <FieldSearch>X__1</FieldSearch>
-          <ReplaceFoundField>X__11</ReplaceFoundField>
-          <FindMode>FindWhole</FindMode>
-          <NoCase value="False" />
-          <MatchWholeWord value="False" />
-          <ReplaceMode>Append</ReplaceMode>
-          <ReplaceMultipleFound value="True" />
-          <ReplaceAppendFields>
-            <Field field="X__11" />
-          </ReplaceAppendFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>VLOOKUP</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="X__1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
-            <Field name="X__11" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
-            <Field name="X__11_2" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
-    </Node>
-    <Node ToolID="34">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="690" y="414" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="X__1" selected="True" rename="V1" />
-            <SelectField field="X__11" selected="False" />
-            <SelectField field="X__11_2" selected="True" rename="V2" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="V1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
-            <Field name="V2" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="41">
-      <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="318" y="846" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <RScript><![CDATA[library(readxl)
-library(dplyr)
-library(stringr)
-
-# origem <- "SERRA"
-origem <- read.Alteryx("#1", mode="data.frame")
-origem <- as.character(origem[1, 1])
-
-fl <- read.Alteryx("#2", mode="data.frame")
-filename <- as.character(fl[1, 1])
-# filename <- "C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx"
-
-guias <- excel_sheets(filename)
-
-for (i in 1:length(guias)) {
-  prazos <- read_excel(filename, sheet = guias[1], skip = 2)
-  cidade.origem <- as.character(prazos[1, 1])
-  if (str_detect(cidade.origem, origem)) {
-    break
-  }
-}
-
-write.Alteryx(prazos, 1)
-]]></RScript>
-          <UseFullUpdate value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>escolhe_tabela_prazos_v2.R
-
-Escolhe qual guia da planilha 42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx deve ser lida, conforme a origem em 42519_Tabela MMA 27.04.xlsx.</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="CIDADE ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="CIDADE DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF__1" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="C/I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="PRAZO  dias uteis" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
-    </Node>
     <Node ToolID="43">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="174" y="846" />
+        <Position x="534" y="642" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -710,70 +170,9 @@ Escolhe qual guia da planilha 42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx dev
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
     </Node>
-    <Node ToolID="44">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="630" y="810" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="True" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="UF" selected="True" rename="UF ORIGEM" />
-            <SelectField field="CIDADE ORIGEM" selected="True" rename="ORIGEM" />
-            <SelectField field="UF__1" selected="True" rename="UF DESTINO" />
-            <SelectField field="CIDADE DESTINO" selected="True" rename="DESTINO" />
-            <SelectField field="C/I" selected="True" rename="C_ou_I" />
-            <SelectField field="PRAZO  dias uteis" selected="True" rename="DIAS" type="Int32" size="4" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="45">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="786" y="414" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="Replace([V2], &quot;.&quot;, &quot;,&quot;)" field="V2" size="1073741823" type="V_WString" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText><![CDATA[V2 = Replace([V2], ".", ",")
-]]></DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="V1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
-            <Field name="V2" size="1073741823" source="Formula: Replace([V2], &quot;.&quot;, &quot;,&quot;)" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
     <Node ToolID="46">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="450" y="918" />
+        <Position x="726" y="702" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -805,985 +204,6 @@ Table=`Menu$`</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
     </Node>
-    <Node ToolID="47">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="546" y="918" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="UF" selected="True" rename="UF DESTINO" />
-            <SelectField field="CIDADE" selected="True" rename="DESTINO" />
-            <SelectField field="CIDADE ABREVIADA" selected="False" />
-            <SelectField field="UF-CIDADE" selected="False" />
-            <SelectField field="CEP INI 2" selected="False" />
-            <SelectField field="CEP FIM 2" selected="False" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
-            <Field name="DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
-            <Field name="CEP INI 1" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
-            <Field name="CEP FIM 1" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="49">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="762" y="906" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="Uppercase([DESTINO])" field="DESTINO" size="1073741823" type="V_WString" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText><![CDATA[DESTINO = Uppercase([DESTINO])
-]]></DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF.DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
-            <Field name="CEP.INI.1" source="R-DATA:" type="Double" />
-            <Field name="CEP.FIM.1" source="R-DATA:" type="Double" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="50">
-      <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="642" y="918" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <RScript><![CDATA[df <- read.Alteryx("#1", mode="data.frame")
-
-unwanted_array = list('Š'='S', 'š'='s', 'Ž'='Z', 'ž'='z', 'À'='A', 'Á'='A', 
-                      'Â'='A', 'Ã'='A', 'Ä'='A', 'Å'='A', 'Æ'='A', 'Ç'='C', 
-                      'È'='E', 'É'='E', 'Ê'='E', 'Ë'='E', 'Ì'='I', 'Í'='I', 
-                      'Î'='I', 'Ï'='I', 'Ñ'='N', 'Ò'='O', 'Ó'='O', 'Ô'='O', 
-                      'Õ'='O', 'Ö'='O', 'Ø'='O', 'Ù'='U', 'Ú'='U', 'Û'='U', 
-                      'Ü'='U', 'Ý'='Y', 'Þ'='B', 'ß'='Ss', 'à'='a', 'á'='a', 
-                      'â'='a', 'ã'='a', 'ä'='a', 'å'='a', 'æ'='a', 'ç'='c',
-                      'è'='e', 'é'='e', 'ê'='e', 'ë'='e', 'ì'='i', 'í'='i', 
-                      'î'='i', 'ï'='i', 'ð'='o', 'ñ'='n', 'ò'='o', 'ó'='o', 
-                      'ô'='o', 'õ'='o','ö'='o', 'ø'='o', 'ù'='u', 'ú'='u', 
-                      'û'='u', 'ý'='y', 'ý'='y', 'þ'='b', 'ÿ'='y')
-
-df$DESTINO <- chartr(paste(names(unwanted_array), collapse=''),
-       							paste(unwanted_array, collapse=''),
-       							df$DESTINO)
-write.Alteryx(df, 1)
-]]></RScript>
-          <UseFullUpdate value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>Remove acentos</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="UF.DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="CEP.INI.1" source="R-DATA:" type="Double" />
-            <Field name="CEP.FIM.1" source="R-DATA:" type="Double" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
-    </Node>
-    <Node ToolID="52">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="846" y="906" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="UF.DESTINO" selected="True" rename="UF DESTINO" />
-            <SelectField field="CEP.INI.1" selected="True" rename="CEPI" />
-            <SelectField field="CEP.FIM.1" selected="True" rename="CEPF" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="53">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1014" y="894" />
-      </GuiSettings>
-      <Properties>
-        <Configuration joinByRecordPos="False">
-          <JoinInfo connection="Left">
-            <Field field="UF DESTINO" />
-            <Field field="DESTINO" />
-          </JoinInfo>
-          <JoinInfo connection="Right">
-            <Field field="UF DESTINO" />
-            <Field field="DESTINO" />
-          </JoinInfo>
-          <SelectConfiguration>
-            <Configuration outputConnection="Join">
-              <OrderChanged value="False" />
-              <CommaDecimal value="False" />
-              <SelectFields>
-                <SelectField field="Right_UF DESTINO" selected="False" rename="Right_UF DESTINO" input="Right_" />
-                <SelectField field="Right_DESTINO" selected="False" rename="Right_DESTINO" input="Right_" />
-                <SelectField field="*Unknown" selected="True" />
-              </SelectFields>
-            </Configuration>
-          </SelectConfiguration>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Left">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-          </RecordInfo>
-          <SortInfo noProgress="True">
-            <Field field="UF DESTINO" />
-            <Field field="DESTINO" />
-          </SortInfo>
-        </MetaInfo>
-        <MetaInfo connection="Join">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="UF DESTINO" order="" />
-            <Field field="DESTINO" order="" />
-          </SortInfo>
-        </MetaInfo>
-        <MetaInfo connection="Right">
-          <RecordInfo>
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-          </RecordInfo>
-          <SortInfo noProgress="True">
-            <Field field="UF DESTINO" />
-            <Field field="DESTINO" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
-    </Node>
-    <Node ToolID="54">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="858" y="798" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="Uppercase([DESTINO])" field="DESTINO" size="1073741823" type="V_WString" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText><![CDATA[DESTINO = Uppercase([DESTINO])
-]]></DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF.ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF.DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="55">
-      <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="738" y="810" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <RScript><![CDATA[df <- read.Alteryx("#1", mode="data.frame")
-
-unwanted_array = list('Š'='S', 'š'='s', 'Ž'='Z', 'ž'='z', 'À'='A', 'Á'='A', 
-                      'Â'='A', 'Ã'='A', 'Ä'='A', 'Å'='A', 'Æ'='A', 'Ç'='C', 
-                      'È'='E', 'É'='E', 'Ê'='E', 'Ë'='E', 'Ì'='I', 'Í'='I', 
-                      'Î'='I', 'Ï'='I', 'Ñ'='N', 'Ò'='O', 'Ó'='O', 'Ô'='O', 
-                      'Õ'='O', 'Ö'='O', 'Ø'='O', 'Ù'='U', 'Ú'='U', 'Û'='U', 
-                      'Ü'='U', 'Ý'='Y', 'Þ'='B', 'ß'='Ss', 'à'='a', 'á'='a', 
-                      'â'='a', 'ã'='a', 'ä'='a', 'å'='a', 'æ'='a', 'ç'='c',
-                      'è'='e', 'é'='e', 'ê'='e', 'ë'='e', 'ì'='i', 'í'='i', 
-                      'î'='i', 'ï'='i', 'ð'='o', 'ñ'='n', 'ò'='o', 'ó'='o', 
-                      'ô'='o', 'õ'='o','ö'='o', 'ø'='o', 'ù'='u', 'ú'='u', 
-                      'û'='u', 'ý'='y', 'ý'='y', 'þ'='b', 'ÿ'='y')
-
-df$DESTINO <- chartr(paste(names(unwanted_array), collapse=''),
-       							paste(unwanted_array, collapse=''),
-       							df$DESTINO)
-write.Alteryx(df, 1)
-]]></RScript>
-          <UseFullUpdate value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>Remove acentos</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="UF.ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF.DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
-    </Node>
-    <Node ToolID="56">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="942" y="798" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="UF.ORIGEM" selected="True" rename="UF ORIGEM" />
-            <SelectField field="UF.DESTINO" selected="True" rename="UF DESTINO" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="57">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1098" y="894" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>([UF DESTINO] = "SP") || ([UF DESTINO] = "RJ")</Expression>
-          <Mode>Custom</Mode>
-          <Simple>
-            <Operator>=</Operator>
-            <Field>UF DESTINO</Field>
-            <Operands>
-              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
-              <DateType>fixed</DateType>
-              <PeriodDate>2019-05-30 13:46:33</PeriodDate>
-              <PeriodType>
-              </PeriodType>
-              <PeriodCount>0</PeriodCount>
-              <Operand>SP</Operand>
-              <StartDate>2019-05-30 13:46:33</StartDate>
-              <EndDate>2019-05-30 13:46:33</EndDate>
-            </Operands>
-          </Simple>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>([UF DESTINO] = "SP") || ([UF DESTINO] = "RJ")</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="True">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="UF DESTINO" order="" />
-            <Field field="DESTINO" order="" />
-          </SortInfo>
-        </MetaInfo>
-        <MetaInfo connection="False">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="UF DESTINO" order="" />
-            <Field field="DESTINO" order="" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="58">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1230" y="786" />
-      </GuiSettings>
-      <Properties>
-        <Configuration joinByRecordPos="False">
-          <JoinInfo connection="Left">
-            <Field field="UF DESTINO" />
-            <Field field="DESTINO" />
-          </JoinInfo>
-          <JoinInfo connection="Right">
-            <Field field="UF DESTINO" />
-            <Field field="DESTINO" />
-          </JoinInfo>
-          <SelectConfiguration>
-            <Configuration outputConnection="Join">
-              <OrderChanged value="False" />
-              <CommaDecimal value="False" />
-              <SelectFields>
-                <SelectField field="Right_UF DESTINO" selected="False" rename="Right_UF DESTINO" input="Right_" />
-                <SelectField field="Right_DESTINO" selected="False" rename="Right_DESTINO" input="Right_" />
-                <SelectField field="Right_CEPI" selected="False" rename="Right_CEPI" input="Right_" />
-                <SelectField field="Right_CEPF" selected="False" rename="Right_CEPF" input="Right_" />
-                <SelectField field="*Unknown" selected="True" />
-              </SelectFields>
-            </Configuration>
-          </SelectConfiguration>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Left">
-          <RecordInfo>
-            <Field name="ENDERECO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-          </RecordInfo>
-          <SortInfo noProgress="True">
-            <Field field="UF DESTINO" />
-            <Field field="DESTINO" />
-          </SortInfo>
-        </MetaInfo>
-        <MetaInfo connection="Join">
-          <RecordInfo>
-            <Field name="ENDERECO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="UF DESTINO" order="" />
-            <Field field="DESTINO" order="" />
-          </SortInfo>
-        </MetaInfo>
-        <MetaInfo connection="Right">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-          </RecordInfo>
-          <SortInfo noProgress="True">
-            <Field field="UF DESTINO" />
-            <Field field="DESTINO" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
-    </Node>
-    <Node ToolID="59">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1314" y="786" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="True" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="UF ORIGEM" selected="True" />
-            <SelectField field="ORIGEM" selected="True" />
-            <SelectField field="UF DESTINO" selected="True" />
-            <SelectField field="DESTINO" selected="True" />
-            <SelectField field="C_ou_I" selected="True" />
-            <SelectField field="ENDERECO" selected="False" />
-            <SelectField field="DIAS" selected="True" />
-            <SelectField field="CEPI" selected="True" />
-            <SelectField field="CEPF" selected="True" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="UF DESTINO" order="" />
-            <Field field="DESTINO" order="" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="60">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="1530" y="906" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <ByName_ErrorMode>Error</ByName_ErrorMode>
-          <ByName_OutputMode>All</ByName_OutputMode>
-          <Mode>ByName</Mode>
-          <SetOutputOrder value="True" />
-          <OutputOrder>
-            <Connection>#2</Connection>
-            <Connection>#1</Connection>
-          </OutputOrder>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="(Multiple Sources)" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-            <Field name="COM_TRT" source="Formula: (Multiple Sources)" type="Bool" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
-    </Node>
-    <Node ToolID="61">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="846" y="678" width="156" height="24" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>RESTRIÇÃO DE TRÂNSITO</Text>
-          <Font name="Arial" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="62">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1422" y="810" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="1" field="COM_TRT" size="1" type="Bool" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText><![CDATA[COM_TRT = 1
-]]></DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-            <Field name="COM_TRT" source="Formula: 1" type="Bool" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="UF DESTINO" order="" />
-            <Field field="DESTINO" order="" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="63">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1338" y="906" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="0" field="COM_TRT" size="1" type="Bool" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText><![CDATA[COM_TRT = 0
-]]></DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="Formula: Uppercase([DESTINO])" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-            <Field name="COM_TRT" source="Formula: 0" type="Bool" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="UF DESTINO" order="" />
-            <Field field="DESTINO" order="" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="64">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1614" y="906" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="[UF DESTINO]+&quot;-&quot;+[C_ou_I]" field="destination_geographic_identifier" size="1073741823" type="V_WString" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText><![CDATA[destination_geographic_identifier = [UF DESTINO]+"-"+[C_ou_I]
-
-]]></DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="UF ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="ORIGEM" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="UF DESTINO" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DESTINO" size="1073741823" source="(Multiple Sources)" type="V_WString" />
-            <Field name="C_ou_I" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="DIAS" source="R-DATA:" type="Int32" />
-            <Field name="CEPI" source="R-DATA:" type="Double" />
-            <Field name="CEPF" source="R-DATA:" type="Double" />
-            <Field name="COM_TRT" source="Formula: (Multiple Sources)" type="Bool" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF DESTINO]+&quot;-&quot;+[C_ou_I]" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="65">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1722" y="906" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="True" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="CEPI" selected="True" rename="destination_zip_code_start" />
-            <SelectField field="CEPF" selected="True" rename="destination_zip_code_end" />
-            <SelectField field="UF DESTINO" selected="True" rename="destination_state" />
-            <SelectField field="DESTINO" selected="True" rename="destination_city" />
-            <SelectField field="destination_geographic_identifier" selected="True" />
-            <SelectField field="DIAS" selected="True" rename="delivery_time" />
-            <SelectField field="COM_TRT" selected="True" />
-            <SelectField field="UF ORIGEM" selected="False" />
-            <SelectField field="ORIGEM" selected="False" />
-            <SelectField field="C_ou_I" selected="False" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
-            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
-            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_city" size="1073741823" source="(Multiple Sources)" type="V_WString" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF DESTINO]+&quot;-&quot;+[C_ou_I]" type="V_WString" />
-            <Field name="delivery_time" source="R-DATA:" type="Int32" />
-            <Field name="COM_TRT" source="Formula: (Multiple Sources)" type="Bool" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="66">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1806" y="906" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="REGEX_Replace([destination_geographic_identifier], &quot;-C&quot;, &quot;-Capital&quot;)&#xA;" field="destination_geographic_identifier" size="1073741823" type="V_WString" />
-            <FormulaField expression="REGEX_Replace([destination_geographic_identifier], &quot;-I&quot;, &quot;-Interior&quot;)" field="destination_geographic_identifier" size="1073741823" type="V_WString" />
-            <FormulaField expression="&quot;%&quot;" field="trt_type" size="2147483647" type="V_String" />
-            <FormulaField expression="&quot;freight_cost_accumulated&quot;" field="trt_base" size="2147483647" type="V_String" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>destination_geographic_identifier = REGEX_Replace([destination_geographic_identi...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
-            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
-            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_city" size="1073741823" source="(Multiple Sources)" type="V_WString" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="Formula: REGEX_Replace([destination_geographic_identifier], &quot;-I&quot;, &quot;-Interior&quot;)" type="V_WString" />
-            <Field name="delivery_time" source="R-DATA:" type="Int32" />
-            <Field name="COM_TRT" source="Formula: (Multiple Sources)" type="Bool" />
-            <Field name="trt_type" size="2147483647" source="Formula: &quot;%&quot;" type="V_String" />
-            <Field name="trt_base" size="2147483647" source="Formula: &quot;freight_cost_accumulated&quot;" type="V_String" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="68">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="2094" y="894" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="IF [COM_TRT] = 1 THEN &quot;%&quot; ELSE &quot;&quot; ENDIF" field="trt_type" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [COM_TRT] = 1 THEN &quot;freight_cost_accumulated&quot; ELSE &quot;&quot; ENDIF" field="trt_base" size="1073741823" type="V_WString" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>trt_type = IF [COM_TRT] = 1 THEN "%" ELSE "" ENDIF
-trt_base = IF [COM_TRT] = 1 T...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
-            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
-            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="delivery_time" source="R-DATA:" type="Int32" />
-            <Field name="COM_TRT" source="R-DATA:" type="Bool" />
-            <Field name="trt_type" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;%&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
-            <Field name="trt_base" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;freight_cost_accumulated&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
-            <Field name="trt_min" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="trt_value" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="69">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1674" y="630" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>Contains([V1],"trt") &amp;&amp; [V2] != ""</Expression>
-          <Mode>Custom</Mode>
-          <Simple>
-            <Operator>Contains</Operator>
-            <Field>V1</Field>
-            <Operands>
-              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
-              <DateType>fixed</DateType>
-              <PeriodDate>2019-05-30 15:46:48</PeriodDate>
-              <PeriodType>
-              </PeriodType>
-              <PeriodCount>0</PeriodCount>
-              <Operand>trt</Operand>
-              <StartDate>2019-05-30 15:46:48</StartDate>
-              <EndDate>2019-05-30 15:46:48</EndDate>
-            </Operands>
-          </Simple>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Contains([V1],"trt") &amp;&amp; [V2] != ""</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="True">
-          <RecordInfo>
-            <Field name="V1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
-            <Field name="V2" size="1073741823" source="Formula: Replace([V2], &quot;.&quot;, &quot;,&quot;)" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-        <MetaInfo connection="False">
-          <RecordInfo>
-            <Field name="V1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
-            <Field name="V2" size="1073741823" source="Formula: Replace([V2], &quot;.&quot;, &quot;,&quot;)" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="72">
-      <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="1974" y="810" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <RScript><![CDATA[trt <- read.Alteryx("#1", mode="data.frame")
-cvrg <- read.Alteryx("#2", mode="data.frame")
-
-cvrg$trt_min <- trt$V2[1]
-cvrg$trt_value <- trt$V2[2]
-
-write.Alteryx(cvrg, 1)
-]]></RScript>
-          <UseFullUpdate value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>Inclusão de trt_min e trt_value</AnnotationText>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
-            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
-            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="delivery_time" source="R-DATA:" type="Int32" />
-            <Field name="COM_TRT" source="R-DATA:" type="Bool" />
-            <Field name="trt_type" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="trt_base" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="trt_min" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="trt_value" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
-    </Node>
-    <Node ToolID="74">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="2226" y="894" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_min] ENDIF" field="trt_min" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_value] ENDIF" field="trt_value" size="1073741823" type="V_WString" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>trt_min = IF [COM_TRT] = 0 THEN "" ELSE [trt_min] ENDIF
-trt_value = IF [COM_TRT]...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
-            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
-            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="delivery_time" source="R-DATA:" type="Int32" />
-            <Field name="COM_TRT" source="R-DATA:" type="Bool" />
-            <Field name="trt_type" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;%&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
-            <Field name="trt_base" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;freight_cost_accumulated&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
-            <Field name="trt_min" size="1073741823" source="Formula: IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_min] ENDIF" type="V_WString" />
-            <Field name="trt_value" size="1073741823" source="Formula: IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_value] ENDIF" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="75">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="2334" y="894" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="True" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="destination_zip_code_start" selected="True" />
-            <SelectField field="destination_zip_code_end" selected="True" />
-            <SelectField field="destination_state" selected="True" />
-            <SelectField field="destination_city" selected="True" />
-            <SelectField field="destination_geographic_identifier" selected="True" />
-            <SelectField field="delivery_time" selected="True" />
-            <SelectField field="trt_min" selected="True" />
-            <SelectField field="COM_TRT" selected="False" />
-            <SelectField field="trt_type" selected="True" />
-            <SelectField field="trt_value" selected="True" />
-            <SelectField field="trt_base" selected="True" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
-            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
-            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="delivery_time" source="R-DATA:" type="Int32" />
-            <Field name="trt_min" size="1073741823" source="Formula: IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_min] ENDIF" type="V_WString" />
-            <Field name="trt_type" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;%&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
-            <Field name="trt_value" size="1073741823" source="Formula: IF [COM_TRT] = 0 THEN &quot;&quot; ELSE [trt_value] ENDIF" type="V_WString" />
-            <Field name="trt_base" size="1073741823" source="Formula: IF [COM_TRT] = 1 THEN &quot;freight_cost_accumulated&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="80">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1062" y="414" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="IF [V1] = &quot;table_type&quot; THEN &quot;e_commerce&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [V1] = &quot;multi_volume_calculation_setting&quot; THEN &quot;grouped&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [V1] = &quot;weight_type_selection&quot; THEN &quot;maximum&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [V1] = &quot;type_of_freight_selection&quot; THEN &quot;max&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [V1] = &quot;exceeding_weight_mode&quot; THEN &quot;normal&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [V1] = &quot;extra_weight_round_mode&quot; THEN &quot;normal&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [V1] = &quot;gris_type&quot; THEN &quot;%&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [V1] = &quot;gris_base&quot; THEN &quot;cost_of_goods&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [V1] = &quot;tax_iss_mode&quot; THEN &quot;out&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [V1] = &quot;tax_iss_percentage&quot; THEN &quot;5&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [V1] = &quot;tax_iss_mode&quot; THEN &quot;in&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>V2 = IF [V1] = "table_type" THEN "e_commerce" ELSE [V2] ENDIF
-V2 = IF [V1] = "mu...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="V1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
-            <Field name="V2" size="1073741823" source="Formula: IF [V1] = &quot;tax_iss_mode&quot; THEN &quot;in&quot; ELSE [V2] ENDIF" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
     <Node ToolID="81">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
         <Position x="0" y="0" width="59" height="59" />
@@ -1799,7 +219,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="82">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="66" y="54" width="59" height="59" />
+        <Position x="30" y="30" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1812,7 +232,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="83">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="78" y="150" width="59" height="59" />
+        <Position x="42" y="126" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1825,7 +245,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="84">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="54" y="438" width="59" height="59" />
+        <Position x="246" y="30" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1838,7 +258,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="85">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="126" y="510" width="59" height="59" />
+        <Position x="258" y="126" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1851,7 +271,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="86">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="66" y="690" width="59" height="59" />
+        <Position x="438" y="30" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1864,7 +284,7 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="87">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="126" y="774" width="59" height="59" />
+        <Position x="450" y="126" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1875,67 +295,9 @@ V2 = IF [V1] = "mu...</DefaultAnnotationText>
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="88">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="2442" y="894" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_min] ENDIF" field="trt_min" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_type] ENDIF" field="trt_type" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_value] ENDIF" field="trt_value" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_base] ENDIF" field="trt_base" size="1073741823" type="V_WString" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>trt_min = IF [destination_zip_code_start] != [destination_zip_code_end] THEN "" ...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
-            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
-            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="delivery_time" source="R-DATA:" type="Int32" />
-            <Field name="trt_min" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_min] ENDIF" type="V_WString" />
-            <Field name="trt_type" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_type] ENDIF" type="V_WString" />
-            <Field name="trt_value" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_value] ENDIF" type="V_WString" />
-            <Field name="trt_base" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_base] ENDIF" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="89">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="798" y="174" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fixa_excel.xlsx|||Freight Table</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <SkipFieldNames>False</SkipFieldNames>
-            <OutputOption>Overwrite</OutputOption>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>carga_fixa_excel.xlsx
-Table=Freight Table</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-    </Node>
     <Node ToolID="90">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1218" y="414" />
+        <Position x="1146" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1958,7 +320,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="91">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="2598" y="894" />
+        <Position x="1146" y="546" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1981,7 +343,7 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="92">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FolderBrowse.FolderBrowse">
-        <Position x="1950" y="42" width="59" height="59" />
+        <Position x="1278" y="30" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1994,7 +356,7 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="93">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="990" y="96" width="59" height="59" />
+        <Position x="1146" y="186" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -2007,7 +369,7 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="94">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="1200" y="216" width="59" height="59" />
+        <Position x="1290" y="186" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -2020,7 +382,7 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="95">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="2358" y="162" width="59" height="59" />
+        <Position x="1422" y="174" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -2031,197 +393,324 @@ Table=Coverage</DefaultAnnotationText>
         </Annotation>
       </Properties>
     </Node>
+    <Node ToolID="96">
+      <GuiSettings>
+        <Position x="666" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Input.precoIn"><![CDATA[PATH_TO_FILE=PATH_TO_FILE
+]]></Value>
+          <Value name="Input.genTemplateIn"><![CDATA[X__1=X__1
+X__11=X__11
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="ftableOut">
+          <RecordInfo>
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="range_end" source="Formula: Null()" type="Int64" />
+            <Field name="minimum_freight" source="R-DATA:" type="Double" />
+            <Field name="invoice_factor" source="R-DATA:" type="Double" />
+            <Field name="weight_factor" source="R-DATA:" type="Double" />
+            <Field name="base_freight_cost" source="Formula: Null()" type="Double" />
+            <Field name="percentage_invoice" source="Formula: Null()" type="Double" />
+            <Field name="exceeding_weight_cost" source="Formula: Null()" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="generalitiesOut">
+          <RecordInfo>
+            <Field name="V1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
+            <Field name="V2" size="1073741823" source="Formula: IF [V1] = &quot;tax_iss_mode&quot; THEN &quot;in&quot; ELSE [V2] ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="origemOut">
+          <RecordInfo>
+            <Field name="origem" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="macros\freight_table_generalities_duf.yxmc" />
+    </Node>
+    <Node ToolID="97">
+      <GuiSettings>
+        <Position x="906" y="546" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Input.generalitiesIn"><![CDATA[V1=V1
+V2=V2
+]]></Value>
+          <Value name="Input.origemIn"><![CDATA[origem=origem
+]]></Value>
+          <Value name="Input.cepIn"><![CDATA[PATH_TO_FILE=PATH_TO_FILE
+]]></Value>
+          <Value name="Input.trtIn"><![CDATA[PATH_TO_FILE=PATH_TO_FILE
+]]></Value>
+          <Value name="Input.abrangIn"><![CDATA[PATH_TO_FILE=PATH_TO_FILE
+]]></Value>
+          <Value name="Input.listacepIn"><![CDATA[UF=UF
+CIDADE=CIDADE
+CIDADE ABREVIADA=CIDADE ABREVIADA
+UF-CIDADE=UF-CIDADE
+CEP INI 1=CEP INI 1
+CEP FIM 1=CEP FIM 1
+CEP INI 2=CEP INI 2
+CEP FIM 2=CEP FIM 2
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="covOut">
+          <RecordInfo>
+            <Field name="destination_zip_code_start" source="R-DATA:" type="Double" />
+            <Field name="destination_zip_code_end" source="R-DATA:" type="Double" />
+            <Field name="destination_state" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_city" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="delivery_time" source="R-DATA:" type="Int32" />
+            <Field name="trt_min" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_min] ENDIF" type="V_WString" />
+            <Field name="trt_type" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_type] ENDIF" type="V_WString" />
+            <Field name="trt_value" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_value] ENDIF" type="V_WString" />
+            <Field name="trt_base" size="1073741823" source="Formula: IF [destination_zip_code_start] != [destination_zip_code_end] THEN &quot;&quot; ELSE [trt_base] ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="macros\coverage_duf.yxmc" />
+    </Node>
+    <Node ToolID="98">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="342" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>RecordID</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="99">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="426" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[RecordID] = 1</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>RecordID</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-06-17 15:11:54</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>1</Operand>
+              <StartDate>2019-06-17 15:11:54</StartDate>
+              <EndDate>2019-06-17 15:11:54</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[RecordID] = 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="100">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="546" y="510" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="RecordID" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="101">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="546" y="570" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="RecordID" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="102">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1002" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fixa_excel.xlsx|||Freight Table</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>carga_fixa_excel.xlsx
+Table=Freight Table</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="103">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="990" y="510" width="100" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>COVERAGE</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
-      <Origin ToolID="6" Connection="Output2" />
-      <Destination ToolID="14" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="6" Connection="Output1" />
-      <Destination ToolID="13" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="6" Connection="Output5" />
-      <Destination ToolID="41" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="43" Connection="Output" />
-      <Destination ToolID="41" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
       <Origin ToolID="10" Connection="Output" />
-      <Destination ToolID="6" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="13" Connection="Output" />
-      <Destination ToolID="24" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="14" Connection="Output" />
-      <Destination ToolID="31" Connection="Source" />
+      <Destination ToolID="96" Connection="precoIn" />
     </Connection>
     <Connection>
       <Origin ToolID="26" Connection="Output" />
-      <Destination ToolID="31" Connection="Targets" />
+      <Destination ToolID="96" Connection="genTemplateIn" />
     </Connection>
     <Connection>
-      <Origin ToolID="15" Connection="Output1" />
-      <Destination ToolID="20" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="20" Connection="Output" />
-      <Destination ToolID="58" Connection="Left" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="57" Connection="True" />
-      <Destination ToolID="58" Connection="Right" />
-    </Connection>
-    <Connection name="#1">
       <Origin ToolID="21" Connection="Output" />
-      <Destination ToolID="15" Connection="Input" />
+      <Destination ToolID="98" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="24" Connection="Output" />
-      <Destination ToolID="25" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="25" Connection="Output" />
-      <Destination ToolID="89" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="93" Connection="Action" />
-      <Destination ToolID="89" Connection="Action" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="31" Connection="Output" />
-      <Destination ToolID="34" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="34" Connection="Output" />
-      <Destination ToolID="45" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="41" Connection="Output1" />
-      <Destination ToolID="44" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="44" Connection="Output" />
-      <Destination ToolID="55" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="45" Connection="Output" />
-      <Destination ToolID="69" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="45" Connection="Output" />
-      <Destination ToolID="80" Connection="Input" />
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="97" Connection="abrangIn" />
     </Connection>
     <Connection>
       <Origin ToolID="46" Connection="Output" />
-      <Destination ToolID="47" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="47" Connection="Output" />
-      <Destination ToolID="50" Connection="Input" />
+      <Destination ToolID="97" Connection="listacepIn" />
     </Connection>
     <Connection>
-      <Origin ToolID="49" Connection="Output" />
-      <Destination ToolID="52" Connection="Input" />
+      <Origin ToolID="96" Connection="generalitiesOut" />
+      <Destination ToolID="97" Connection="generalitiesIn" />
     </Connection>
     <Connection>
-      <Origin ToolID="50" Connection="Output1" />
-      <Destination ToolID="49" Connection="Input" />
+      <Origin ToolID="96" Connection="origemOut" />
+      <Destination ToolID="97" Connection="origemIn" />
     </Connection>
     <Connection>
-      <Origin ToolID="52" Connection="Output" />
-      <Destination ToolID="53" Connection="Right" />
+      <Origin ToolID="100" Connection="Output" />
+      <Destination ToolID="97" Connection="cepIn" />
     </Connection>
     <Connection>
-      <Origin ToolID="56" Connection="Output" />
-      <Destination ToolID="53" Connection="Left" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="53" Connection="Join" />
-      <Destination ToolID="57" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="54" Connection="Output" />
-      <Destination ToolID="56" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="55" Connection="Output1" />
-      <Destination ToolID="54" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="57" Connection="False" />
-      <Destination ToolID="63" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="58" Connection="Join" />
-      <Destination ToolID="59" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="59" Connection="Output" />
-      <Destination ToolID="62" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="60" Connection="Output" />
-      <Destination ToolID="64" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="62" Connection="Output" />
-      <Destination ToolID="60" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="63" Connection="Output" />
-      <Destination ToolID="60" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="64" Connection="Output" />
-      <Destination ToolID="65" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="65" Connection="Output" />
-      <Destination ToolID="66" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="66" Connection="Output" />
-      <Destination ToolID="72" Connection="Input" />
-    </Connection>
-    <Connection name="#1">
-      <Origin ToolID="69" Connection="True" />
-      <Destination ToolID="72" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="68" Connection="Output" />
-      <Destination ToolID="74" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="72" Connection="Output1" />
-      <Destination ToolID="68" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="74" Connection="Output" />
-      <Destination ToolID="75" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="75" Connection="Output" />
-      <Destination ToolID="88" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="80" Connection="Output" />
-      <Destination ToolID="90" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="94" Connection="Action" />
-      <Destination ToolID="90" Connection="Action" />
+      <Origin ToolID="101" Connection="Output" />
+      <Destination ToolID="97" Connection="trtIn" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="82" Connection="Question" />
       <Destination ToolID="83" Connection="Question" />
     </Connection>
-    <Connection name="#2">
+    <Connection name="#2" Wireless="True">
       <Origin ToolID="83" Connection="Action" />
       <Destination ToolID="10" Connection="Action" />
     </Connection>
@@ -2229,7 +718,7 @@ Table=Coverage</DefaultAnnotationText>
       <Origin ToolID="84" Connection="Question" />
       <Destination ToolID="85" Connection="Question" />
     </Connection>
-    <Connection name="#2">
+    <Connection name="#2" Wireless="True">
       <Origin ToolID="85" Connection="Action" />
       <Destination ToolID="21" Connection="Action" />
     </Connection>
@@ -2237,17 +726,9 @@ Table=Coverage</DefaultAnnotationText>
       <Origin ToolID="86" Connection="Question" />
       <Destination ToolID="87" Connection="Question" />
     </Connection>
-    <Connection name="#2">
+    <Connection name="#1" Wireless="True">
       <Origin ToolID="87" Connection="Action" />
       <Destination ToolID="43" Connection="Action" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="88" Connection="Output" />
-      <Destination ToolID="91" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="95" Connection="Action" />
-      <Destination ToolID="91" Connection="Action" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="92" Connection="Question" />
@@ -2260,6 +741,42 @@ Table=Coverage</DefaultAnnotationText>
     <Connection name="#1">
       <Origin ToolID="92" Connection="Question" />
       <Destination ToolID="95" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="93" Connection="Action" />
+      <Destination ToolID="102" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="96" Connection="ftableOut" />
+      <Destination ToolID="102" Connection="Input" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="94" Connection="Action" />
+      <Destination ToolID="90" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="96" Connection="generalitiesOut" />
+      <Destination ToolID="90" Connection="Input" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="95" Connection="Action" />
+      <Destination ToolID="91" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="97" Connection="covOut" />
+      <Destination ToolID="91" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="98" Connection="Output" />
+      <Destination ToolID="99" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="99" Connection="True" />
+      <Destination ToolID="100" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="99" Connection="False" />
+      <Destination ToolID="101" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -2367,7 +884,7 @@ Table=Coverage</DefaultAnnotationText>
               <Variable />
               <Replace value="True" />
               <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
-              <Destination>89/File</Destination>
+              <Destination>102/File</Destination>
             </Action>
             <Action>
               <Type>UpdateValue</Type>
@@ -2445,9 +962,11 @@ Table=Coverage</DefaultAnnotationText>
       <Wiz_CustomGraphic value="False" />
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
-        <Tool ToolId="89" Selected="True" />
+        <Tool ToolId="96" Selected="True" />
         <Tool ToolId="90" Selected="True" />
         <Tool ToolId="91" Selected="True" />
+        <Tool ToolId="97" Selected="True" />
+        <Tool ToolId="102" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
