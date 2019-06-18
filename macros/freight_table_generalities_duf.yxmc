@@ -1,0 +1,771 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>precoIn</Name>
+          <Abbrev>p</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="PATH_TO_FILE" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_Tabela MMA 27.04.xlsx</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Caminho completo da tabela de preços</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="PATH_TO_FILE" size="104" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="618" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>ftableOut</Name>
+          <Abbrev>f</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Tabela de fretes</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxRPluginGui.R">
+        <Position x="150" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RScript>library(readxl)
+library(dplyr)
+library(magrittr)
+library(stringr)
+
+###########
+## Dados ##
+###########
+# filename &lt;- "C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_Tabela MMA 27.04.xlsx"
+fl &lt;- read.Alteryx("#1", mode="data.frame")
+filename &lt;- fl[1, 1] %&gt;% as.character()
+precos &lt;- read_excel(filename, col_names = FALSE)
+
+##############################################
+## Freight table: pre_macro_freight_table.R ##
+##############################################
+nr.of.names &lt;- length(names(precos))
+for (i in 1:nr.of.names) {
+  names(precos)[i] &lt;- paste0("X__", as.character(i))
+}
+ind &lt;- str_which(precos$X__1, "rigem: ")
+origem &lt;- str_replace(precos$X__1[ind], "Origem:  ", "")
+
+precos &lt;- precos %&gt;% select(X__1:X__5)
+precos &lt;- precos[complete.cases(precos), ]
+colnames(precos) &lt;- precos[1, ]
+precos &lt;- precos[-1, ]
+
+colnames(precos) &lt;- c("UF", "Destinos", "invoice_factor", "minimum_freight",
+                      "weight_factor")
+
+precos$invoice_factor %&lt;&gt;% as.numeric()
+precos$invoice_factor &lt;- precos$invoice_factor * 100
+precos$minimum_freight %&lt;&gt;% as.numeric()
+precos$weight_factor %&lt;&gt;% as.numeric()
+
+precos$destination_geographic_identifier &lt;- paste0(precos$UF, "-",
+                                                     precos$Destinos)
+
+precos %&lt;&gt;% select(destination_geographic_identifier, everything(), 
+                   -c(UF, Destinos))
+
+hasDigit &lt;- str_detect(precos$destination_geographic_identifier, "[:digit:]")
+
+uf &lt;- str_extract_all(precos$destination_geographic_identifier,
+                      "[:alpha:]{2}(?=-)") %&gt;% as.character()
+
+stdDest &lt;- str_extract(precos$destination_geographic_identifier,
+                       "Capital|Interior")
+newdf &lt;- precos[1, ]
+for (i in seq_along(precos$destination_geographic_identifier)) {
+  if (hasDigit[i] == TRUE) {
+    precos$destination_geographic_identifier[i] &lt;- paste0(uf[i], "-", 
+                                                          stdDest[i], " 1")
+    
+    newdf &lt;- precos[i, ]
+    newdf$destination_geographic_identifier &lt;- paste0(uf[i], "-", 
+                                                      stdDest[i], " 2")
+    precos &lt;- rbind(precos, newdf)
+  }
+}
+
+orig &lt;- data.frame(origem = origem)
+
+write.Alteryx(precos, 1)
+write.Alteryx(orig, 5)
+
+############################################
+## Generalities: pre_macro_generalities.R ##
+############################################
+precos &lt;- read_excel(filename, col_names = FALSE) # start from raw data
+
+ind &lt;- str_which(precos$X__1, "Generalidades") + 1
+
+precos &lt;- precos[ind:nrow(precos), c("X__1", "X__11")] %&gt;% 
+  .[complete.cases(.), ]
+
+precos &lt;- precos[c(1:9, 14, 15), ]
+
+de_para &lt;- c("gris_value", "gris_min",
+             "toll_value",
+             "delivery_value",
+             "tas_value",
+             "other_fee_value", "other_fee_fraction", 
+             "cubic_factor",
+             "tda_fixed",
+             "trt_value", "trt_min",
+             "icms_tax_enable", "iss_tax_enable")
+
+lastRow &lt;- precos[1:2, ]
+lastRow$X__1[1] &lt;- "ICMS"; lastRow$X__11[1] &lt;- "true"
+lastRow$X__1[2] &lt;- "ISS"; lastRow$X__11[2] &lt;- "true"
+precos &lt;- rbind(precos, lastRow)
+precos$X__1 &lt;- de_para
+
+ind &lt;- which(precos$X__1 == "cubic_factor")
+precos$X__11[ind] %&lt;&gt;% str_extract("[:digit:]+")
+precos$X__11[1] &lt;- as.numeric(precos$X__11[1]) * 100
+ind &lt;- which(precos$X__1 == "trt_value")
+precos$X__11[ind] &lt;- as.numeric(precos$X__11[ind]) * 100
+
+write.Alteryx(precos, 2)</RScript>
+          <UseFullUpdate value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Freight table: pre_macro_freight_table.R
+
+Generalities: pre_macro_generalities.R</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output1">
+          <RecordInfo>
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="invoice_factor" source="R-DATA:" type="Double" />
+            <Field name="minimum_freight" source="R-DATA:" type="Double" />
+            <Field name="weight_factor" source="R-DATA:" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Output5">
+          <RecordInfo>
+            <Field name="origem" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Output2">
+          <RecordInfo>
+            <Field name="X__1" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="X__11" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="282" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="invoice_factor" source="R-DATA:" type="Double" />
+            <Field name="minimum_freight" source="R-DATA:" type="Double" />
+            <Field name="weight_factor" source="R-DATA:" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="438" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="X__1" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="X__11" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="498" y="54" width="228" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>FREIGHT TABLE - CARGA FIXA EM XLSX</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="846" y="186" width="228" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>GENERALITIES - CARGA FIXA EM XLSX</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="378" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Null()" field="range_end" size="8" type="Int64" />
+            <FormulaField expression="Null()" field="base_freight_cost" size="8" type="Double" />
+            <FormulaField expression="Null()" field="percentage_invoice" size="8" type="Double" />
+            <FormulaField expression="Null()" field="exceeding_weight_cost" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>range_end = Null()
+base_freight_cost = Null()
+percentage_invoice = Null()
+exceed...</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="invoice_factor" source="R-DATA:" type="Double" />
+            <Field name="minimum_freight" source="R-DATA:" type="Double" />
+            <Field name="weight_factor" source="R-DATA:" type="Double" />
+            <Field name="range_end" source="Formula: Null()" type="Int64" />
+            <Field name="base_freight_cost" source="Formula: Null()" type="Double" />
+            <Field name="percentage_invoice" source="Formula: Null()" type="Double" />
+            <Field name="exceeding_weight_cost" source="Formula: Null()" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="486" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="destination_geographic_identifier" selected="True" />
+            <SelectField field="range_end" selected="True" />
+            <SelectField field="minimum_freight" selected="True" />
+            <SelectField field="invoice_factor" selected="True" />
+            <SelectField field="weight_factor" selected="True" />
+            <SelectField field="base_freight_cost" selected="True" />
+            <SelectField field="percentage_invoice" selected="True" />
+            <SelectField field="exceeding_weight_cost" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="range_end" source="Formula: Null()" type="Int64" />
+            <Field name="minimum_freight" source="R-DATA:" type="Double" />
+            <Field name="invoice_factor" source="R-DATA:" type="Double" />
+            <Field name="weight_factor" source="R-DATA:" type="Double" />
+            <Field name="base_freight_cost" source="Formula: Null()" type="Double" />
+            <Field name="percentage_invoice" source="Formula: Null()" type="Double" />
+            <Field name="exceeding_weight_cost" source="Formula: Null()" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+        <Position x="570" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldFind>X__1</FieldFind>
+          <FieldSearch>X__1</FieldSearch>
+          <ReplaceFoundField>X__11</ReplaceFoundField>
+          <FindMode>FindWhole</FindMode>
+          <NoCase value="False" />
+          <MatchWholeWord value="False" />
+          <ReplaceMode>Append</ReplaceMode>
+          <ReplaceMultipleFound value="True" />
+          <ReplaceAppendFields>
+            <Field field="X__11" />
+          </ReplaceAppendFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>VLOOKUP</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="X__1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
+            <Field name="X__11" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
+            <Field name="X__11_2" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="678" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="X__1" selected="True" rename="V1" />
+            <SelectField field="X__11" selected="False" />
+            <SelectField field="X__11_2" selected="True" rename="V2" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="V1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
+            <Field name="V2" size="1073741823" source="R-DATA:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="774" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace([V2], &quot;.&quot;, &quot;,&quot;)" field="V2" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[V2 = Replace([V2], ".", ",")
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="V1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
+            <Field name="V2" size="1073741823" source="Formula: Replace([V2], &quot;.&quot;, &quot;,&quot;)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="894" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [V1] = &quot;table_type&quot; THEN &quot;e_commerce&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;multi_volume_calculation_setting&quot; THEN &quot;grouped&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;weight_type_selection&quot; THEN &quot;maximum&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;type_of_freight_selection&quot; THEN &quot;max&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;exceeding_weight_mode&quot; THEN &quot;normal&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;extra_weight_round_mode&quot; THEN &quot;normal&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;gris_type&quot; THEN &quot;%&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;gris_base&quot; THEN &quot;cost_of_goods&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;tax_iss_mode&quot; THEN &quot;out&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;tax_iss_percentage&quot; THEN &quot;5&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+            <FormulaField expression="IF [V1] = &quot;tax_iss_mode&quot; THEN &quot;in&quot; ELSE [V2] ENDIF" field="V2" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>V2 = IF [V1] = "table_type" THEN "e_commerce" ELSE [V2] ENDIF
+V2 = IF [V1] = "mu...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="V1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
+            <Field name="V2" size="1073741823" source="Formula: IF [V1] = &quot;tax_iss_mode&quot; THEN &quot;in&quot; ELSE [V2] ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1002" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>generalitiesOut</Name>
+          <Abbrev>g</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Tabela de generalidades</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="450" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>origemOut</Name>
+          <Abbrev>o</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="426" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>genTemplateIn</Name>
+          <Abbrev>g</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv</File>
+              <FormatSpecificOptions>
+                <CodePage>28591</CodePage>
+                <Delimeter>,</Delimeter>
+                <IgnoreErrors>False</IgnoreErrors>
+                <FieldLen>254</FieldLen>
+                <AllowShareWrite>False</AllowShareWrite>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <ImportLine>1</ImportLine>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>generalities.csv</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="X__1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
+            <Field name="X__11" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection name="#1">
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output5" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output1" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output2" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="14" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="14" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (5)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (20)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (21)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (22)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>freight_table_generalities_duf</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (5)</Description>
+              <Name>Macro Output (5)</Name>
+              <ToolId value="5" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (20)</Description>
+              <Name>Macro Output (20)</Name>
+              <ToolId value="20" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (21)</Description>
+              <Name>Macro Output (21)</Name>
+              <ToolId value="21" />
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (22)</Description>
+              <Name>Macro Input (22)</Name>
+              <ToolId value="22" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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hhr87W9/K84666xi8803L+abb75SYehjXdYqbC+Xsfn2cbXV0uwp4bxvl3+6qUTo4osvLl544YXi9ddfL5fwdpj3fe2110pF4fvf/37xnve8p991WfzVyTgmGLbNjJ00zU/votlTVR+kpzH11FOX3PRrX/tayU3/8pe/lNGvE0bieuyxxybqsksssUTlZ+wTiK5Gl4qubWl4MR/VSBnT/Pqqm0pJVKVpiy22KLmpKlSruGmOJV32uuuu63ddFnelzW8WaPkOA1HVIF/ViL5Z/lNNn2667777Frfddlu5JHeD0WVJZBtuuGHZczDNNNNUfocehpzHfFil+pYOM9aMIGz3Ve3/He94R7HBBhsUF110Ubnk46a5hiaMxmf9/1zO630ldU888US/6rKCnlV6lwAptCVGrtoroFJVddGeA930Ix/5SFO6KSeSgP3kJz8pHnnkkTf+tdpuuumm4uc//3lx5ZVXFq+88sob/zq6cfCky5577rnFbrvtVuqyJLWq79WDSMnWOoGmTWnMzHm13Z6f4T+0pv/www9nRdMkNd1www3F0UcfXXzmM58phX1l15HsnHPOKb7whS8UW221VXHKKacU9913X8lNcyzpsocddlix+uqr94suK7pqJXQubdOFAm/g+B6nolRdrCeQuCndVE3/lltuydZNU6n0qquuKnbYYYdiwQUXLKaffvris5/9bOlEIxkdVQuhiPje9763LAT4DGSxnIgu0iZd1oOiX7ZPdNnUqN2UORDNOVMmcFRdpCdA4N94443LZVtN39KawyG9lg6KO2qq1iPgAch11skmm6zM7GeaaaZizTXXLM4444zixRdffONV9ZnP4sG5//77i+OPP750/j7QZe3XOyzQsDliUh1Xx0xPbqWWQSfdlByUq5uKes8991zJS7feeuvSUTkGp/P+uc6aPpdIOPPMMxcf+MAHij333LPksrlOm3RZisHOO+/c6/2ydsYa+GZXdEOnezsL1RGTPaepDtVNG6npi8A33nhj8c1vfrOMgrPNNtsk12nUWRNEWSVWXPbkk08uuWy9LYdMlE39sl/5yleK1VZbrZh11ll7VZe9P+AsgzkCWWZIhc1/zkLtGV01cVN7oPbbb79SN81xUjff65966qniV7/6VZkUvfOd7xz25jfrrAm4rM+My95xxx0TS7w59swzz0zUZfFp1biq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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="5" Selected="True" />
+        <Tool ToolId="20" Selected="True" />
+        <Tool ToolId="21" Selected="True" />
+        <Tool ToolId="22" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
