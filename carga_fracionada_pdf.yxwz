@@ -538,9 +538,6 @@ Table=Sheet1</DefaultAnnotationText>
 Table=Generalities</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -577,9 +574,6 @@ Table=Generalities</DefaultAnnotationText>
 Table=Freight Table</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -989,13 +983,16 @@ write.Alteryx(df, 1)
               <Destination>13/WorkingDir</Destination>
             </Action>
             <Action>
-              <Type>UpdateValue</Type>
+              <Type>Dynamic</Type>
               <Description />
               <ToolId value="45" />
-              <Mode>Simple</Mode>
-              <Variable />
-              <Replace value="False" />
-              <Destination>44/Fields/Field/@name</Destination>
+              <Expression>{{INPUT}}</Expression>
+              <Destination>44/Data/r[1]/c[1]</Destination>
+              <Mapping>Update Cell</Mapping>
+              <Mode>Expression</Mode>
+              <DynamicConfiguration>row	1
+column	1</DynamicConfiguration>
+              <DefaultConfiguration value="True" />
             </Action>
             <Action>
               <Type>UpdateValue</Type>
