@@ -16,7 +16,7 @@
     </Node>
     <Node ToolID="89">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="354" y="762" />
+        <Position x="304.9998" y="750" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -46,26 +46,26 @@
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
-            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="REGIAO DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CEP INICIO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CEP FIM" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE ENTREGA " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE COLETA REVERSA " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE DEVOLUÇAO NO CD" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="REGIAO DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CEP INICIO" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CEP FIM" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE ENTREGA " size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE COLETA REVERSA " size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE DEVOLUÇAO NO CD" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
-            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="REGIAO DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CEP INICIO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CEP FIM" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE ENTREGA " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE COLETA REVERSA " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE DEVOLUÇAO NO CD" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="REGIAO DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CEP INICIO" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CEP FIM" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE ENTREGA " size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE COLETA REVERSA " size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE DEVOLUÇAO NO CD" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -73,7 +73,7 @@
     </Node>
     <Node ToolID="92">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="606" y="750" />
+        <Position x="556.9998" y="738" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -99,12 +99,12 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="destination_zip_code_start" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_zip_code_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_state" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_city" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_zip_code_start" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_zip_code_end" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_state" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_city" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
             <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[REGIAO DESTINO]" type="V_WString" />
-            <Field name="delivery_time" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="delivery_time" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -112,7 +112,7 @@
     </Node>
     <Node ToolID="93">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="474" y="750" />
+        <Position x="424.9998" y="738" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -128,14 +128,14 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="REGIAO DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CEP INICIO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CEP FIM" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE ENTREGA " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE COLETA REVERSA " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE DEVOLUÇAO NO CD" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="REGIAO DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CEP INICIO" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CEP FIM" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE ENTREGA " size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE COLETA REVERSA " size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE DEVOLUÇAO NO CD" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
             <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[REGIAO DESTINO]" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
@@ -144,7 +144,7 @@
     </Node>
     <Node ToolID="94">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="726" y="750" />
+        <Position x="676.9998" y="738" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -159,12 +159,12 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="destination_zip_code_start" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_zip_code_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_state" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_city" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_zip_code_start" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_zip_code_end" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_state" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_city" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
             <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[REGIAO DESTINO]" type="V_WString" />
-            <Field name="delivery_time" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="delivery_time" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
           </RecordInfo>
           <SortInfo locale="0">
             <Field field="destination_city" order="Ascending" />
@@ -175,12 +175,12 @@
     </Node>
     <Node ToolID="88">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="234" y="762" />
+        <Position x="184.9998" y="750" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Passwords />
-          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`</File>
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`</File>
           <FormatSpecificOptions>
             <FirstRowData>False</FirstRowData>
             <ImportLine>1</ImportLine>
@@ -197,14 +197,14 @@ Table=`Abrangencia$`</DefaultAnnotationText>
         </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="REGIAO DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CEP INICIO" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="CEP FIM" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE ENTREGA " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE COLETA REVERSA " size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="PRAZO DE DEVOLUÇAO NO CD" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="REGIAO DESTINO" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CEP INICIO" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="CEP FIM" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE ENTREGA " size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE COLETA REVERSA " size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="PRAZO DE DEVOLUÇAO NO CD" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -212,7 +212,7 @@ Table=`Abrangencia$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="271" y="319" />
+        <Position x="221.9998" y="307" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -222,7 +222,7 @@ Table=`Abrangencia$`</DefaultAnnotationText>
           </Fields>
           <Data>
             <r>
-              <c>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx</c>
+              <c>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx</c>
             </r>
           </Data>
         </Configuration>
@@ -234,7 +234,7 @@ Table=`Abrangencia$`</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="PATH_TO_FILE" size="128" source="TextInput:" type="String" />
+            <Field name="PATH_TO_FILE" size="132" source="TextInput:" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -242,7 +242,7 @@ Table=`Abrangencia$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="426.9998" y="235" />
+        <Position x="377.9996" y="223" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -309,7 +309,7 @@ write.Alteryx(df.m, 1)
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="607" y="174.9999" />
+        <Position x="557.9998" y="162.9999" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -371,7 +371,7 @@ write.Alteryx(df.m, 1)
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="523.0004" y="175" />
+        <Position x="474.0002" y="163" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -406,7 +406,7 @@ write.Alteryx(df.m, 1)
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="739.0001" y="114.9999" />
+        <Position x="689.9999" y="102.9999" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -438,7 +438,7 @@ write.Alteryx(df.m, 1)
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="823" y="259" />
+        <Position x="773.9998" y="247" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -476,7 +476,7 @@ write.Alteryx(df.m, 1)
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="919" y="258.9999" />
+        <Position x="869.9998" y="246.9999" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -506,7 +506,7 @@ write.Alteryx(df.m, 1)
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1027" y="259" />
+        <Position x="977.9998" y="247" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -543,7 +543,7 @@ write.Alteryx(df.m, 1)
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1399" y="259" />
+        <Position x="1350" y="247" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -599,7 +599,7 @@ write.Alteryx(df.m, 1)
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="1147" y="259" />
+        <Position x="1098" y="247" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -629,7 +629,7 @@ write.Alteryx(df.m, 1)
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1267" y="259" />
+        <Position x="1218" y="247" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -662,7 +662,7 @@ write.Alteryx(df.m, 1)
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="1531" y="271" />
+        <Position x="1482" y="259" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -695,7 +695,7 @@ write.Alteryx(df.m, 1)
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="1627" y="271" />
+        <Position x="1578" y="259" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -737,7 +737,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="1531" y="175" />
+        <Position x="1482" y="163" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -770,7 +770,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="1627" y="175" />
+        <Position x="1578" y="163" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -812,7 +812,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="22">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="739" y="235.0002" />
+        <Position x="689.9998" y="223.0002" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -843,7 +843,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="23">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1147" y="199" width="276" height="28" />
+        <Position x="1098" y="187" width="276" height="28" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -863,7 +863,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1759" y="115" width="100" height="16" />
+        <Position x="1710" y="103" width="100" height="16" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -883,7 +883,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1771" y="343" width="100" height="24" />
+        <Position x="1722" y="331" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -903,7 +903,7 @@ write.Alteryx(df, 1)
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="439.0004" y="583.0001" />
+        <Position x="390.0002" y="571.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -990,7 +990,7 @@ write.Alteryx(precos, 1)
     </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="739" y="534.9999" width="276" height="28" />
+        <Position x="689.9998" y="522.9999" width="276" height="28" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1010,7 +1010,7 @@ write.Alteryx(precos, 1)
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="547" y="595.0001" />
+        <Position x="497.9998" y="583.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1037,12 +1037,12 @@ write.Alteryx(precos, 1)
     </Node>
     <Node ToolID="30">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="511.0003" y="475.0002" />
+        <Position x="462.0001" y="463.0002" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Passwords />
-          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`</File>
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`</File>
           <FormatSpecificOptions>
             <FirstRowData>False</FirstRowData>
             <ImportLine>1</ImportLine>
@@ -1054,10 +1054,13 @@ write.Alteryx(precos, 1)
 Table=`Sheet1$`</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
-            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -1065,7 +1068,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
-        <Position x="643" y="583.0001" />
+        <Position x="593.9998" y="571.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1088,8 +1091,8 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
-            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
             <Field name="X__11_2" size="1073741823" source="R-DATA:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
@@ -1098,7 +1101,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="739.0001" y="583" />
+        <Position x="689.9999" y="571" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1114,8 +1117,8 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
-            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
             <Field name="X__11_2" size="1073741823" source="R-DATA:" type="V_WString" />
             <Field name="X__12" size="1073741823" source="Formula: [X__11] + [X__11_2]" type="V_WString" />
           </RecordInfo>
@@ -1125,7 +1128,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="823.0001" y="583" />
+        <Position x="773.9999" y="571" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1144,7 +1147,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_on.xlsx|||`Sheet1$`" type="V_String" />
             <Field name="X__12" size="1073741823" source="Formula: [X__11] + [X__11_2]" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
@@ -1153,7 +1156,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
-        <Position x="931.0001" y="583" />
+        <Position x="881.9999" y="571" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1199,7 +1202,7 @@ write.Alteryx(df2, 2) # interior
     </Node>
     <Node ToolID="36">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1819" y="475" width="100" height="24" />
+        <Position x="1770" y="463" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1219,7 +1222,7 @@ write.Alteryx(df2, 2) # interior
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="2191" y="583.0001" width="100" height="24" />
+        <Position x="2142" y="571.0001" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1239,7 +1242,7 @@ write.Alteryx(df2, 2) # interior
     </Node>
     <Node ToolID="38">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="727" y="79.00003" width="72" height="24" />
+        <Position x="677.9998" y="67.00003" width="72" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1259,11 +1262,11 @@ write.Alteryx(df2, 2) # interior
     </Node>
     <Node ToolID="39">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1759" y="163" />
+        <Position x="1710" y="151" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fracionada_excel_capital.xlsx|||Freight Table</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\carga_fracionada_excel_capital.xlsx|||Freight Table</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -1277,16 +1280,19 @@ write.Alteryx(df2, 2) # interior
 Table=Freight Table</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="40">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1879" y="295" />
+        <Position x="1830" y="283" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fracionada_excel_interior.xlsx|||Freight Table</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\carga_fracionada_excel_interior.xlsx|||Freight Table</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -1300,16 +1306,19 @@ Table=Freight Table</DefaultAnnotationText>
 Table=Freight Table</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="41">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1759" y="463" />
+        <Position x="1710" y="451" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fracionada_excel_capital.xlsx|||Generalities</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\carga_fracionada_excel_capital.xlsx|||Generalities</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -1323,16 +1332,19 @@ Table=Freight Table</DefaultAnnotationText>
 Table=Generalities</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="42">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="2131" y="570.9999" />
+        <Position x="2082" y="558.9999" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fracionada_excel_interior.xlsx|||Generalities</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\carga_fracionada_excel_interior.xlsx|||Generalities</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -1346,12 +1358,15 @@ Table=Generalities</DefaultAnnotationText>
 Table=Generalities</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="44">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="103.0002" y="115.0002" width="59" height="59" />
+        <Position x="54" y="103.0002" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1364,7 +1379,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="45">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="186" y="210" width="59" height="59" />
+        <Position x="136.9998" y="198" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1377,7 +1392,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="46">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FolderBrowse.FolderBrowse">
-        <Position x="2538" y="66" width="59" height="59" />
+        <Position x="2489" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1390,7 +1405,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="47">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="1885" y="120.9999" width="59" height="59" />
+        <Position x="1836" y="108.9999" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1403,7 +1418,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="48">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="1963" y="199" width="59" height="59" />
+        <Position x="1914" y="187" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1416,7 +1431,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="49">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="2107" y="271" width="59" height="59" />
+        <Position x="2058" y="259" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1429,7 +1444,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="50">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="2239" y="330.9999" width="59" height="59" />
+        <Position x="2190" y="318.9999" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1442,7 +1457,7 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="95">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="114" y="438" width="59" height="59" />
+        <Position x="64.9998" y="426" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1455,11 +1470,11 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="96">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="2286" y="738" />
+        <Position x="2237" y="726" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fracionada_excel_capital.xlsx|||Coverage</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\carga_fracionada_excel_capital.xlsx|||Coverage</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -1481,7 +1496,7 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="97">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="2376" y="414" width="59" height="59" />
+        <Position x="2327" y="402" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1494,7 +1509,7 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="98">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="942" y="750" />
+        <Position x="892.9998" y="738" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1523,12 +1538,12 @@ Table=Coverage</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
-            <Field name="destination_zip_code_start" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_zip_code_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_state" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_city" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_zip_code_start" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_zip_code_end" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_state" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_city" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
             <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[REGIAO DESTINO]" type="V_WString" />
-            <Field name="delivery_time" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="delivery_time" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
           </RecordInfo>
           <SortInfo locale="0">
             <Field field="destination_city" order="Ascending" />
@@ -1536,12 +1551,12 @@ Table=Coverage</DefaultAnnotationText>
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
-            <Field name="destination_zip_code_start" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_zip_code_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_state" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
-            <Field name="destination_city" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_zip_code_start" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_zip_code_end" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_state" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="destination_city" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
             <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[REGIAO DESTINO]" type="V_WString" />
-            <Field name="delivery_time" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
+            <Field name="delivery_time" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx|||`Abrangencia$`" type="V_String" />
           </RecordInfo>
           <SortInfo locale="0">
             <Field field="destination_city" order="Ascending" />
@@ -1552,11 +1567,11 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="99">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="2430" y="870" />
+        <Position x="2381" y="858" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fracionada_excel_interior.xlsx|||Coverage</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\carga_fracionada_excel_interior.xlsx|||Coverage</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -1578,7 +1593,7 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="100">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="2460" y="474" width="59" height="59" />
+        <Position x="2411" y="462" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1824,7 +1839,7 @@ Table=Coverage</DefaultAnnotationText>
     </Constants>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>carga_fracionada_xlsx_com_coverage</Name>
+      <Name>carga_fracionada_xlsx</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
@@ -1865,7 +1880,7 @@ Table=Coverage</DefaultAnnotationText>
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <ReplaceText>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</ReplaceText>
               <Destination>39/File</Destination>
             </Action>
             <Action>
@@ -1875,7 +1890,7 @@ Table=Coverage</DefaultAnnotationText>
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <ReplaceText>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</ReplaceText>
               <Destination>40/File</Destination>
             </Action>
             <Action>
@@ -1885,7 +1900,7 @@ Table=Coverage</DefaultAnnotationText>
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <ReplaceText>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</ReplaceText>
               <Destination>41/File</Destination>
             </Action>
             <Action>
@@ -1895,7 +1910,7 @@ Table=Coverage</DefaultAnnotationText>
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <ReplaceText>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</ReplaceText>
               <Destination>42/File</Destination>
             </Action>
             <Action>
@@ -1905,7 +1920,7 @@ Table=Coverage</DefaultAnnotationText>
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx</ReplaceText>
+              <ReplaceText>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-on\47730_kit tabela onofre mma atualizado 22-10-18.xlsx</ReplaceText>
               <Destination>88/File</Destination>
             </Action>
             <Action>
@@ -1915,7 +1930,7 @@ Table=Coverage</DefaultAnnotationText>
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <ReplaceText>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</ReplaceText>
               <Destination>96</Destination>
             </Action>
             <Action>
@@ -1925,7 +1940,7 @@ Table=Coverage</DefaultAnnotationText>
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <ReplaceText>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</ReplaceText>
               <Destination>99/File</Destination>
             </Action>
           </True>

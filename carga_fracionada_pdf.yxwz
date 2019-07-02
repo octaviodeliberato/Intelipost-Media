@@ -9,7 +9,7 @@
         <Configuration>
           <OutputConfiguration>
             <Configuration>
-              <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\pdf_location.xlsx|||Sheet1</File>
+              <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\pdf_location.xlsx|||Sheet1</File>
               <Passwords />
               <FormatSpecificOptions>
                 <SkipFieldNames>False</SkipFieldNames>
@@ -21,7 +21,7 @@
           <InputConfiguration>
             <Configuration>
               <Passwords />
-              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`</File>
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`</File>
               <FormatSpecificOptions>
                 <FirstRowData>False</FirstRowData>
                 <ImportLine>1</ImportLine>
@@ -30,7 +30,7 @@
           </InputConfiguration>
           <ProgramName>C:/Users/BlueShift075/AppData/Local/Alteryx/R-3.4.4/bin/Rscript.exe</ProgramName>
           <Arguments>"freight_table_pdf.R"</Arguments>
-          <WorkingDir>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</WorkingDir>
+          <WorkingDir>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</WorkingDir>
           <RunMinimized value="False" />
           <RunSilent value="True" />
         </Configuration>
@@ -39,15 +39,18 @@
           <DefaultAnnotationText>Run Rscript.exe</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Destino" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Ad." size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="F.KG.Excedente" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="variable" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="value" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Destino" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Ad." size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="F.KG.Excedente" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="variable" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="value" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -61,7 +64,7 @@
         <Configuration>
           <OutputConfiguration>
             <Configuration>
-              <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\pdf_location.xlsx|||Sheet1</File>
+              <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\pdf_location.xlsx|||Sheet1</File>
               <Passwords />
               <FormatSpecificOptions>
                 <SkipFieldNames>False</SkipFieldNames>
@@ -73,7 +76,7 @@
           <InputConfiguration>
             <Configuration>
               <Passwords />
-              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`</File>
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`</File>
               <FormatSpecificOptions>
                 <FirstRowData>False</FirstRowData>
                 <ImportLine>1</ImportLine>
@@ -82,7 +85,7 @@
           </InputConfiguration>
           <ProgramName>C:/Users/BlueShift075/AppData/Local/Alteryx/R-3.4.4/bin/Rscript.exe</ProgramName>
           <Arguments>"generalities_pdf.R"</Arguments>
-          <WorkingDir>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</WorkingDir>
+          <WorkingDir>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</WorkingDir>
           <RunMinimized value="False" />
           <RunSilent value="True" />
         </Configuration>
@@ -91,10 +94,13 @@
           <DefaultAnnotationText>Run Rscript.exe</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -166,13 +172,13 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Destino" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="value" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Ad." size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="F.KG.Excedente" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Destino" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="value" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Ad." size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="F.KG.Excedente" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -196,13 +202,13 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Destino" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="value" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Ad." size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="F.KG.Excedente" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Destino" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="value" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Ad." size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="F.KG.Excedente" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
             <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
@@ -235,11 +241,11 @@
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="base_freight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="percentage_invoice" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="exceeding_weight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="base_freight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="percentage_invoice" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="exceeding_weight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -263,11 +269,11 @@
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="base_freight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="percentage_invoice" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="exceeding_weight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="base_freight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="percentage_invoice" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="exceeding_weight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
           <SortInfo locale="0">
             <Field field="destination_geographic_identifier" order="Ascending" />
@@ -297,11 +303,11 @@
           <RecordInfo>
             <Field name="ID" source="RecordID: Starting Value=1" type="Int32" />
             <Field name="destination_geographic_identifier" size="1073741823" source="Formula: [UF]+&quot;-&quot;+[Destino]" type="V_WString" />
-            <Field name="base_freight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="percentage_invoice" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="exceeding_weight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="base_freight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="percentage_invoice" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="exceeding_weight_cost" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="range_end" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
           <SortInfo locale="0">
             <Field field="destination_geographic_identifier" order="Ascending" />
@@ -423,7 +429,7 @@
           </Fields>
           <Data>
             <r>
-              <c>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\data-raw\cliente-eb\55004_PROPOSTA - EB - 28.02.19.pdf</c>
+              <c>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\data-raw\cliente-eb\55004_PROPOSTA - EB - 28.02.19.pdf</c>
             </r>
           </Data>
         </Configuration>
@@ -434,7 +440,7 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="PDF_LOC" size="110" source="TextInput:" type="String" />
+            <Field name="PDF_LOC" size="114" source="TextInput:" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -459,7 +465,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\pdf_location.xlsx|||Sheet1</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\pdf_location.xlsx|||Sheet1</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -473,6 +479,9 @@
 Table=Sheet1</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -489,17 +498,17 @@ Table=Sheet1</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="PDF_LOC" size="110" source="TextInput:" type="String" />
+            <Field name="PDF_LOC" size="114" source="TextInput:" type="String" />
           </RecordInfo>
         </MetaInfo>
         <MetaInfo connection="Output2">
           <RecordInfo>
-            <Field name="PDF_LOC" size="110" source="TextInput:" type="String" />
+            <Field name="PDF_LOC" size="114" source="TextInput:" type="String" />
           </RecordInfo>
         </MetaInfo>
         <MetaInfo connection="Output3">
           <RecordInfo>
-            <Field name="PDF_LOC" size="110" source="TextInput:" type="String" />
+            <Field name="PDF_LOC" size="114" source="TextInput:" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -524,7 +533,7 @@ Table=Sheet1</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fracionada_pdf.xlsx|||Generalities</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\carga_fracionada_pdf.xlsx|||Generalities</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -538,6 +547,9 @@ Table=Sheet1</DefaultAnnotationText>
 Table=Generalities</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -560,7 +572,7 @@ Table=Generalities</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fracionada_pdf.xlsx|||Freight Table</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\carga_fracionada_pdf.xlsx|||Freight Table</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -574,6 +586,9 @@ Table=Generalities</DefaultAnnotationText>
 Table=Freight Table</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -700,7 +715,7 @@ Table=Freight Table</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_10964_835a67b6c32f47e49f6e774c9a38d109_\Engine_7688_a964694f40c746038bd6e798ec963808_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_5996_d7339f2067d449698107670e93f7cb41_\Engine_12972_d30c4ee66f724ff0af2c7afcd3b4a931_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -979,7 +994,7 @@ write.Alteryx(df, 1)
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <ReplaceText>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</ReplaceText>
               <Destination>13/WorkingDir</Destination>
             </Action>
             <Action>

@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="474" y="318" />
+        <Position x="498" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -13,7 +13,7 @@
           </Fields>
           <Data>
             <r>
-              <c>C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_Tabela MMA 27.04.xlsx</c>
+              <c>C:/Users/BlueShift075/Documents/Intelipost/Intelipost-Media/data-raw/cliente-duf/42519_Tabela MMA 27.04.xlsx</c>
             </r>
           </Data>
         </Configuration>
@@ -25,7 +25,7 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="PATH_TO_FILE" size="104" source="TextInput:" type="String" />
+            <Field name="PATH_TO_FILE" size="108" source="TextInput:" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -33,7 +33,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="738" y="258" width="100" height="24" />
+        <Position x="762" y="282" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -53,7 +53,7 @@
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="738" y="294" width="100" height="24" />
+        <Position x="762" y="318" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -73,7 +73,7 @@
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="234" y="522" />
+        <Position x="258" y="546" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -83,10 +83,10 @@
           </Fields>
           <Data>
             <r>
-              <c>C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/GeraCEP_v2019.1.0.xlsx</c>
+              <c>C:/Users/BlueShift075/Documents/Intelipost/Intelipost-Media/GeraCEP_v2019.1.0.xlsx</c>
             </r>
             <r>
-              <c>C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_TRT por CEP-IF.xlsx</c>
+              <c>C:/Users/BlueShift075/Documents/Intelipost/Intelipost-Media/data-raw/cliente-duf/42519_TRT por CEP-IF.xlsx</c>
             </r>
           </Data>
         </Configuration>
@@ -100,7 +100,7 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="V_String" />
+            <Field name="PATH_TO_FILE" size="106" source="TextInput:" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -108,12 +108,12 @@
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="474" y="426" />
+        <Position x="498" y="450" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Passwords />
-          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv</File>
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities.csv</File>
           <FormatSpecificOptions>
             <CodePage>28591</CodePage>
             <Delimeter>,</Delimeter>
@@ -133,8 +133,8 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="X__1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
-            <Field name="X__11" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
+            <Field name="X__1" size="254" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities.csv" type="V_String" />
+            <Field name="X__11" size="254" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities.csv" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -142,7 +142,7 @@
     </Node>
     <Node ToolID="43">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="534" y="642" />
+        <Position x="558" y="666" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -152,7 +152,7 @@
           </Fields>
           <Data>
             <r>
-              <c>C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx</c>
+              <c>C:/Users/BlueShift075/Documents/Intelipost/Intelipost-Media/data-raw/cliente-duf/42519_PRAZO DE ATENDIMENTO MMA 2018 envio.xlsx</c>
             </r>
           </Data>
         </Configuration>
@@ -164,7 +164,7 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="PATH_TO_FILE" size="123" source="TextInput:" type="String" />
+            <Field name="PATH_TO_FILE" size="127" source="TextInput:" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -172,12 +172,12 @@
     </Node>
     <Node ToolID="46">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="726" y="702" />
+        <Position x="750" y="726" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Passwords />
-          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`</File>
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`</File>
           <FormatSpecificOptions>
             <FirstRowData>False</FirstRowData>
             <ImportLine>1</ImportLine>
@@ -191,14 +191,14 @@ Table=`Menu$`</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
-            <Field name="CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
-            <Field name="CIDADE ABREVIADA" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
-            <Field name="UF-CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
-            <Field name="CEP INI 1" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
-            <Field name="CEP FIM 1" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
-            <Field name="CEP INI 2" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
-            <Field name="CEP FIM 2" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
+            <Field name="CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
+            <Field name="CIDADE ABREVIADA" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
+            <Field name="UF-CIDADE" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="V_String" />
+            <Field name="CEP INI 1" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
+            <Field name="CEP FIM 1" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
+            <Field name="CEP INI 2" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
+            <Field name="CEP FIM 2" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\GeraCEP_v2019.1.0.xlsx|||`Menu$`" type="Double" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -219,7 +219,7 @@ Table=`Menu$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="82">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="30" y="30" width="59" height="59" />
+        <Position x="54" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -232,7 +232,7 @@ Table=`Menu$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="83">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="42" y="126" width="59" height="59" />
+        <Position x="66" y="150" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -245,7 +245,7 @@ Table=`Menu$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="84">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="246" y="30" width="59" height="59" />
+        <Position x="270" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -258,7 +258,7 @@ Table=`Menu$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="85">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="258" y="126" width="59" height="59" />
+        <Position x="282" y="150" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -271,7 +271,7 @@ Table=`Menu$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="86">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="438" y="30" width="59" height="59" />
+        <Position x="462" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -284,7 +284,7 @@ Table=`Menu$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="87">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="450" y="126" width="59" height="59" />
+        <Position x="474" y="150" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -297,11 +297,11 @@ Table=`Menu$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="90">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1146" y="390" />
+        <Position x="1170" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fixa_excel.xlsx|||Generalities</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\carga_fixa_excel.xlsx|||Generalities</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -320,11 +320,11 @@ Table=Generalities</DefaultAnnotationText>
     </Node>
     <Node ToolID="91">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1146" y="546" />
+        <Position x="1170" y="570" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fixa_excel.xlsx|||Coverage</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\carga_fixa_excel.xlsx|||Coverage</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -343,7 +343,7 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="92">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FolderBrowse.FolderBrowse">
-        <Position x="1278" y="30" width="59" height="59" />
+        <Position x="1302" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -356,7 +356,7 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="93">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="1146" y="186" width="59" height="59" />
+        <Position x="1170" y="210" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -369,7 +369,7 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="94">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="1290" y="186" width="59" height="59" />
+        <Position x="1314" y="210" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -382,7 +382,7 @@ Table=Coverage</DefaultAnnotationText>
     </Node>
     <Node ToolID="95">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="1422" y="174" width="59" height="59" />
+        <Position x="1446" y="198" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -393,20 +393,14 @@ Table=Coverage</DefaultAnnotationText>
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="96">
+    <Node ToolID="105">
       <GuiSettings>
-        <Position x="666" y="330" />
+        <Position x="690" y="354" />
       </GuiSettings>
       <Properties>
-        <Configuration>
-          <Value name="Input.precoIn"><![CDATA[PATH_TO_FILE=PATH_TO_FILE
-]]></Value>
-          <Value name="Input.genTemplateIn"><![CDATA[X__1=X__1
-X__11=X__11
-]]></Value>
-        </Configuration>
+        <Configuration />
         <Annotation DisplayMode="0">
-          <Name />
+          <Name>freight_table_generalities_duf (96)</Name>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
@@ -425,49 +419,28 @@ X__11=X__11
             <Field name="exceeding_weight_cost" source="Formula: Null()" type="Double" />
           </RecordInfo>
         </MetaInfo>
-        <MetaInfo connection="generalitiesOut">
-          <RecordInfo>
-            <Field name="V1" size="254" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities.csv" type="V_String" />
-            <Field name="V2" size="1073741823" source="Formula: IF [V1] = &quot;tax_iss_mode&quot; THEN &quot;in&quot; ELSE [V2] ENDIF" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
         <MetaInfo connection="origemOut">
           <RecordInfo>
             <Field name="origem" size="1073741823" source="R-DATA:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
+        <MetaInfo connection="generalitiesOut">
+          <RecordInfo>
+            <Field name="V1" size="254" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities.csv" type="V_String" />
+            <Field name="V2" size="1073741823" source="Formula: IF [V1] = &quot;tax_iss_mode&quot; THEN &quot;in&quot; ELSE [V2] ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
       </Properties>
       <EngineSettings Macro="macros\freight_table_generalities_duf.yxmc" />
     </Node>
-    <Node ToolID="97">
+    <Node ToolID="106">
       <GuiSettings>
-        <Position x="906" y="546" />
+        <Position x="942" y="570" />
       </GuiSettings>
       <Properties>
-        <Configuration>
-          <Value name="Input.generalitiesIn"><![CDATA[V1=V1
-V2=V2
-]]></Value>
-          <Value name="Input.origemIn"><![CDATA[origem=origem
-]]></Value>
-          <Value name="Input.cepIn"><![CDATA[PATH_TO_FILE=PATH_TO_FILE
-]]></Value>
-          <Value name="Input.trtIn"><![CDATA[PATH_TO_FILE=PATH_TO_FILE
-]]></Value>
-          <Value name="Input.abrangIn"><![CDATA[PATH_TO_FILE=PATH_TO_FILE
-]]></Value>
-          <Value name="Input.listacepIn"><![CDATA[UF=UF
-CIDADE=CIDADE
-CIDADE ABREVIADA=CIDADE ABREVIADA
-UF-CIDADE=UF-CIDADE
-CEP INI 1=CEP INI 1
-CEP FIM 1=CEP FIM 1
-CEP INI 2=CEP INI 2
-CEP FIM 2=CEP FIM 2
-]]></Value>
-        </Configuration>
+        <Configuration />
         <Annotation DisplayMode="0">
-          <Name />
+          <Name>coverage_duf (97)</Name>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
@@ -493,7 +466,7 @@ CEP FIM 2=CEP FIM 2
     </Node>
     <Node ToolID="98">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="342" y="522" />
+        <Position x="366" y="546" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -511,7 +484,7 @@ CEP FIM 2=CEP FIM 2
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="V_String" />
+            <Field name="PATH_TO_FILE" size="106" source="TextInput:" type="V_String" />
           </RecordInfo>
           <SortInfo>
             <Field field="RecordID" order="Asc" />
@@ -522,7 +495,7 @@ CEP FIM 2=CEP FIM 2
     </Node>
     <Node ToolID="99">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="426" y="522" />
+        <Position x="450" y="546" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -552,7 +525,7 @@ CEP FIM 2=CEP FIM 2
         <MetaInfo connection="True">
           <RecordInfo>
             <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="V_String" />
+            <Field name="PATH_TO_FILE" size="106" source="TextInput:" type="V_String" />
           </RecordInfo>
           <SortInfo>
             <Field field="RecordID" order="Asc" />
@@ -561,7 +534,7 @@ CEP FIM 2=CEP FIM 2
         <MetaInfo connection="False">
           <RecordInfo>
             <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="V_String" />
+            <Field name="PATH_TO_FILE" size="106" source="TextInput:" type="V_String" />
           </RecordInfo>
           <SortInfo>
             <Field field="RecordID" order="Asc" />
@@ -572,7 +545,7 @@ CEP FIM 2=CEP FIM 2
     </Node>
     <Node ToolID="100">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="546" y="510" />
+        <Position x="570" y="534" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -590,7 +563,7 @@ CEP FIM 2=CEP FIM 2
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="V_String" />
+            <Field name="PATH_TO_FILE" size="106" source="TextInput:" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -598,7 +571,7 @@ CEP FIM 2=CEP FIM 2
     </Node>
     <Node ToolID="101">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="546" y="570" />
+        <Position x="570" y="594" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -616,7 +589,7 @@ CEP FIM 2=CEP FIM 2
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="PATH_TO_FILE" size="102" source="TextInput:" type="V_String" />
+            <Field name="PATH_TO_FILE" size="106" source="TextInput:" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -624,11 +597,11 @@ CEP FIM 2=CEP FIM 2
     </Node>
     <Node ToolID="102">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1002" y="282" />
+        <Position x="1026" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\carga_fixa_excel.xlsx|||Freight Table</File>
+          <File FileFormat="25" MaxRecords="">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\carga_fixa_excel.xlsx|||Freight Table</File>
           <Passwords />
           <FormatSpecificOptions>
             <SkipFieldNames>False</SkipFieldNames>
@@ -642,15 +615,12 @@ CEP FIM 2=CEP FIM 2
 Table=Freight Table</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="103">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="990" y="510" width="100" height="24" />
+        <Position x="1014" y="534" width="100" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -672,11 +642,11 @@ Table=Freight Table</DefaultAnnotationText>
   <Connections>
     <Connection>
       <Origin ToolID="10" Connection="Output" />
-      <Destination ToolID="96" Connection="precoIn" />
+      <Destination ToolID="105" Connection="precoIn" />
     </Connection>
     <Connection>
       <Origin ToolID="26" Connection="Output" />
-      <Destination ToolID="96" Connection="genTemplateIn" />
+      <Destination ToolID="105" Connection="genTemplateIn" />
     </Connection>
     <Connection>
       <Origin ToolID="21" Connection="Output" />
@@ -684,27 +654,27 @@ Table=Freight Table</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="43" Connection="Output" />
-      <Destination ToolID="97" Connection="abrangIn" />
+      <Destination ToolID="106" Connection="abrangIn" />
     </Connection>
     <Connection>
       <Origin ToolID="46" Connection="Output" />
-      <Destination ToolID="97" Connection="listacepIn" />
+      <Destination ToolID="106" Connection="listacepIn" />
     </Connection>
     <Connection>
-      <Origin ToolID="96" Connection="generalitiesOut" />
-      <Destination ToolID="97" Connection="generalitiesIn" />
+      <Origin ToolID="105" Connection="generalitiesOut" />
+      <Destination ToolID="106" Connection="generalitiesIn" />
     </Connection>
     <Connection>
-      <Origin ToolID="96" Connection="origemOut" />
-      <Destination ToolID="97" Connection="origemIn" />
+      <Origin ToolID="105" Connection="origemOut" />
+      <Destination ToolID="106" Connection="origemIn" />
     </Connection>
     <Connection>
       <Origin ToolID="100" Connection="Output" />
-      <Destination ToolID="97" Connection="cepIn" />
+      <Destination ToolID="106" Connection="cepIn" />
     </Connection>
     <Connection>
       <Origin ToolID="101" Connection="Output" />
-      <Destination ToolID="97" Connection="trtIn" />
+      <Destination ToolID="106" Connection="trtIn" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="82" Connection="Question" />
@@ -747,7 +717,7 @@ Table=Freight Table</DefaultAnnotationText>
       <Destination ToolID="102" Connection="Action" />
     </Connection>
     <Connection>
-      <Origin ToolID="96" Connection="ftableOut" />
+      <Origin ToolID="105" Connection="ftableOut" />
       <Destination ToolID="102" Connection="Input" />
     </Connection>
     <Connection name="#2" Wireless="True">
@@ -755,7 +725,7 @@ Table=Freight Table</DefaultAnnotationText>
       <Destination ToolID="90" Connection="Action" />
     </Connection>
     <Connection>
-      <Origin ToolID="96" Connection="generalitiesOut" />
+      <Origin ToolID="105" Connection="generalitiesOut" />
       <Destination ToolID="90" Connection="Input" />
     </Connection>
     <Connection name="#2" Wireless="True">
@@ -763,7 +733,7 @@ Table=Freight Table</DefaultAnnotationText>
       <Destination ToolID="91" Connection="Action" />
     </Connection>
     <Connection>
-      <Origin ToolID="97" Connection="covOut" />
+      <Origin ToolID="106" Connection="covOut" />
       <Destination ToolID="91" Connection="Input" />
     </Connection>
     <Connection>
@@ -864,7 +834,7 @@ Table=Freight Table</DefaultAnnotationText>
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-duf/42519_TRT por CEP-IF.xlsx</ReplaceText>
+              <ReplaceText>C:/Users/BlueShift075/Documents/Intelipost/Intelipost-Media/data-raw/cliente-duf/42519_TRT por CEP-IF.xlsx</ReplaceText>
               <Destination>21/Data/r[2]/c</Destination>
             </Action>
             <Action>
@@ -883,7 +853,7 @@ Table=Freight Table</DefaultAnnotationText>
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <ReplaceText>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</ReplaceText>
               <Destination>102/File</Destination>
             </Action>
             <Action>
@@ -893,7 +863,7 @@ Table=Freight Table</DefaultAnnotationText>
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <ReplaceText>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</ReplaceText>
               <Destination>90/File</Destination>
             </Action>
             <Action>
@@ -903,7 +873,7 @@ Table=Freight Table</DefaultAnnotationText>
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</ReplaceText>
+              <ReplaceText>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</ReplaceText>
               <Destination>91/File</Destination>
             </Action>
           </True>
@@ -962,11 +932,11 @@ Table=Freight Table</DefaultAnnotationText>
       <Wiz_CustomGraphic value="False" />
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
-        <Tool ToolId="96" Selected="True" />
         <Tool ToolId="90" Selected="True" />
         <Tool ToolId="91" Selected="True" />
-        <Tool ToolId="97" Selected="True" />
         <Tool ToolId="102" Selected="True" />
+        <Tool ToolId="106" Selected="True" />
+        <Tool ToolId="105" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
