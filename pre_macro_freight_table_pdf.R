@@ -5,7 +5,7 @@ library(stringr)
 library(reshape2)
 
 # Location of pdf file
-location <- 'C:/Users/BlueShift075/Documents/GitHub/Intelipost-Media/data-raw/cliente-eb/55004_PROPOSTA - EB - 28.02.19.pdf'
+location <- 'C:/Users/BlueShift075/Documents/Intelipost/Intelipost-Media/data-raw/cliente-eb/55004_PROPOSTA - EB - 28.02.19.pdf'
 
 # Extract the table
 # locate_areas(location)

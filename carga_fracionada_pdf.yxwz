@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2019.1">
+<AlteryxDocument yxmdVer="2019.2">
   <Nodes>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
@@ -39,9 +39,6 @@
           <DefaultAnnotationText>Run Rscript.exe</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
@@ -94,9 +91,6 @@
           <DefaultAnnotationText>Run Rscript.exe</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`" type="V_String" />
@@ -479,9 +473,6 @@
 Table=Sheet1</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -547,9 +538,6 @@ Table=Sheet1</DefaultAnnotationText>
 Table=Generalities</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -586,9 +574,6 @@ Table=Generalities</DefaultAnnotationText>
 Table=Freight Table</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -715,7 +700,7 @@ Table=Freight Table</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_5996_d7339f2067d449698107670e93f7cb41_\Engine_12972_d30c4ee66f724ff0af2c7afcd3b4a931_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_7372_76828df181414df194517fda710626e3_\Engine_1584_dd2fbc12b26f4802b17353b1ff459bd2_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -755,8 +740,8 @@ for (i in 1:nr.of.records) {
   }
 }
 
-df <- sapply(df, sub, pattern = "\\.", replacement = ",") %>% as.data.frame()
-# df$RecordID <- NULL
+df <- sapply(df, sub, pattern = "\\.", replacement = ",")
+df <- as.data.frame(df, stringsAsFactors = F)
 
 write.Alteryx(df, 1)
 ]]></RScript>

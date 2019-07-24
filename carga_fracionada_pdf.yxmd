@@ -7,7 +7,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_9200_e91f223f44214bbf9f11bb5e91a18d9e_\Engine_9380_ae851013aebb4f6f9c1238d206f8f78e_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2632_5de3831b393d4631a1fe596dc6836188_\Engine_2064_3085fad2aa1948eeae922f4ff5ca7acd_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -41,7 +41,7 @@
           <InputConfiguration>
             <Configuration>
               <Passwords />
-              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`</File>
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`</File>
               <FormatSpecificOptions>
                 <FirstRowData>False</FirstRowData>
                 <ImportLine>1</ImportLine>
@@ -50,7 +50,7 @@
           </InputConfiguration>
           <ProgramName>C:/Users/BlueShift075/AppData/Local/Alteryx/R-3.4.4/bin/Rscript.exe</ProgramName>
           <Arguments>"pre_macro_freight_table_pdf.R"</Arguments>
-          <WorkingDir>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</WorkingDir>
+          <WorkingDir>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</WorkingDir>
           <RunMinimized value="False" />
           <RunSilent value="True" />
         </Configuration>
@@ -61,13 +61,13 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Destino" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Ad." size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="F.KG.Excedente" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="variable" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="value" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="UF" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Destino" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Ad." size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="F.KG.Excedente" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="variable" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="value" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="Origem" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\freight_table_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -79,7 +79,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_9200_e91f223f44214bbf9f11bb5e91a18d9e_\Engine_9380_dc53869dd46346ce8b0c5da581bdf02d_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2632_5de3831b393d4631a1fe596dc6836188_\Engine_2064_8d14971069574670929399d21439555b_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -113,7 +113,7 @@
           <InputConfiguration>
             <Configuration>
               <Passwords />
-              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`</File>
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`</File>
               <FormatSpecificOptions>
                 <FirstRowData>False</FirstRowData>
                 <ImportLine>1</ImportLine>
@@ -122,7 +122,7 @@
           </InputConfiguration>
           <ProgramName>C:/Users/BlueShift075/AppData/Local/Alteryx/R-3.4.4/bin/Rscript.exe</ProgramName>
           <Arguments>"pre_macro_generalities_pdf.R"</Arguments>
-          <WorkingDir>C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media</WorkingDir>
+          <WorkingDir>C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media</WorkingDir>
           <RunMinimized value="False" />
           <RunSilent value="True" />
         </Configuration>
@@ -133,8 +133,8 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`" type="V_String" />
-            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\GitHub\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="X__1" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`" type="V_String" />
+            <Field name="X__11" size="255" source="File: C:\Users\BlueShift075\Documents\Intelipost\Intelipost-Media\generalities_pdf.xlsx|||`Sheet 1$`" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -196,6 +196,8 @@
             <SelectField field="Ad." selected="True" />
             <SelectField field="F.KG.Excedente" selected="True" />
             <SelectField field="Origem" selected="True" />
+            <SelectField field="X__1" selected="True" />
+            <SelectField field="X__11" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -213,7 +215,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_9200_e91f223f44214bbf9f11bb5e91a18d9e_\Engine_9380_784e42a2b75047d49cd72287dca5883e_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2632_5de3831b393d4631a1fe596dc6836188_\Engine_2064_6d78eaf5a39e430684aedd16050733b2_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -304,7 +306,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_9200_e91f223f44214bbf9f11bb5e91a18d9e_\Engine_9380_332caa7f1a25408a96d4adfd87220013_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2632_5de3831b393d4631a1fe596dc6836188_\Engine_2064_e9053a40e3e144e99df3923ece951bf3_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -403,7 +405,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_9200_e91f223f44214bbf9f11bb5e91a18d9e_\Engine_9380_4075f7085a8b46ae90dcb3ed410f45ec_.yxdb</TempFile>
+          <TempFile>C:\Users\BLUESH~1\AppData\Local\Temp\Engine_2632_5de3831b393d4631a1fe596dc6836188_\Engine_2064_9e729831febe4a738cfbd3df06e2dded_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -479,7 +481,7 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="39">
+    <Node ToolID="40">
       <GuiSettings Plugin="AlteryxRPluginGui.R">
         <Position x="750" y="330" />
       </GuiSettings>
@@ -497,29 +499,18 @@ for (i in 1:nr.of.records) {
   }
 }
 
-df <- sapply(df, sub, pattern = "\\.", replacement = ",") %>% as.data.frame()
-# df$RecordID <- NULL
+df <- sapply(df, sub, pattern = "\\.", replacement = ",")
+df <- as.data.frame(df, stringsAsFactors = F)
 
 write.Alteryx(df, 1)
 ]]></RScript>
-          <UseFullUpdate value="False" />
+          <UseFullUpdate value="True" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <MetaInfo connection="Output1">
-          <RecordInfo>
-            <Field name="ID" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="destination_geographic_identifier" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="base_freight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="percentage_invoice" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="exceeding_weight_cost" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="range_end" size="1073741823" source="R-DATA:" type="V_WString" />
-            <Field name="Origem" size="1073741823" source="R-DATA:" type="V_WString" />
-          </RecordInfo>
-        </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
     </Node>
@@ -559,7 +550,7 @@ write.Alteryx(df, 1)
     </Connection>
     <Connection name="#1">
       <Origin ToolID="33" Connection="Output" />
-      <Destination ToolID="39" Connection="Input" />
+      <Destination ToolID="40" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="34" Connection="Output" />
@@ -578,11 +569,11 @@ write.Alteryx(df, 1)
       <Destination ToolID="36" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="39" Connection="Output1" />
+      <Origin ToolID="40" Connection="Output1" />
       <Destination ToolID="34" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="39" Connection="Output1" />
+      <Origin ToolID="40" Connection="Output1" />
       <Destination ToolID="35" Connection="Input" />
     </Connection>
   </Connections>
